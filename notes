@@ -1,0 +1,13 @@
+* 6 half bridges
+* IR2184 #IR2092? automotive
+buck converter for radio
+* STM32L100 
+* linear reg for uC
+prototyping area
+adv. circuits? 
+audio out with DAC? 
+radio ADC 
+    peak follower
+break out a bunch of ADC, USART, I2C, SPI, USB
+voltage/current sense
+mounting holes

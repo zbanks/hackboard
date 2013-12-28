@@ -1,0 +1,12 @@
+Part	Manufacturer	Part Number	Quantity	Price	Attribute 1 Name	Attribute 1 Value	Attribute 2 Name	Attribute 2 Value	Attribute 3 Name	Attribute 3 Value	Footprint
+"Cff"	"Yageo America"	"CC0805DRNP09BN7R0"	"1"	"0.01"	"Cap"	"7pF"	"ESR"	"0Ohm"	"VDC"	"50V"	"0805"
+"Cboot"	"AVX"	"08053C104KAT2A"	"1"	"0.01"	"Cap"	"100nF"	"ESR"	"0.28Ohm"	"VDC"	"25V"	"0805"
+"Cin"	"TDK"	"C3225X5R1E106K"	"2"	"0.15"	"Cap"	"10uF"	"ESR"	"0.015Ohm"	"VDC"	"25V"	"1210"
+"Cout"	"TDK"	"C3216X5R1A106M"	"2"	"0.06"	"Cap"	"10uF"	"ESR"	"4.6mOhm"	"VDC"	"10V"	"1206"
+"Creg"	"MuRata"	"GRM155R61A474KE15D"	"1"	"0.01"	"Cap"	"470nF"	"ESR"	"0Ohm"	"VDC"	"10V"	"0402"
+"Css"	"MuRata"	"GRM155R71E822KA01D"	"1"	"0.01"	"Cap"	"8.2nF"	"ESR"	"0Ohm"	"VDC"	"25V"	"0402"
+"L1"	"TDK"	"VLP8040T-3R3N"	"1"	"0.22"	"L"	"3.3uH"	"DCR"	"0.02Ohm"	"IDC"	"5.2A"	"VLP8040"
+"Ren"	"Vishay-Dale"	"CRCW040210K0FKED"	"1"	"0.01"	"Resistance"	"10KOhm"	"Tolerance"	"1%"	"Power"	"0.063W"	"0402"
+"Rfbb"	"Vishay-Dale"	"CRCW040222K1FKED"	"1"	"0.01"	"Resistance"	"22.1KOhm"	"Tolerance"	"1%"	"Power"	"0.063W"	"0402"
+"Rfbt"	"Vishay-Dale"	"CRCW0402182KFKED"	"1"	"0.01"	"Resistance"	"182KOhm"	"Tolerance"	"1%"	"Power"	"0.063W"	"0402"
+"U1"	"Texas Instruments"	"TPS54229DDAR"	"1"	"0.67"	""	""	""	""	""	""	"R-PDSO-G8"
