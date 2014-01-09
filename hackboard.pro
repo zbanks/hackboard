@@ -1,4 +1,4 @@
-update=Sat 28 Dec 2013 04:07:01 PM EST
+update=Fri 03 Jan 2014 03:40:19 AM EST
 version=1
 last_client=cvpcb
 [general]
@@ -69,11 +69,12 @@ LibName31=STM32L100xx_LQFP64
 LibName32=IR2184
 LibName33=-cache
 LibName34=LM25011
+LibName35=/home/zbanks/kicadlibrary/open-project
 [pcbnew]
 version=1
 PadDrlX=0
-PadDimH=400
-PadDimV=800
+PadDimH=90
+PadDimV=402
 BoardThickness=630
 TxtPcbV=800
 TxtPcbH=600
@@ -99,8 +100,9 @@ LibName9=led
 LibName10=dip_sockets
 LibName11=pga_sockets
 LibName12=valves
-LibName13=LM1117
-LibName14=VSSOP-10
+LibName13=/home/zbanks/kicadlibrary/open-project
+LibName14=LM1117
+LibName15=VSSOP-10
 LibDir=
 [cvpcb]
 version=1

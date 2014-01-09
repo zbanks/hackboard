@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Sat 28 Dec 2013 04:22:43 PM EST
+Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Thu 09 Jan 2014 04:01:31 AM EST
 
 BeginCmp
 TimeStamp = /52755197;
@@ -94,28 +94,28 @@ EndCmp
 BeginCmp
 TimeStamp = /5275542A;
 Reference = C14;
-ValeurCmp = 10nF;
+ValeurCmp = 4.7uF;
 IdModule  = SM0805;
 EndCmp
 
 BeginCmp
 TimeStamp = /5275541B;
 Reference = C15;
-ValeurCmp = 10nF;
+ValeurCmp = 100nF;
 IdModule  = SM0603_Capa;
 EndCmp
 
 BeginCmp
 TimeStamp = /5275541F;
 Reference = C16;
-ValeurCmp = 10nF;
+ValeurCmp = 100nf;
 IdModule  = SM0603_Capa;
 EndCmp
 
 BeginCmp
 TimeStamp = /52755422;
 Reference = C17;
-ValeurCmp = 10nF;
+ValeurCmp = 100nf;
 IdModule  = SM0603_Capa;
 EndCmp
 
@@ -129,7 +129,7 @@ EndCmp
 BeginCmp
 TimeStamp = /52755425;
 Reference = C19;
-ValeurCmp = 10nF;
+ValeurCmp = 100nf;
 IdModule  = SM0603_Capa;
 EndCmp
 
@@ -214,6 +214,13 @@ BeginCmp
 TimeStamp = /5278392A/527835B9;
 Reference = C31;
 ValeurCmp = 1uF;
+IdModule  = SM0603_Capa;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BF40E1;
+Reference = C32;
+ValeurCmp = C;
 IdModule  = SM0603_Capa;
 EndCmp
 
@@ -316,10 +323,10 @@ IdModule  = D3;
 EndCmp
 
 BeginCmp
-TimeStamp = /52BCE853;
-Reference = J1;
-ValeurCmp = USB;
-IdModule  = ;
+TimeStamp = /52C5F898;
+Reference = D15;
+ValeurCmp = LED;
+IdModule  = LED-0603;
 EndCmp
 
 BeginCmp
@@ -523,6 +530,27 @@ TimeStamp = /527D4210;
 Reference = P16;
 ValeurCmp = CONN_2X2;
 IdModule  = PIN_ARRAY_2X2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52BF40C6;
+Reference = P17;
+ValeurCmp = CONN_2;
+IdModule  = bornier2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52C5F8A3;
+Reference = P18;
+ValeurCmp = CONN_1;
+IdModule  = SIL-1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52CE6531;
+Reference = P19;
+ValeurCmp = CONN_2;
+IdModule  = bornier2;
 EndCmp
 
 BeginCmp
@@ -843,7 +871,14 @@ EndCmp
 BeginCmp
 TimeStamp = /52BCE89D;
 Reference = R34;
-ValeurCmp = 1M1;
+ValeurCmp = 1M;
+IdModule  = SM0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /52C5F89C;
+Reference = R35;
+ValeurCmp = 1k;
 IdModule  = SM0603;
 EndCmp
 
@@ -936,6 +971,13 @@ TimeStamp = /5278392A/5278382D;
 Reference = U11;
 ValeurCmp = IR2184;
 IdModule  = DIP-8__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /52C08A73;
+Reference = U12;
+ValeurCmp = MICRO-B_USB;
+IdModule  = MICRO-B_USB;
 EndCmp
 
 BeginCmp
