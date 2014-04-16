@@ -1,0 +1,1080 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00020000         xr
+RAM              0x20000000         0x00004000         xrw
+MEMORY_B1        0x60000000         0x00000000         xr
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD ./startup/startup_stm32l1xx_md.o
+LOAD ./src/main.o
+LOAD ./src/hal.o
+LOAD ./src/stm32l1xx_it.o
+LOAD ./src/system_stm32l1xx.o
+LOAD /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+LOAD /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+LOAD /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+LOAD /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+LOAD /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+LOAD /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+LOAD /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+LOAD /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+LOAD /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+LOAD /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+LOAD /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+START GROUP
+LOAD /home/zbanks/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m/libgcc.a
+LOAD /home/zbanks/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m/libc.a
+END GROUP
+                0x20004000                _estack = 0x20004000
+                0x00000200                _Min_Heap_Size = 0x200
+                0x00000200                _Min_Stack_Size = 0x200
+
+.isr_vector     0x08000000      0x10c
+                0x08000000                . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x10c ./startup/startup_stm32l1xx_md.o
+                0x08000000                g_pfnVectors
+                0x0800010c                . = ALIGN (0x4)
+
+.text           0x0800010c     0x2af0
+                0x0800010c                . = ALIGN (0x4)
+ *(.text)
+ .text          0x0800010c       0x14 ./startup/startup_stm32l1xx_md.o
+ .text          0x08000120       0x2c ./src/main.o
+                0x08000120                Delay
+                0x08000138                TimingDelay_Decrement
+ .text          0x0800014c       0xf8 ./src/hal.o
+                0x0800014c                adc_setup
+                0x080001dc                hal_setup
+                0x080001e0                adc_read
+ .text          0x08000244       0x24 ./src/stm32l1xx_it.o
+                0x08000244                NMI_Handler
+                0x08000248                HardFault_Handler
+                0x0800024c                MemManage_Handler
+                0x08000250                BusFault_Handler
+                0x08000254                UsageFault_Handler
+                0x08000258                SVC_Handler
+                0x0800025c                DebugMon_Handler
+                0x08000260                PendSV_Handler
+                0x08000264                SysTick_Handler
+ .text          0x08000268      0x1a4 ./src/system_stm32l1xx.o
+                0x08000268                SystemInit
+                0x0800037c                SystemCoreClockUpdate
+ .text          0x0800040c       0xd0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+                0x0800040c                NVIC_PriorityGroupConfig
+                0x08000420                NVIC_Init
+                0x08000498                NVIC_SetVectorTable
+                0x080004ac                NVIC_SystemLPConfig
+                0x080004c4                SysTick_CLKSourceConfig
+ .text          0x080004dc      0x460 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+                0x080004dc                ADC_DeInit
+                0x08000504                ADC_Init
+                0x08000550                ADC_StructInit
+                0x08000568                ADC_CommonInit
+                0x0800057c                ADC_CommonStructInit
+                0x08000584                ADC_Cmd
+                0x08000598                ADC_BankSelection
+                0x080005ac                ADC_PowerDownCmd
+                0x080005c0                ADC_DelaySelectionConfig
+                0x080005cc                ADC_AnalogWatchdogCmd
+                0x080005dc                ADC_AnalogWatchdogThresholdsConfig
+                0x080005e4                ADC_AnalogWatchdogSingleChannelConfig
+                0x080005f0                ADC_TempSensorVrefintCmd
+                0x0800060c                ADC_RegularChannelConfig
+                0x08000724                ADC_SoftwareStartConv
+                0x08000730                ADC_GetSoftwareStartConvStatus
+                0x08000738                ADC_EOCOnEachRegularChannelCmd
+                0x0800074c                ADC_ContinuousModeCmd
+                0x08000760                ADC_DiscModeChannelCountConfig
+                0x08000770                ADC_DiscModeCmd
+                0x08000784                ADC_GetConversionValue
+                0x0800078c                ADC_DMACmd
+                0x080007a0                ADC_DMARequestAfterLastTransferCmd
+                0x080007b4                ADC_InjectedChannelConfig
+                0x08000850                ADC_InjectedSequencerLengthConfig
+                0x08000860                ADC_SetInjectedOffset
+                0x08000878                ADC_ExternalTrigInjectedConvConfig
+                0x08000884                ADC_ExternalTrigInjectedConvEdgeConfig
+                0x08000890                ADC_SoftwareStartInjectedConv
+                0x0800089c                ADC_GetSoftwareStartInjectedConvCmdStatus
+                0x080008a4                ADC_AutoInjectedConvCmd
+                0x080008b8                ADC_InjectedDiscModeCmd
+                0x080008cc                ADC_GetInjectedConversionValue
+                0x080008e8                ADC_ITConfig
+                0x08000904                ADC_GetFlagStatus
+                0x08000910                ADC_ClearFlag
+                0x08000918                ADC_GetITStatus
+                0x08000934                ADC_ClearITPendingBit
+ .text          0x0800093c      0x1f8 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+                0x0800093c                DMA_DeInit
+                0x08000a40                DMA_Init
+                0x08000a80                DMA_StructInit
+                0x08000a9c                DMA_Cmd
+                0x08000ab4                DMA_SetCurrDataCounter
+                0x08000ab8                DMA_GetCurrDataCounter
+                0x08000ac0                DMA_ITConfig
+                0x08000ad4                DMA_GetFlagStatus
+                0x08000af0                DMA_ClearFlag
+                0x08000b04                DMA_GetITStatus
+                0x08000b20                DMA_ClearITPendingBit
+ .text          0x08000b34       0xf8 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+                0x08000b34                EXTI_DeInit
+                0x08000b4c                EXTI_Init
+                0x08000bcc                EXTI_StructInit
+                0x08000bdc                EXTI_GenerateSWInterrupt
+                0x08000bec                EXTI_GetFlagStatus
+                0x08000c00                EXTI_ClearFlag
+                0x08000c0c                EXTI_GetITStatus
+                0x08000c20                EXTI_ClearITPendingBit
+ .text          0x08000c2c      0x26c /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+                0x08000c2c                GPIO_DeInit
+                0x08000d20                GPIO_Init
+                0x08000de8                GPIO_StructInit
+                0x08000dfc                GPIO_PinLockConfig
+                0x08000e20                GPIO_ReadInputDataBit
+                0x08000e2c                GPIO_ReadInputData
+                0x08000e34                GPIO_ReadOutputDataBit
+                0x08000e40                GPIO_ReadOutputData
+                0x08000e48                GPIO_SetBits
+                0x08000e4c                GPIO_ResetBits
+                0x08000e50                GPIO_WriteBit
+                0x08000e5c                GPIO_Write
+                0x08000e60                GPIO_ToggleBits
+                0x08000e6c                GPIO_PinAFConfig
+ .text          0x08000e98      0x22c /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+                0x08000e98                SYSCFG_DeInit
+                0x08000eb0                SYSCFG_RIDeInit
+                0x08000ec8                SYSCFG_MemoryRemapConfig
+                0x08000ed4                SYSCFG_GetBootMode
+                0x08000ee4                SYSCFG_USBPuCmd
+                0x08000f00                SYSCFG_EXTILineConfig
+                0x08000f2c                SYSCFG_RITIMSelect
+                0x08000f40                SYSCFG_RITIMInputCaptureConfig
+                0x08000f84                SYSCFG_RIResistorConfig
+                0x08000f9c                SYSCFG_RIChannelSpeedConfig
+                0x08000fb4                SYSCFG_RIIOSwitchConfig
+                0x08000ff0                SYSCFG_RISwitchControlModeCmd
+                0x0800100c                SYSCFG_RIHysteresisConfig
+ .text          0x080010c4      0x178 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+                0x080010c4                PWR_DeInit
+                0x080010e0                PWR_RTCAccessCmd
+                0x080010ec                PWR_PVDLevelConfig
+                0x08001100                PWR_PVDCmd
+                0x0800110c                PWR_WakeUpPinCmd
+                0x08001124                PWR_FastWakeUpCmd
+                0x08001130                PWR_UltraLowPowerCmd
+                0x0800113c                PWR_VoltageScalingConfig
+                0x08001154                PWR_EnterLowPowerRunMode
+                0x08001180                PWR_EnterSleepMode
+                0x080011b4                PWR_EnterSTOPMode
+                0x080011f0                PWR_EnterSTANDBYMode
+                0x08001218                PWR_GetFlagStatus
+                0x0800122c                PWR_ClearFlag
+ .text          0x0800123c      0x3c8 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+                0x0800123c                RCC_DeInit
+                0x08001278                RCC_HSEConfig
+                0x08001288                RCC_WaitForHSEStartUp
+                0x080012c0                RCC_AdjustMSICalibrationValue
+                0x080012cc                RCC_MSIRangeConfig
+                0x080012e0                RCC_MSICmd
+                0x080012ec                RCC_AdjustHSICalibrationValue
+                0x08001300                RCC_HSICmd
+                0x0800130c                RCC_LSEConfig
+                0x0800131c                RCC_LSICmd
+                0x08001328                RCC_PLLConfig
+                0x08001338                RCC_PLLCmd
+                0x08001344                RCC_ClockSecuritySystemCmd
+                0x08001350                RCC_LSEClockSecuritySystemCmd
+                0x0800135c                RCC_MCOConfig
+                0x08001368                RCC_SYSCLKConfig
+                0x0800137c                RCC_GetSYSCLKSource
+                0x0800138c                RCC_HCLKConfig
+                0x080013a0                RCC_PCLK1Config
+                0x080013b4                RCC_PCLK2Config
+                0x080013c8                RCC_GetClocksFreq
+                0x0800147c                RCC_RTCCLKConfig
+                0x080014ac                RCC_RTCCLKCmd
+                0x080014b8                RCC_RTCResetCmd
+                0x080014c4                RCC_AHBPeriphClockCmd
+                0x080014dc                RCC_APB2PeriphClockCmd
+                0x080014f4                RCC_APB1PeriphClockCmd
+                0x0800150c                RCC_AHBPeriphResetCmd
+                0x08001524                RCC_APB2PeriphResetCmd
+                0x0800153c                RCC_APB1PeriphResetCmd
+                0x08001554                RCC_AHBPeriphClockLPModeCmd
+                0x0800156c                RCC_APB2PeriphClockLPModeCmd
+                0x08001584                RCC_APB1PeriphClockLPModeCmd
+                0x0800159c                RCC_ITConfig
+                0x080015b4                RCC_GetFlagStatus
+                0x080015d4                RCC_ClearFlag
+                0x080015e4                RCC_GetITStatus
+                0x080015f8                RCC_ClearITPendingBit
+ .text          0x08001604      0xea4 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+                0x08001604                RTC_DeInit
+                0x080016f8                RTC_Init
+                0x08001778                RTC_StructInit
+                0x08001784                RTC_WriteProtectionCmd
+                0x0800179c                RTC_EnterInitMode
+                0x080017e0                RTC_ExitInitMode
+                0x080017f0                RTC_WaitForSynchro
+                0x08001838                RTC_RefClockCmd
+                0x080018b4                RTC_BypassShadowCmd
+                0x080018e4                RTC_SetTime
+                0x08001a34                RTC_TimeStructInit
+                0x08001a40                RTC_GetTime
+                0x08001a9c                RTC_GetSubSecond
+                0x08001aa8                RTC_SetDate
+                0x08001be8                RTC_DateStructInit
+                0x08001bf8                RTC_GetDate
+                0x08001c50                RTC_SetAlarm
+                0x08001d50                RTC_AlarmStructInit
+                0x08001d60                RTC_GetAlarm
+                0x08001df4                RTC_AlarmCmd
+                0x08001e54                RTC_AlarmSubSecondConfig
+                0x08001e7c                RTC_GetAlarmSubSecond
+                0x08001e94                RTC_WakeUpClockConfig
+                0x08001eb8                RTC_SetWakeUpCounter
+                0x08001ed4                RTC_GetWakeUpCounter
+                0x08001ee0                RTC_WakeUpCmd
+                0x08001f3c                RTC_DayLightSavingConfig
+                0x08001f68                RTC_GetStoreOperation
+                0x08001f78                RTC_OutputConfig
+                0x08001fa4                RTC_CoarseCalibConfig
+                0x08002008                RTC_CoarseCalibCmd
+                0x08002084                RTC_CalibOutputCmd
+                0x080020b4                RTC_CalibOutputConfig
+                0x080020d8                RTC_SmoothCalibConfig
+                0x08002124                RTC_TimeStampCmd
+                0x08002158                RTC_GetTimeStamp
+                0x08002214                RTC_GetTimeStampSubSecond
+                0x08002220                RTC_TamperTriggerConfig
+                0x0800223c                RTC_TamperCmd
+                0x08002254                RTC_TamperFilterConfig
+                0x0800226c                RTC_TamperSamplingFreqConfig
+                0x08002284                RTC_TamperPinsPrechargeDuration
+                0x0800229c                RTC_TimeStampOnTamperDetectionCmd
+                0x080022b8                RTC_TamperPullUpCmd
+                0x080022d4                RTC_WriteBackupRegister
+                0x080022f4                RTC_ReadBackupRegister
+                0x08002314                RTC_OutputTypeConfig
+                0x0800232c                RTC_SynchroShiftConfig
+                0x080023c8                RTC_ITConfig
+                0x08002414                RTC_GetFlagStatus
+                0x08002430                RTC_ClearFlag
+                0x08002450                RTC_GetITStatus
+                0x0800248c                RTC_ClearITPendingBit
+ .text          0x080024a8      0x2ec /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+                0x080024a8                SPI_I2S_DeInit
+                0x08002514                SPI_Init
+                0x08002554                I2S_Init
+                0x080025f4                SPI_StructInit
+                0x0800260c                I2S_StructInit
+                0x0800261c                SPI_Cmd
+                0x08002638                I2S_Cmd
+                0x08002654                SPI_DataSizeConfig
+                0x0800266c                SPI_BiDirectionalLineConfig
+                0x0800268c                SPI_NSSInternalSoftwareConfig
+                0x080026ac                SPI_SSOutputCmd
+                0x080026c8                SPI_I2S_ReceiveData
+                0x080026d0                SPI_I2S_SendData
+                0x080026d4                SPI_CalculateCRC
+                0x080026f0                SPI_TransmitCRC
+                0x080026fc                SPI_GetCRC
+                0x08002708                SPI_GetCRCPolynomial
+                0x08002710                SPI_I2S_DMACmd
+                0x08002724                SPI_I2S_ITConfig
+                0x08002744                SPI_I2S_GetFlagStatus
+                0x08002750                SPI_I2S_ClearFlag
+                0x08002758                SPI_I2S_GetITStatus
+                0x08002784                SPI_I2S_ClearITPendingBit
+ .text          0x08002794      0x414 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+                0x08002794                USART_DeInit
+                0x08002844                USART_Init
+                0x08002900                USART_StructInit
+                0x08002918                USART_ClockInit
+                0x0800293c                USART_ClockStructInit
+                0x08002948                USART_Cmd
+                0x08002964                USART_SetPrescaler
+                0x08002978                USART_OverSampling8Cmd
+                0x08002994                USART_OneBitMethodCmd
+                0x080029b0                USART_SendData
+                0x080029b8                USART_ReceiveData
+                0x080029c0                USART_SetAddress
+                0x080029d8                USART_ReceiverWakeUpCmd
+                0x080029f4                USART_WakeUpConfig
+                0x08002a0c                USART_LINBreakDetectLengthConfig
+                0x08002a24                USART_LINCmd
+                0x08002a40                USART_SendBreak
+                0x08002a4c                USART_HalfDuplexCmd
+                0x08002a68                USART_SetGuardTime
+                0x08002a7c                USART_SmartCardCmd
+                0x08002a98                USART_SmartCardNACKCmd
+                0x08002ab4                USART_IrDAConfig
+                0x08002acc                USART_IrDACmd
+                0x08002ae8                USART_DMACmd
+                0x08002afc                USART_ITConfig
+                0x08002b38                USART_GetFlagStatus
+                0x08002b44                USART_ClearFlag
+                0x08002b4c                USART_GetITStatus
+                0x08002b98                USART_ClearITPendingBit
+ *(.text*)
+ .text.Reset_Handler
+                0x08002ba8       0x4c ./startup/startup_stm32l1xx_md.o
+                0x08002ba8                Reset_Handler
+ .text.Default_Handler
+                0x08002bf4        0x4 ./startup/startup_stm32l1xx_md.o
+                0x08002bf4                RTC_Alarm_IRQHandler
+                0x08002bf4                EXTI2_IRQHandler
+                0x08002bf4                TIM10_IRQHandler
+                0x08002bf4                USB_HP_IRQHandler
+                0x08002bf4                TIM6_IRQHandler
+                0x08002bf4                PVD_IRQHandler
+                0x08002bf4                EXTI3_IRQHandler
+                0x08002bf4                EXTI0_IRQHandler
+                0x08002bf4                I2C2_EV_IRQHandler
+                0x08002bf4                SPI1_IRQHandler
+                0x08002bf4                USB_FS_WKUP_IRQHandler
+                0x08002bf4                DMA1_Channel4_IRQHandler
+                0x08002bf4                ADC1_IRQHandler
+                0x08002bf4                USART3_IRQHandler
+                0x08002bf4                DMA1_Channel7_IRQHandler
+                0x08002bf4                LCD_IRQHandler
+                0x08002bf4                TIM4_IRQHandler
+                0x08002bf4                I2C1_EV_IRQHandler
+                0x08002bf4                DMA1_Channel6_IRQHandler
+                0x08002bf4                TIM3_IRQHandler
+                0x08002bf4                RCC_IRQHandler
+                0x08002bf4                DMA1_Channel1_IRQHandler
+                0x08002bf4                Default_Handler
+                0x08002bf4                EXTI15_10_IRQHandler
+                0x08002bf4                TIM7_IRQHandler
+                0x08002bf4                EXTI9_5_IRQHandler
+                0x08002bf4                TIM9_IRQHandler
+                0x08002bf4                TAMPER_STAMP_IRQHandler
+                0x08002bf4                RTC_WKUP_IRQHandler
+                0x08002bf4                SPI2_IRQHandler
+                0x08002bf4                DMA1_Channel5_IRQHandler
+                0x08002bf4                USB_LP_IRQHandler
+                0x08002bf4                EXTI4_IRQHandler
+                0x08002bf4                DMA1_Channel3_IRQHandler
+                0x08002bf4                COMP_IRQHandler
+                0x08002bf4                WWDG_IRQHandler
+                0x08002bf4                TIM2_IRQHandler
+                0x08002bf4                DAC_IRQHandler
+                0x08002bf4                EXTI1_IRQHandler
+                0x08002bf4                TIM11_IRQHandler
+                0x08002bf4                USART2_IRQHandler
+                0x08002bf4                I2C2_ER_IRQHandler
+                0x08002bf4                DMA1_Channel2_IRQHandler
+                0x08002bf4                FLASH_IRQHandler
+                0x08002bf4                USART1_IRQHandler
+                0x08002bf4                I2C1_ER_IRQHandler
+ .text.startup  0x08002bf8        0x4 ./src/main.o
+                0x08002bf8                main
+ *(.rodata)
+ *(.rodata*)
+ *(.glue_7)
+ .glue_7        0x00000000        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x00000000        0x0 linker stubs
+ *(.init)
+ *(.fini)
+                0x08002bfc                . = ALIGN (0x4)
+                0x08002bfc                _etext = .
+
+.vfp11_veneer   0x08002bfc        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x08002bfc        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x08002bfc        0x0
+ .iplt          0x00000000        0x0 ./startup/startup_stm32l1xx_md.o
+
+.rel.dyn        0x08002bfc        0x0
+ .rel.iplt      0x00000000        0x0 ./startup/startup_stm32l1xx_md.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+
+.ARM            0x08002bfc        0x0
+                0x08002bfc                __exidx_start = .
+ *(.ARM.exidx*)
+                0x08002bfc                __exidx_end = .
+
+.preinit_array  0x08002bfc        0x0
+                0x08002bfc                PROVIDE (__preinit_array_start, .)
+ *(.preinit_array*)
+                0x08002bfc                PROVIDE (__preinit_array_end, .)
+
+.init_array     0x08002bfc        0x0
+                0x08002bfc                PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*))
+ *(.init_array*)
+                0x08002bfc                PROVIDE (__init_array_end, .)
+
+.fini_array     0x08002bfc        0x0
+                0x08002bfc                PROVIDE (__fini_array_start, .)
+ *(.fini_array*)
+ *(SORT(.fini_array.*))
+                0x08002bfc                PROVIDE (__fini_array_end, .)
+                0x08002bfc                _sidata = .
+
+.data           0x20000000       0x3c load address 0x08002bfc
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _sdata = .
+ *(.data)
+ .data          0x20000000        0x0 ./startup/startup_stm32l1xx_md.o
+ .data          0x20000000        0x0 ./src/main.o
+ .data          0x20000000        0x0 ./src/hal.o
+ .data          0x20000000        0x0 ./src/stm32l1xx_it.o
+ .data          0x20000000       0x20 ./src/system_stm32l1xx.o
+                0x20000000                PLLMulTable
+                0x2000000c                AHBPrescTable
+                0x2000001c                SystemCoreClock
+ .data          0x20000020        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+ .data          0x20000020        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ .data          0x20000020        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+ .data          0x20000020        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+ .data          0x20000020        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+ .data          0x20000020        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+ .data          0x20000020        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+ .data          0x20000020       0x1c /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+ .data          0x2000003c        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+ .data          0x2000003c        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+ .data          0x2000003c        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+ *(.data*)
+                0x2000003c                . = ALIGN (0x4)
+                0x2000003c                _edata = .
+
+.igot.plt       0x2000003c        0x0 load address 0x08002c38
+ .igot.plt      0x00000000        0x0 ./startup/startup_stm32l1xx_md.o
+                0x2000003c                . = ALIGN (0x4)
+
+.bss            0x2000003c        0xc load address 0x08002c38
+                0x2000003c                _sbss = .
+                0x2000003c                __bss_start__ = _sbss
+ *(.bss)
+ .bss           0x2000003c        0x0 ./startup/startup_stm32l1xx_md.o
+ .bss           0x2000003c        0x8 ./src/main.o
+                0x20000040                BlinkSpeed
+ .bss           0x20000044        0x4 ./src/hal.o
+ .bss           0x20000048        0x0 ./src/stm32l1xx_it.o
+ .bss           0x20000048        0x0 ./src/system_stm32l1xx.o
+ .bss           0x20000048        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+ .bss           0x20000048        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ .bss           0x20000048        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+ .bss           0x20000048        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+ .bss           0x20000048        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+ .bss           0x20000048        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+ .bss           0x20000048        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+ .bss           0x20000048        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+ .bss           0x20000048        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+ .bss           0x20000048        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+ .bss           0x20000048        0x0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+ *(.bss*)
+ *(COMMON)
+                0x20000048                . = ALIGN (0x4)
+                0x20000048                _ebss = .
+                0x20000048                __bss_end__ = _ebss
+                0x20000048                PROVIDE (end, _ebss)
+                0x20000048                PROVIDE (_end, _ebss)
+
+._user_heap_stack
+                0x20000048      0x400 load address 0x08002c44
+                0x20000048                . = ALIGN (0x4)
+                0x20000248                . = (. + _Min_Heap_Size)
+ *fill*         0x20000048      0x200 
+                0x20000448                . = (. + _Min_Stack_Size)
+ *fill*         0x20000248      0x200 
+                0x20000448                . = ALIGN (0x4)
+
+.memory_b1_text
+ *(.mb1text)
+ *(.mb1text*)
+ *(.mb1rodata)
+ *(.mb1rodata*)
+
+/DISCARD/
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+
+.ARM.attributes
+                0x00000000       0x2f
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x21 ./startup/startup_stm32l1xx_md.o
+ .ARM.attributes
+                0x00000021       0x33 ./src/main.o
+ .ARM.attributes
+                0x00000054       0x33 ./src/hal.o
+ .ARM.attributes
+                0x00000087       0x33 ./src/stm32l1xx_it.o
+ .ARM.attributes
+                0x000000ba       0x33 ./src/system_stm32l1xx.o
+ .ARM.attributes
+                0x000000ed       0x33 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+ .ARM.attributes
+                0x00000120       0x33 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ .ARM.attributes
+                0x00000153       0x33 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+ .ARM.attributes
+                0x00000186       0x33 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+ .ARM.attributes
+                0x000001b9       0x33 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+ .ARM.attributes
+                0x000001ec       0x33 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+ .ARM.attributes
+                0x0000021f       0x33 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+ .ARM.attributes
+                0x00000252       0x33 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+ .ARM.attributes
+                0x00000285       0x33 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+ .ARM.attributes
+                0x000002b8       0x33 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+ .ARM.attributes
+                0x000002eb       0x33 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+OUTPUT(hackboard_rom.elf elf32-littlearm)
+
+.debug_line     0x00000000     0x24de
+ .debug_line    0x00000000       0x7a ./startup/startup_stm32l1xx_md.o
+ .debug_line    0x0000007a      0x114 ./src/main.o
+ .debug_line    0x0000018e      0x16d ./src/hal.o
+ .debug_line    0x000002fb       0xba ./src/stm32l1xx_it.o
+ .debug_line    0x000003b5      0x13c ./src/system_stm32l1xx.o
+ .debug_line    0x000004f1      0x18c /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+ .debug_line    0x0000067d      0x38a /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ .debug_line    0x00000a07      0x213 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+ .debug_line    0x00000c1a      0x1cc /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+ .debug_line    0x00000de6      0x24a /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+ .debug_line    0x00001030      0x211 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+ .debug_line    0x00001241      0x22b /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+ .debug_line    0x0000146c      0x2b1 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+ .debug_line    0x0000171d      0x81f /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+ .debug_line    0x00001f3c      0x29f /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+ .debug_line    0x000021db      0x303 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+
+.debug_info     0x00000000     0x7d6a
+ .debug_info    0x00000000       0x63 ./startup/startup_stm32l1xx_md.o
+ .debug_info    0x00000063      0x19b ./src/main.o
+ .debug_info    0x000001fe      0x8e9 ./src/hal.o
+ .debug_info    0x00000ae7      0x167 ./src/stm32l1xx_it.o
+ .debug_info    0x00000c4e      0x5b4 ./src/system_stm32l1xx.o
+ .debug_info    0x00001202      0x592 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+ .debug_info    0x00001794      0xdb1 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ .debug_info    0x00002545      0x4a4 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+ .debug_info    0x000029e9      0x361 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+ .debug_info    0x00002d4a      0x82c /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+ .debug_info    0x00003576      0x583 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+ .debug_info    0x00003af9      0x646 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+ .debug_info    0x0000413f      0xb4d /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+ .debug_info    0x00004c8c     0x1ad3 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+ .debug_info    0x0000675f      0xa5f /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+ .debug_info    0x000071be      0xbac /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+
+.debug_abbrev   0x00000000     0x1b34
+ .debug_abbrev  0x00000000       0x12 ./startup/startup_stm32l1xx_md.o
+ .debug_abbrev  0x00000012       0xf7 ./src/main.o
+ .debug_abbrev  0x00000109      0x1db ./src/hal.o
+ .debug_abbrev  0x000002e4       0xa0 ./src/stm32l1xx_it.o
+ .debug_abbrev  0x00000384      0x145 ./src/system_stm32l1xx.o
+ .debug_abbrev  0x000004c9      0x152 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+ .debug_abbrev  0x0000061b      0x1f9 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ .debug_abbrev  0x00000814      0x180 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+ .debug_abbrev  0x00000994      0x1df /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+ .debug_abbrev  0x00000b73      0x22c /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+ .debug_abbrev  0x00000d9f      0x1d7 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+ .debug_abbrev  0x00000f76      0x218 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+ .debug_abbrev  0x0000118e      0x2b6 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+ .debug_abbrev  0x00001444      0x2b5 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+ .debug_abbrev  0x000016f9      0x218 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+ .debug_abbrev  0x00001911      0x223 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+
+.debug_aranges  0x00000000      0x210
+ .debug_aranges
+                0x00000000       0x28 ./startup/startup_stm32l1xx_md.o
+ .debug_aranges
+                0x00000028       0x28 ./src/main.o
+ .debug_aranges
+                0x00000050       0x20 ./src/hal.o
+ .debug_aranges
+                0x00000070       0x20 ./src/stm32l1xx_it.o
+ .debug_aranges
+                0x00000090       0x20 ./src/system_stm32l1xx.o
+ .debug_aranges
+                0x000000b0       0x20 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+ .debug_aranges
+                0x000000d0       0x20 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ .debug_aranges
+                0x000000f0       0x20 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+ .debug_aranges
+                0x00000110       0x20 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+ .debug_aranges
+                0x00000130       0x20 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+ .debug_aranges
+                0x00000150       0x20 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+ .debug_aranges
+                0x00000170       0x20 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+ .debug_aranges
+                0x00000190       0x20 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+ .debug_aranges
+                0x000001b0       0x20 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+ .debug_aranges
+                0x000001d0       0x20 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+ .debug_aranges
+                0x000001f0       0x20 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+
+.debug_ranges   0x00000000      0x480
+ .debug_ranges  0x00000000       0x20 ./startup/startup_stm32l1xx_md.o
+ .debug_ranges  0x00000020       0x18 ./src/main.o
+ .debug_ranges  0x00000038       0x20 ./src/system_stm32l1xx.o
+ .debug_ranges  0x00000058       0x18 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+ .debug_ranges  0x00000070      0x410 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+
+.debug_loc      0x00000000     0x5460
+ .debug_loc     0x00000000       0x20 ./src/main.o
+ .debug_loc     0x00000020       0x8b ./src/hal.o
+ .debug_loc     0x000000ab      0x176 ./src/system_stm32l1xx.o
+ .debug_loc     0x00000221      0x143 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+ .debug_loc     0x00000364      0xc64 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ .debug_loc     0x00000fc8      0x197 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+ .debug_loc     0x0000115f      0x1ef /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+ .debug_loc     0x0000134e      0x3ec /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+ .debug_loc     0x0000173a      0x549 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+ .debug_loc     0x00001c83      0x237 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+ .debug_loc     0x00001eba      0x877 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+ .debug_loc     0x00002731     0x1f4f /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+ .debug_loc     0x00004680      0x5d8 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+ .debug_loc     0x00004c58      0x808 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+
+.debug_str      0x00000000     0x2f1b
+ .debug_str     0x00000000      0x1da ./src/main.o
+                                0x21c (size before relaxing)
+ .debug_str     0x000001da      0x40a ./src/hal.o
+                                0x587 (size before relaxing)
+ .debug_str     0x000005e4       0xa3 ./src/stm32l1xx_it.o
+                                0x20b (size before relaxing)
+ .debug_str     0x00000687      0x1a5 ./src/system_stm32l1xx.o
+                                0x334 (size before relaxing)
+ .debug_str     0x0000082c      0x205 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+                                0x400 (size before relaxing)
+ .debug_str     0x00000a31      0x4cf /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+                                0x833 (size before relaxing)
+ .debug_str     0x00000f00      0x241 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+                                0x3f8 (size before relaxing)
+ .debug_str     0x00001141      0x1ea /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+                                0x388 (size before relaxing)
+ .debug_str     0x0000132b      0x1b6 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+                                0x518 (size before relaxing)
+ .debug_str     0x000014e1      0x2fa /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+                                0x4ac (size before relaxing)
+ .debug_str     0x000017db      0x1e9 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+                                0x409 (size before relaxing)
+ .debug_str     0x000019c4      0x3d9 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+                                0x736 (size before relaxing)
+ .debug_str     0x00001d9d      0x98f /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+                                0xb7e (size before relaxing)
+ .debug_str     0x0000272c      0x3a2 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+                                0x663 (size before relaxing)
+ .debug_str     0x00002ace      0x44d /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+                                0x6f6 (size before relaxing)
+
+.comment        0x00000000       0x70
+ .comment       0x00000000       0x70 ./src/main.o
+                                 0x71 (size before relaxing)
+ .comment       0x00000000       0x71 ./src/hal.o
+ .comment       0x00000000       0x71 ./src/stm32l1xx_it.o
+ .comment       0x00000000       0x71 ./src/system_stm32l1xx.o
+ .comment       0x00000000       0x71 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+ .comment       0x00000000       0x71 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ .comment       0x00000000       0x71 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+ .comment       0x00000000       0x71 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+ .comment       0x00000000       0x71 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+ .comment       0x00000000       0x71 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+ .comment       0x00000000       0x71 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+ .comment       0x00000000       0x71 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+ .comment       0x00000000       0x71 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+ .comment       0x00000000       0x71 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+ .comment       0x00000000       0x71 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+
+.debug_frame    0x00000000     0x1404
+ .debug_frame   0x00000000       0x44 ./src/main.o
+ .debug_frame   0x00000044       0x60 ./src/hal.o
+ .debug_frame   0x000000a4       0xa0 ./src/stm32l1xx_it.o
+ .debug_frame   0x00000144       0x44 ./src/system_stm32l1xx.o
+ .debug_frame   0x00000188       0x68 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+ .debug_frame   0x000001f0      0x2a8 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ .debug_frame   0x00000498       0xd0 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+ .debug_frame   0x00000568       0x9c /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+ .debug_frame   0x00000604      0x120 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+ .debug_frame   0x00000724       0xec /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+ .debug_frame   0x00000810      0x110 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+ .debug_frame   0x00000920      0x280 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+ .debug_frame   0x00000ba0      0x490 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+ .debug_frame   0x00001030      0x1bc /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+ .debug_frame   0x000011ec      0x218 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+
+Cross Reference Table
+
+Symbol                                            File
+ADC1_IRQHandler                                   ./startup/startup_stm32l1xx_md.o
+ADC_AnalogWatchdogCmd                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_AnalogWatchdogSingleChannelConfig             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_AnalogWatchdogThresholdsConfig                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_AutoInjectedConvCmd                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_BankSelection                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_ClearFlag                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_ClearITPendingBit                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_Cmd                                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+                                                  ./src/hal.o
+ADC_CommonInit                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_CommonStructInit                              /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_ContinuousModeCmd                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_DMACmd                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_DMARequestAfterLastTransferCmd                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_DeInit                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+                                                  ./src/hal.o
+ADC_DelaySelectionConfig                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_DiscModeChannelCountConfig                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_DiscModeCmd                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_EOCOnEachRegularChannelCmd                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_ExternalTrigInjectedConvConfig                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_ExternalTrigInjectedConvEdgeConfig            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_GetConversionValue                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+                                                  ./src/hal.o
+ADC_GetFlagStatus                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+                                                  ./src/hal.o
+ADC_GetITStatus                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_GetInjectedConversionValue                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_GetSoftwareStartConvStatus                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_GetSoftwareStartInjectedConvCmdStatus         /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_ITConfig                                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_Init                                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+                                                  ./src/hal.o
+ADC_InjectedChannelConfig                         /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_InjectedDiscModeCmd                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_InjectedSequencerLengthConfig                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_PowerDownCmd                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_RegularChannelConfig                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+                                                  ./src/hal.o
+ADC_SetInjectedOffset                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_SoftwareStartConv                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+                                                  ./src/hal.o
+ADC_SoftwareStartInjectedConv                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+ADC_StructInit                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+                                                  ./src/hal.o
+ADC_TempSensorVrefintCmd                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+                                                  ./src/hal.o
+AHBPrescTable                                     ./src/system_stm32l1xx.o
+BlinkSpeed                                        ./src/main.o
+BusFault_Handler                                  ./src/stm32l1xx_it.o
+                                                  ./startup/startup_stm32l1xx_md.o
+COMP_IRQHandler                                   ./startup/startup_stm32l1xx_md.o
+DAC_IRQHandler                                    ./startup/startup_stm32l1xx_md.o
+DMA1_Channel1_IRQHandler                          ./startup/startup_stm32l1xx_md.o
+DMA1_Channel2_IRQHandler                          ./startup/startup_stm32l1xx_md.o
+DMA1_Channel3_IRQHandler                          ./startup/startup_stm32l1xx_md.o
+DMA1_Channel4_IRQHandler                          ./startup/startup_stm32l1xx_md.o
+DMA1_Channel5_IRQHandler                          ./startup/startup_stm32l1xx_md.o
+DMA1_Channel6_IRQHandler                          ./startup/startup_stm32l1xx_md.o
+DMA1_Channel7_IRQHandler                          ./startup/startup_stm32l1xx_md.o
+DMA_ClearFlag                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+DMA_ClearITPendingBit                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+DMA_Cmd                                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+DMA_DeInit                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+DMA_GetCurrDataCounter                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+DMA_GetFlagStatus                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+DMA_GetITStatus                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+DMA_ITConfig                                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+DMA_Init                                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+DMA_SetCurrDataCounter                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+DMA_StructInit                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.o
+DebugMon_Handler                                  ./src/stm32l1xx_it.o
+                                                  ./startup/startup_stm32l1xx_md.o
+Default_Handler                                   ./startup/startup_stm32l1xx_md.o
+Delay                                             ./src/main.o
+EXTI0_IRQHandler                                  ./startup/startup_stm32l1xx_md.o
+EXTI15_10_IRQHandler                              ./startup/startup_stm32l1xx_md.o
+EXTI1_IRQHandler                                  ./startup/startup_stm32l1xx_md.o
+EXTI2_IRQHandler                                  ./startup/startup_stm32l1xx_md.o
+EXTI3_IRQHandler                                  ./startup/startup_stm32l1xx_md.o
+EXTI4_IRQHandler                                  ./startup/startup_stm32l1xx_md.o
+EXTI9_5_IRQHandler                                ./startup/startup_stm32l1xx_md.o
+EXTI_ClearFlag                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+EXTI_ClearITPendingBit                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+EXTI_DeInit                                       /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+EXTI_GenerateSWInterrupt                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+EXTI_GetFlagStatus                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+EXTI_GetITStatus                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+EXTI_Init                                         /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+EXTI_StructInit                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_exti.o
+FLASH_IRQHandler                                  ./startup/startup_stm32l1xx_md.o
+GPIO_DeInit                                       /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+GPIO_Init                                         /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+                                                  ./src/hal.o
+GPIO_PinAFConfig                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+GPIO_PinLockConfig                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+GPIO_ReadInputData                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+GPIO_ReadInputDataBit                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+GPIO_ReadOutputData                               /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+GPIO_ReadOutputDataBit                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+GPIO_ResetBits                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+GPIO_SetBits                                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+GPIO_StructInit                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+                                                  ./src/hal.o
+GPIO_ToggleBits                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+GPIO_Write                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+GPIO_WriteBit                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+HardFault_Handler                                 ./src/stm32l1xx_it.o
+                                                  ./startup/startup_stm32l1xx_md.o
+I2C1_ER_IRQHandler                                ./startup/startup_stm32l1xx_md.o
+I2C1_EV_IRQHandler                                ./startup/startup_stm32l1xx_md.o
+I2C2_ER_IRQHandler                                ./startup/startup_stm32l1xx_md.o
+I2C2_EV_IRQHandler                                ./startup/startup_stm32l1xx_md.o
+I2S_Cmd                                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+I2S_Init                                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+I2S_StructInit                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+LCD_IRQHandler                                    ./startup/startup_stm32l1xx_md.o
+MemManage_Handler                                 ./src/stm32l1xx_it.o
+                                                  ./startup/startup_stm32l1xx_md.o
+NMI_Handler                                       ./src/stm32l1xx_it.o
+                                                  ./startup/startup_stm32l1xx_md.o
+NVIC_Init                                         /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+NVIC_PriorityGroupConfig                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+NVIC_SetVectorTable                               /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+NVIC_SystemLPConfig                               /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+PLLMulTable                                       ./src/system_stm32l1xx.o
+PVD_IRQHandler                                    ./startup/startup_stm32l1xx_md.o
+PWR_ClearFlag                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_DeInit                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_EnterLowPowerRunMode                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_EnterSTANDBYMode                              /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_EnterSTOPMode                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_EnterSleepMode                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_FastWakeUpCmd                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_GetFlagStatus                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_PVDCmd                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_PVDLevelConfig                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_RTCAccessCmd                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_UltraLowPowerCmd                              /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_VoltageScalingConfig                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PWR_WakeUpPinCmd                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+PendSV_Handler                                    ./src/stm32l1xx_it.o
+                                                  ./startup/startup_stm32l1xx_md.o
+RCC_AHBPeriphClockCmd                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+                                                  ./src/hal.o
+RCC_AHBPeriphClockLPModeCmd                       /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_AHBPeriphResetCmd                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+                                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.o
+RCC_APB1PeriphClockCmd                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_APB1PeriphClockLPModeCmd                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_APB1PeriphResetCmd                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+                                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+                                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+                                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_pwr.o
+RCC_APB2PeriphClockCmd                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+                                                  ./src/hal.o
+RCC_APB2PeriphClockLPModeCmd                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_APB2PeriphResetCmd                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+                                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+                                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+                                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+                                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_adc.o
+RCC_AdjustHSICalibrationValue                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_AdjustMSICalibrationValue                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_ClearFlag                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_ClearITPendingBit                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_ClockSecuritySystemCmd                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_DeInit                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_GetClocksFreq                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+                                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+                                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+RCC_GetFlagStatus                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_GetITStatus                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_GetSYSCLKSource                               /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_HCLKConfig                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_HSEConfig                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_HSICmd                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_IRQHandler                                    ./startup/startup_stm32l1xx_md.o
+RCC_ITConfig                                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_LSEClockSecuritySystemCmd                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_LSEConfig                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_LSICmd                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_MCOConfig                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_MSICmd                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_MSIRangeConfig                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_PCLK1Config                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_PCLK2Config                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_PLLCmd                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_PLLConfig                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_RTCCLKCmd                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_RTCCLKConfig                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_RTCResetCmd                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_SYSCLKConfig                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RCC_WaitForHSEStartUp                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rcc.o
+RTC_AlarmCmd                                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_AlarmStructInit                               /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_AlarmSubSecondConfig                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_Alarm_IRQHandler                              ./startup/startup_stm32l1xx_md.o
+RTC_BypassShadowCmd                               /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_CalibOutputCmd                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_CalibOutputConfig                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_ClearFlag                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_ClearITPendingBit                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_CoarseCalibCmd                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_CoarseCalibConfig                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_DateStructInit                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_DayLightSavingConfig                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_DeInit                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_EnterInitMode                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_ExitInitMode                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_GetAlarm                                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_GetAlarmSubSecond                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_GetDate                                       /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_GetFlagStatus                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_GetITStatus                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_GetStoreOperation                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_GetSubSecond                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_GetTime                                       /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_GetTimeStamp                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_GetTimeStampSubSecond                         /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_GetWakeUpCounter                              /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_ITConfig                                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_Init                                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_OutputConfig                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_OutputTypeConfig                              /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_ReadBackupRegister                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_RefClockCmd                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_SetAlarm                                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_SetDate                                       /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_SetTime                                       /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_SetWakeUpCounter                              /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_SmoothCalibConfig                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_StructInit                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_SynchroShiftConfig                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_TamperCmd                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_TamperFilterConfig                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_TamperPinsPrechargeDuration                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_TamperPullUpCmd                               /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_TamperSamplingFreqConfig                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_TamperTriggerConfig                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_TimeStampCmd                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_TimeStampOnTamperDetectionCmd                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_TimeStructInit                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_WKUP_IRQHandler                               ./startup/startup_stm32l1xx_md.o
+RTC_WaitForSynchro                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_WakeUpClockConfig                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_WakeUpCmd                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_WriteBackupRegister                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+RTC_WriteProtectionCmd                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.o
+Reset_Handler                                     ./startup/startup_stm32l1xx_md.o
+SPI1_IRQHandler                                   ./startup/startup_stm32l1xx_md.o
+SPI2_IRQHandler                                   ./startup/startup_stm32l1xx_md.o
+SPI_BiDirectionalLineConfig                       /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_CalculateCRC                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_Cmd                                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_DataSizeConfig                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_GetCRC                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_GetCRCPolynomial                              /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_I2S_ClearFlag                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_I2S_ClearITPendingBit                         /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_I2S_DMACmd                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_I2S_DeInit                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_I2S_GetFlagStatus                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_I2S_GetITStatus                               /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_I2S_ITConfig                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_I2S_ReceiveData                               /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_I2S_SendData                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_Init                                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_NSSInternalSoftwareConfig                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_SSOutputCmd                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_StructInit                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SPI_TransmitCRC                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_spi.o
+SVC_Handler                                       ./src/stm32l1xx_it.o
+                                                  ./startup/startup_stm32l1xx_md.o
+SYSCFG_DeInit                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SYSCFG_EXTILineConfig                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SYSCFG_GetBootMode                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SYSCFG_MemoryRemapConfig                          /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SYSCFG_RIChannelSpeedConfig                       /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SYSCFG_RIDeInit                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SYSCFG_RIHysteresisConfig                         /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SYSCFG_RIIOSwitchConfig                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SYSCFG_RIResistorConfig                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SYSCFG_RISwitchControlModeCmd                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SYSCFG_RITIMInputCaptureConfig                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SYSCFG_RITIMSelect                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SYSCFG_USBPuCmd                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_syscfg.o
+SysTick_CLKSourceConfig                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/misc.o
+SysTick_Handler                                   ./src/stm32l1xx_it.o
+                                                  ./startup/startup_stm32l1xx_md.o
+SystemCoreClock                                   ./src/system_stm32l1xx.o
+SystemCoreClockUpdate                             ./src/system_stm32l1xx.o
+SystemInit                                        ./src/system_stm32l1xx.o
+                                                  ./startup/startup_stm32l1xx_md.o
+TAMPER_STAMP_IRQHandler                           ./startup/startup_stm32l1xx_md.o
+TIM10_IRQHandler                                  ./startup/startup_stm32l1xx_md.o
+TIM11_IRQHandler                                  ./startup/startup_stm32l1xx_md.o
+TIM2_IRQHandler                                   ./startup/startup_stm32l1xx_md.o
+TIM3_IRQHandler                                   ./startup/startup_stm32l1xx_md.o
+TIM4_IRQHandler                                   ./startup/startup_stm32l1xx_md.o
+TIM6_IRQHandler                                   ./startup/startup_stm32l1xx_md.o
+TIM7_IRQHandler                                   ./startup/startup_stm32l1xx_md.o
+TIM9_IRQHandler                                   ./startup/startup_stm32l1xx_md.o
+TimingDelay_Decrement                             ./src/main.o
+                                                  ./src/stm32l1xx_it.o
+USART1_IRQHandler                                 ./startup/startup_stm32l1xx_md.o
+USART2_IRQHandler                                 ./startup/startup_stm32l1xx_md.o
+USART3_IRQHandler                                 ./startup/startup_stm32l1xx_md.o
+USART_ClearFlag                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_ClearITPendingBit                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_ClockInit                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_ClockStructInit                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_Cmd                                         /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_DMACmd                                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_DeInit                                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_GetFlagStatus                               /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_GetITStatus                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_HalfDuplexCmd                               /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_ITConfig                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_Init                                        /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_IrDACmd                                     /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_IrDAConfig                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_LINBreakDetectLengthConfig                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_LINCmd                                      /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_OneBitMethodCmd                             /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_OverSampling8Cmd                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_ReceiveData                                 /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_ReceiverWakeUpCmd                           /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_SendBreak                                   /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_SendData                                    /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_SetAddress                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_SetGuardTime                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_SetPrescaler                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_SmartCardCmd                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_SmartCardNACKCmd                            /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_StructInit                                  /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USART_WakeUpConfig                                /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_usart.o
+USB_FS_WKUP_IRQHandler                            ./startup/startup_stm32l1xx_md.o
+USB_HP_IRQHandler                                 ./startup/startup_stm32l1xx_md.o
+USB_LP_IRQHandler                                 ./startup/startup_stm32l1xx_md.o
+UsageFault_Handler                                ./src/stm32l1xx_it.o
+                                                  ./startup/startup_stm32l1xx_md.o
+WWDG_IRQHandler                                   ./startup/startup_stm32l1xx_md.o
+_ebss                                             ./startup/startup_stm32l1xx_md.o
+_edata                                            ./startup/startup_stm32l1xx_md.o
+_estack                                           ./startup/startup_stm32l1xx_md.o
+_sbss                                             ./startup/startup_stm32l1xx_md.o
+_sdata                                            ./startup/startup_stm32l1xx_md.o
+_sidata                                           ./startup/startup_stm32l1xx_md.o
+adc_read                                          ./src/hal.o
+adc_setup                                         ./src/hal.o
+g_pfnVectors                                      ./startup/startup_stm32l1xx_md.o
+hal_setup                                         ./src/hal.o
+main                                              ./src/main.o
+                                                  ./startup/startup_stm32l1xx_md.o

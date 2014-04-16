@@ -1,0 +1,992 @@
+ARM GAS  /tmp/ccr1s1KF.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   5              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   6              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   7              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+   8              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+   9              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  10              		.eabi_attribute 30, 2	@ Tag_ABI_optimization_goals
+  11              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  12              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  13              		.file	"main.c"
+  14              	@ GNU C (GNU Tools for ARM Embedded Processors) version 4.8.3 20131129 (release) [ARM/embedded-4_8-
+  15              	@	compiled by GNU C version 4.3.6, GMP version 4.3.2, MPFR version 2.4.2, MPC version 0.8.1
+  16              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  17              	@ options passed:  -I . -I ./inc
+  18              	@ -I /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/CMSIS/Device/ST/STM32F0xx/Include
+  19              	@ -I /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/CMSIS/Include
+  20              	@ -I /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/inc
+  21              	@ -I ./inc -imultilib armv7-m
+  22              	@ -iprefix /home/zbanks/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/4.8.3/
+  23              	@ -isysroot /home/zbanks/gcc-arm-none-eabi/bin/../arm-none-eabi
+  24              	@ -MD src/main.d -MF .dep/main.o.d -MP -MQ src/main.o -D__USES_INITFINI__
+  25              	@ -D STM32L1XX -D USE_STDPERIPH_DRIVER -D malloc_getpagesize=256
+  26              	@ -D RUN_FROM_FLASH=1 src/main.c -mcpu=cortex-m3 -mthumb
+  27              	@ -auxbase-strip src/main.o -g -gdwarf-2 -O3 -Wall -Wstrict-prototypes
+  28              	@ -std=c99 -fomit-frame-pointer -fverbose-asm
+  29              	@ options enabled:  -faggressive-loop-optimizations -fauto-inc-dec
+  30              	@ -fbranch-count-reg -fcaller-saves -fcombine-stack-adjustments -fcommon
+  31              	@ -fcompare-elim -fcprop-registers -fcrossjumping -fcse-follow-jumps
+  32              	@ -fdefer-pop -fdelete-null-pointer-checks -fdevirtualize -fdwarf2-cfi-asm
+  33              	@ -fearly-inlining -feliminate-unused-debug-types -fexpensive-optimizations
+  34              	@ -fforward-propagate -ffunction-cse -fgcse -fgcse-after-reload -fgcse-lm
+  35              	@ -fgnu-runtime -fguess-branch-probability -fhoist-adjacent-loads -fident
+  36              	@ -fif-conversion -fif-conversion2 -findirect-inlining -finline
+  37              	@ -finline-atomics -finline-functions -finline-functions-called-once
+  38              	@ -finline-small-functions -fipa-cp -fipa-cp-clone -fipa-profile
+  39              	@ -fipa-pure-const -fipa-reference -fipa-sra -fira-hoist-pressure
+  40              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  41              	@ -fkeep-static-consts -fleading-underscore -fmath-errno -fmerge-constants
+  42              	@ -fmerge-debug-strings -fmove-loop-invariants -fomit-frame-pointer
+  43              	@ -foptimize-register-move -foptimize-sibling-calls -foptimize-strlen
+  44              	@ -fpartial-inlining -fpeephole -fpeephole2 -fpredictive-commoning
+  45              	@ -fprefetch-loop-arrays -freg-struct-return -fregmove -freorder-blocks
+  46              	@ -freorder-functions -frerun-cse-after-loop
+  47              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  48              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  49              	@ -fsched-pressure -fsched-rank-heuristic -fsched-spec
+  50              	@ -fsched-spec-insn-heuristic -fsched-stalled-insns-dep -fschedule-insns
+  51              	@ -fschedule-insns2 -fsection-anchors -fshow-column -fshrink-wrap
+  52              	@ -fsigned-zeros -fsplit-ivs-in-unroller -fsplit-wide-types
+  53              	@ -fstrict-aliasing -fstrict-overflow -fstrict-volatile-bitfields
+  54              	@ -fsync-libcalls -fthread-jumps -ftoplevel-reorder -ftrapping-math
+  55              	@ -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch
+  56              	@ -ftree-coalesce-vars -ftree-copy-prop -ftree-copyrename -ftree-cselim
+  57              	@ -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-fre
+ARM GAS  /tmp/ccr1s1KF.s 			page 2
+
+
+  58              	@ -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-im
+  59              	@ -ftree-loop-ivcanon -ftree-loop-optimize -ftree-parallelize-loops=
+  60              	@ -ftree-partial-pre -ftree-phiprop -ftree-pre -ftree-pta -ftree-reassoc
+  61              	@ -ftree-scev-cprop -ftree-sink -ftree-slp-vectorize -ftree-slsr -ftree-sra
+  62              	@ -ftree-switch-conversion -ftree-tail-merge -ftree-ter
+  63              	@ -ftree-vect-loop-version -ftree-vectorize -ftree-vrp -funit-at-a-time
+  64              	@ -funswitch-loops -fvar-tracking -fvar-tracking-assignments
+  65              	@ -fvect-cost-model -fverbose-asm -fzero-initialized-in-bss
+  66              	@ -mfix-cortex-m3-ldrd -mlittle-endian -mpic-data-is-text-relative
+  67              	@ -msched-prolog -mthumb -munaligned-access -mvectorize-with-neon-quad
+  68              	
+  69              		.text
+  70              	.Ltext0:
+  71              		.cfi_sections	.debug_frame
+  72              		.section	.text.startup,"ax",%progbits
+  73              		.align	2
+  74              		.global	main
+  75              		.thumb
+  76              		.thumb_func
+  77              		.type	main, %function
+  78              	main:
+  79              	.LFB56:
+  80              		.file 1 "src/main.c"
+   1:src/main.c    **** /**
+   2:src/main.c    ****   ******************************************************************************
+   3:src/main.c    ****   * @file    main.c
+   4:src/main.c    ****   * @author  MCD Application Team
+   5:src/main.c    ****   * @version V1.0.0
+   6:src/main.c    ****   * @date    29-July-2013
+   7:src/main.c    ****   * @brief   Main program body
+   8:src/main.c    ****   ******************************************************************************
+   9:src/main.c    ****   * @attention
+  10:src/main.c    ****   *
+  11:src/main.c    ****   * <h2><center>&copy; COPYRIGHT 2013 STMicroelectronics</center></h2>
+  12:src/main.c    ****   *
+  13:src/main.c    ****   * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
+  14:src/main.c    ****   * You may not use this file except in compliance with the License.
+  15:src/main.c    ****   * You may obtain a copy of the License at:
+  16:src/main.c    ****   *
+  17:src/main.c    ****   *        http://www.st.com/software_license_agreement_liberty_v2
+  18:src/main.c    ****   *
+  19:src/main.c    ****   * Unless required by applicable law or agreed to in writing, software
+  20:src/main.c    ****   * distributed under the License is distributed on an "AS IS" BASIS,
+  21:src/main.c    ****   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  22:src/main.c    ****   * See the License for the specific language governing permissions and
+  23:src/main.c    ****   * limitations under the License.
+  24:src/main.c    ****   *
+  25:src/main.c    ****   ******************************************************************************
+  26:src/main.c    ****   */
+  27:src/main.c    **** 
+  28:src/main.c    **** /* Includes ------------------------------------------------------------------*/
+  29:src/main.c    **** #include "main.h"
+  30:src/main.c    **** #include "hal.h"
+  31:src/main.c    **** 
+  32:src/main.c    **** /** @addtogroup STM32L100C-Discovery_Demo
+  33:src/main.c    ****   * @{
+  34:src/main.c    ****   */
+ARM GAS  /tmp/ccr1s1KF.s 			page 3
+
+
+  35:src/main.c    **** 
+  36:src/main.c    **** /* Private typedef -----------------------------------------------------------*/
+  37:src/main.c    **** /* Private define ------------------------------------------------------------*/
+  38:src/main.c    **** /* Private macro -------------------------------------------------------------*/
+  39:src/main.c    **** /* Private variables ---------------------------------------------------------*/
+  40:src/main.c    **** static __IO uint32_t TimingDelay;
+  41:src/main.c    **** uint8_t BlinkSpeed = 0;
+  42:src/main.c    **** 
+  43:src/main.c    **** /* Private function prototypes -----------------------------------------------*/
+  44:src/main.c    **** /* Private functions ---------------------------------------------------------*/
+  45:src/main.c    **** 
+  46:src/main.c    **** /**
+  47:src/main.c    ****   * @brief  Main program.
+  48:src/main.c    ****   * @param  None
+  49:src/main.c    ****   * @retval None
+  50:src/main.c    ****   */
+  51:src/main.c    **** int main(void)
+  52:src/main.c    **** {
+  81              		.loc 1 52 0
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 0, uses_anonymous_args = 0
+  85              		@ link register save eliminated.
+  86              	.L2:
+  87              	.LVL0:
+  88 0000 FEE7     		b	.L2	@
+  89              		.cfi_endproc
+  90              	.LFE56:
+  91              		.size	main, .-main
+  92 0002 00BF     		.text
+  93              		.align	2
+  94              		.global	Delay
+  95              		.thumb
+  96              		.thumb_func
+  97              		.type	Delay, %function
+  98              	Delay:
+  99              	.LFB57:
+  53:src/main.c    ****   RCC_ClocksTypeDef RCC_Clocks;
+  54:src/main.c    ****   uint16_t temp_volt;
+  55:src/main.c    **** 
+  56:src/main.c    **** 
+  57:src/main.c    ****   /* SysTick end of count event each 1ms */
+  58:src/main.c    ****   //RCC_GetClocksFreq(&RCC_Clocks);
+  59:src/main.c    ****   //SysTick_Config(RCC_Clocks.HCLK_Frequency / 1000);
+  60:src/main.c    **** 
+  61:src/main.c    ****   //hal_setup();
+  62:src/main.c    **** 
+  63:src/main.c    ****   while(1)
+  64:src/main.c    ****   {
+  65:src/main.c    ****       //temp_volt = adc_read(ADC_Channel_TempSensor);
+  66:src/main.c    ****       /* wait for 10ms */
+  67:src/main.c    ****       //Delay(10);
+  68:src/main.c    ****       for(uint16_t i = 1; i; i++);
+  69:src/main.c    ****       temp_volt++;
+  70:src/main.c    **** 
+  71:src/main.c    ****   }
+  72:src/main.c    **** }
+ARM GAS  /tmp/ccr1s1KF.s 			page 4
+
+
+  73:src/main.c    **** 
+  74:src/main.c    **** /**
+  75:src/main.c    ****   * @brief  Inserts a delay time.
+  76:src/main.c    ****   * @param  nTime: specifies the delay time length, in 1 ms.
+  77:src/main.c    ****   * @retval None
+  78:src/main.c    ****   */
+  79:src/main.c    **** void Delay(__IO uint32_t nTime)
+  80:src/main.c    **** {
+ 100              		.loc 1 80 0
+ 101              		.cfi_startproc
+ 102              		@ args = 0, pretend = 0, frame = 8
+ 103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 104              		@ link register save eliminated.
+ 105              	.LVL1:
+ 106              		.loc 1 80 0
+ 107 0000 82B0     		sub	sp, sp, #8	@,,
+ 108              	.LCFI0:
+ 109              		.cfi_def_cfa_offset 8
+ 110              		.loc 1 80 0
+ 111 0002 0190     		str	r0, [sp, #4]	@ nTime, nTime
+  81:src/main.c    ****   TimingDelay = nTime;
+ 112              		.loc 1 81 0
+ 113 0004 019B     		ldr	r3, [sp, #4]	@ nTime.2, nTime
+ 114 0006 034A     		ldr	r2, .L8	@ tmp114,
+ 115 0008 1360     		str	r3, [r2]	@ nTime.2, TimingDelay
+ 116              	.L6:
+  82:src/main.c    **** 
+  83:src/main.c    ****   while(TimingDelay != 0);
+ 117              		.loc 1 83 0 discriminator 1
+ 118 000a 1368     		ldr	r3, [r2]	@ TimingDelay.3, TimingDelay
+ 119 000c 002B     		cmp	r3, #0	@ TimingDelay.3
+ 120 000e FCD1     		bne	.L6	@
+  84:src/main.c    **** }
+ 121              		.loc 1 84 0
+ 122 0010 02B0     		add	sp, sp, #8	@,,
+ 123              		@ sp needed	@
+ 124 0012 7047     		bx	lr	@
+ 125              	.L9:
+ 126              		.align	2
+ 127              	.L8:
+ 128 0014 00000000 		.word	.LANCHOR0
+ 129              		.cfi_endproc
+ 130              	.LFE57:
+ 131              		.size	Delay, .-Delay
+ 132              		.align	2
+ 133              		.global	TimingDelay_Decrement
+ 134              		.thumb
+ 135              		.thumb_func
+ 136              		.type	TimingDelay_Decrement, %function
+ 137              	TimingDelay_Decrement:
+ 138              	.LFB58:
+  85:src/main.c    **** 
+  86:src/main.c    **** /**
+  87:src/main.c    ****   * @brief  Decrements the TimingDelay variable.
+  88:src/main.c    ****   * @param  None
+  89:src/main.c    ****   * @retval None
+  90:src/main.c    ****   */
+ARM GAS  /tmp/ccr1s1KF.s 			page 5
+
+
+  91:src/main.c    **** void TimingDelay_Decrement(void)
+  92:src/main.c    **** {
+ 139              		.loc 1 92 0
+ 140              		.cfi_startproc
+ 141              		@ args = 0, pretend = 0, frame = 0
+ 142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 143              		@ link register save eliminated.
+  93:src/main.c    ****   if (TimingDelay != 0x00)
+ 144              		.loc 1 93 0
+ 145 0018 034B     		ldr	r3, .L15	@ tmp113,
+ 146 001a 1A68     		ldr	r2, [r3]	@ TimingDelay.4, TimingDelay
+ 147 001c 12B1     		cbz	r2, .L10	@ TimingDelay.4,
+  94:src/main.c    ****   {
+  95:src/main.c    ****     TimingDelay--;
+ 148              		.loc 1 95 0
+ 149 001e 1A68     		ldr	r2, [r3]	@ TimingDelay.5, TimingDelay
+ 150 0020 013A     		subs	r2, r2, #1	@ TimingDelay.6, TimingDelay.5,
+ 151 0022 1A60     		str	r2, [r3]	@ TimingDelay.6, TimingDelay
+ 152              	.L10:
+ 153 0024 7047     		bx	lr	@
+ 154              	.L16:
+ 155 0026 00BF     		.align	2
+ 156              	.L15:
+ 157 0028 00000000 		.word	.LANCHOR0
+ 158              		.cfi_endproc
+ 159              	.LFE58:
+ 160              		.size	TimingDelay_Decrement, .-TimingDelay_Decrement
+ 161              		.global	BlinkSpeed
+ 162              		.bss
+ 163              		.align	2
+ 164              		.set	.LANCHOR0,. + 0
+ 165              		.type	TimingDelay, %object
+ 166              		.size	TimingDelay, 4
+ 167              	TimingDelay:
+ 168 0000 00000000 		.space	4
+ 169              		.type	BlinkSpeed, %object
+ 170              		.size	BlinkSpeed, 1
+ 171              	BlinkSpeed:
+ 172 0004 00       		.space	1
+ 173 0005 000000   		.text
+ 174              	.Letext0:
+ 175              		.file 2 "/home/zbanks/gcc-arm-none-eabi/arm-none-eabi/include/stdint.h"
+ 176              		.file 3 "/home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/inc/stm
+ 177              		.file 4 "./inc/core_cm3.h"
+ 178              		.section	.debug_info,"",%progbits
+ 179              	.Ldebug_info0:
+ 180 0000 97010000 		.4byte	0x197
+ 181 0004 0200     		.2byte	0x2
+ 182 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 183 000a 04       		.byte	0x4
+ 184 000b 01       		.uleb128 0x1
+ 185 000c 8B000000 		.4byte	.LASF23
+ 186 0010 01       		.byte	0x1
+ 187 0011 A4010000 		.4byte	.LASF24
+ 188 0015 00000000 		.4byte	.LASF25
+ 189 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 190 001d 00000000 		.4byte	0
+ARM GAS  /tmp/ccr1s1KF.s 			page 6
+
+
+ 191 0021 00000000 		.4byte	0
+ 192 0025 00000000 		.4byte	.Ldebug_line0
+ 193 0029 02       		.uleb128 0x2
+ 194 002a 01       		.byte	0x1
+ 195 002b 06       		.byte	0x6
+ 196 002c F9010000 		.4byte	.LASF0
+ 197 0030 03       		.uleb128 0x3
+ 198 0031 51010000 		.4byte	.LASF3
+ 199 0035 02       		.byte	0x2
+ 200 0036 2A       		.byte	0x2a
+ 201 0037 3B000000 		.4byte	0x3b
+ 202 003b 02       		.uleb128 0x2
+ 203 003c 01       		.byte	0x1
+ 204 003d 08       		.byte	0x8
+ 205 003e 30000000 		.4byte	.LASF1
+ 206 0042 02       		.uleb128 0x2
+ 207 0043 02       		.byte	0x2
+ 208 0044 05       		.byte	0x5
+ 209 0045 BE010000 		.4byte	.LASF2
+ 210 0049 03       		.uleb128 0x3
+ 211 004a C8010000 		.4byte	.LASF4
+ 212 004e 02       		.byte	0x2
+ 213 004f 36       		.byte	0x36
+ 214 0050 54000000 		.4byte	0x54
+ 215 0054 02       		.uleb128 0x2
+ 216 0055 02       		.byte	0x2
+ 217 0056 07       		.byte	0x7
+ 218 0057 4E000000 		.4byte	.LASF5
+ 219 005b 03       		.uleb128 0x3
+ 220 005c 85010000 		.4byte	.LASF6
+ 221 0060 02       		.byte	0x2
+ 222 0061 4F       		.byte	0x4f
+ 223 0062 66000000 		.4byte	0x66
+ 224 0066 02       		.uleb128 0x2
+ 225 0067 04       		.byte	0x4
+ 226 0068 05       		.byte	0x5
+ 227 0069 F0010000 		.4byte	.LASF7
+ 228 006d 03       		.uleb128 0x3
+ 229 006e E7010000 		.4byte	.LASF8
+ 230 0072 02       		.byte	0x2
+ 231 0073 50       		.byte	0x50
+ 232 0074 78000000 		.4byte	0x78
+ 233 0078 02       		.uleb128 0x2
+ 234 0079 04       		.byte	0x4
+ 235 007a 07       		.byte	0x7
+ 236 007b 6E000000 		.4byte	.LASF9
+ 237 007f 02       		.uleb128 0x2
+ 238 0080 08       		.byte	0x8
+ 239 0081 05       		.byte	0x5
+ 240 0082 96010000 		.4byte	.LASF10
+ 241 0086 02       		.uleb128 0x2
+ 242 0087 08       		.byte	0x8
+ 243 0088 07       		.byte	0x7
+ 244 0089 3A010000 		.4byte	.LASF11
+ 245 008d 04       		.uleb128 0x4
+ 246 008e 04       		.byte	0x4
+ 247 008f 05       		.byte	0x5
+ARM GAS  /tmp/ccr1s1KF.s 			page 7
+
+
+ 248 0090 696E7400 		.ascii	"int\000"
+ 249 0094 02       		.uleb128 0x2
+ 250 0095 04       		.byte	0x4
+ 251 0096 07       		.byte	0x7
+ 252 0097 1B010000 		.4byte	.LASF12
+ 253 009b 02       		.uleb128 0x2
+ 254 009c 04       		.byte	0x4
+ 255 009d 07       		.byte	0x7
+ 256 009e 8D010000 		.4byte	.LASF13
+ 257 00a2 05       		.uleb128 0x5
+ 258 00a3 6D000000 		.4byte	0x6d
+ 259 00a7 06       		.uleb128 0x6
+ 260 00a8 10       		.byte	0x10
+ 261 00a9 03       		.byte	0x3
+ 262 00aa 32       		.byte	0x32
+ 263 00ab E8000000 		.4byte	0xe8
+ 264 00af 07       		.uleb128 0x7
+ 265 00b0 69010000 		.4byte	.LASF14
+ 266 00b4 03       		.byte	0x3
+ 267 00b5 34       		.byte	0x34
+ 268 00b6 6D000000 		.4byte	0x6d
+ 269 00ba 02       		.byte	0x2
+ 270 00bb 23       		.byte	0x23
+ 271 00bc 00       		.uleb128 0
+ 272 00bd 07       		.uleb128 0x7
+ 273 00be AF010000 		.4byte	.LASF15
+ 274 00c2 03       		.byte	0x3
+ 275 00c3 35       		.byte	0x35
+ 276 00c4 6D000000 		.4byte	0x6d
+ 277 00c8 02       		.byte	0x2
+ 278 00c9 23       		.byte	0x23
+ 279 00ca 04       		.uleb128 0x4
+ 280 00cb 07       		.uleb128 0x7
+ 281 00cc 59010000 		.4byte	.LASF16
+ 282 00d0 03       		.byte	0x3
+ 283 00d1 36       		.byte	0x36
+ 284 00d2 6D000000 		.4byte	0x6d
+ 285 00d6 02       		.byte	0x2
+ 286 00d7 23       		.byte	0x23
+ 287 00d8 08       		.uleb128 0x8
+ 288 00d9 07       		.uleb128 0x7
+ 289 00da 3E000000 		.4byte	.LASF17
+ 290 00de 03       		.byte	0x3
+ 291 00df 37       		.byte	0x37
+ 292 00e0 6D000000 		.4byte	0x6d
+ 293 00e4 02       		.byte	0x2
+ 294 00e5 23       		.byte	0x23
+ 295 00e6 0C       		.uleb128 0xc
+ 296 00e7 00       		.byte	0
+ 297 00e8 03       		.uleb128 0x3
+ 298 00e9 28010000 		.4byte	.LASF18
+ 299 00ed 03       		.byte	0x3
+ 300 00ee 38       		.byte	0x38
+ 301 00ef A7000000 		.4byte	0xa7
+ 302 00f3 08       		.uleb128 0x8
+ 303 00f4 01       		.byte	0x1
+ 304 00f5 86000000 		.4byte	.LASF26
+ARM GAS  /tmp/ccr1s1KF.s 			page 8
+
+
+ 305 00f9 01       		.byte	0x1
+ 306 00fa 33       		.byte	0x33
+ 307 00fb 01       		.byte	0x1
+ 308 00fc 8D000000 		.4byte	0x8d
+ 309 0100 00000000 		.4byte	.LFB56
+ 310 0104 02000000 		.4byte	.LFE56
+ 311 0108 02       		.byte	0x2
+ 312 0109 7D       		.byte	0x7d
+ 313 010a 00       		.sleb128 0
+ 314 010b 01       		.byte	0x1
+ 315 010c 27010000 		.4byte	0x127
+ 316 0110 09       		.uleb128 0x9
+ 317 0111 7A010000 		.4byte	.LASF19
+ 318 0115 01       		.byte	0x1
+ 319 0116 35       		.byte	0x35
+ 320 0117 E8000000 		.4byte	0xe8
+ 321 011b 09       		.uleb128 0x9
+ 322 011c 20000000 		.4byte	.LASF20
+ 323 0120 01       		.byte	0x1
+ 324 0121 36       		.byte	0x36
+ 325 0122 49000000 		.4byte	0x49
+ 326 0126 00       		.byte	0
+ 327 0127 0A       		.uleb128 0xa
+ 328 0128 01       		.byte	0x1
+ 329 0129 80000000 		.4byte	.LASF27
+ 330 012d 01       		.byte	0x1
+ 331 012e 4F       		.byte	0x4f
+ 332 012f 01       		.byte	0x1
+ 333 0130 00000000 		.4byte	.LFB57
+ 334 0134 18000000 		.4byte	.LFE57
+ 335 0138 00000000 		.4byte	.LLST0
+ 336 013c 01       		.byte	0x1
+ 337 013d 4F010000 		.4byte	0x14f
+ 338 0141 0B       		.uleb128 0xb
+ 339 0142 2A000000 		.4byte	.LASF28
+ 340 0146 01       		.byte	0x1
+ 341 0147 4F       		.byte	0x4f
+ 342 0148 A2000000 		.4byte	0xa2
+ 343 014c 01       		.byte	0x1
+ 344 014d 50       		.byte	0x50
+ 345 014e 00       		.byte	0
+ 346 014f 0C       		.uleb128 0xc
+ 347 0150 01       		.byte	0x1
+ 348 0151 D1010000 		.4byte	.LASF29
+ 349 0155 01       		.byte	0x1
+ 350 0156 5B       		.byte	0x5b
+ 351 0157 01       		.byte	0x1
+ 352 0158 18000000 		.4byte	.LFB58
+ 353 015c 2C000000 		.4byte	.LFE58
+ 354 0160 02       		.byte	0x2
+ 355 0161 7D       		.byte	0x7d
+ 356 0162 00       		.sleb128 0
+ 357 0163 01       		.byte	0x1
+ 358 0164 0D       		.uleb128 0xd
+ 359 0165 10020000 		.4byte	.LASF30
+ 360 0169 01       		.byte	0x1
+ 361 016a 28       		.byte	0x28
+ARM GAS  /tmp/ccr1s1KF.s 			page 9
+
+
+ 362 016b A2000000 		.4byte	0xa2
+ 363 016f 05       		.byte	0x5
+ 364 0170 03       		.byte	0x3
+ 365 0171 00000000 		.4byte	TimingDelay
+ 366 0175 0E       		.uleb128 0xe
+ 367 0176 61000000 		.4byte	.LASF21
+ 368 017a 04       		.byte	0x4
+ 369 017b 1606     		.2byte	0x616
+ 370 017d 83010000 		.4byte	0x183
+ 371 0181 01       		.byte	0x1
+ 372 0182 01       		.byte	0x1
+ 373 0183 05       		.uleb128 0x5
+ 374 0184 5B000000 		.4byte	0x5b
+ 375 0188 0F       		.uleb128 0xf
+ 376 0189 05020000 		.4byte	.LASF22
+ 377 018d 01       		.byte	0x1
+ 378 018e 29       		.byte	0x29
+ 379 018f 30000000 		.4byte	0x30
+ 380 0193 01       		.byte	0x1
+ 381 0194 05       		.byte	0x5
+ 382 0195 03       		.byte	0x3
+ 383 0196 00000000 		.4byte	BlinkSpeed
+ 384 019a 00       		.byte	0
+ 385              		.section	.debug_abbrev,"",%progbits
+ 386              	.Ldebug_abbrev0:
+ 387 0000 01       		.uleb128 0x1
+ 388 0001 11       		.uleb128 0x11
+ 389 0002 01       		.byte	0x1
+ 390 0003 25       		.uleb128 0x25
+ 391 0004 0E       		.uleb128 0xe
+ 392 0005 13       		.uleb128 0x13
+ 393 0006 0B       		.uleb128 0xb
+ 394 0007 03       		.uleb128 0x3
+ 395 0008 0E       		.uleb128 0xe
+ 396 0009 1B       		.uleb128 0x1b
+ 397 000a 0E       		.uleb128 0xe
+ 398 000b 55       		.uleb128 0x55
+ 399 000c 06       		.uleb128 0x6
+ 400 000d 11       		.uleb128 0x11
+ 401 000e 01       		.uleb128 0x1
+ 402 000f 52       		.uleb128 0x52
+ 403 0010 01       		.uleb128 0x1
+ 404 0011 10       		.uleb128 0x10
+ 405 0012 06       		.uleb128 0x6
+ 406 0013 00       		.byte	0
+ 407 0014 00       		.byte	0
+ 408 0015 02       		.uleb128 0x2
+ 409 0016 24       		.uleb128 0x24
+ 410 0017 00       		.byte	0
+ 411 0018 0B       		.uleb128 0xb
+ 412 0019 0B       		.uleb128 0xb
+ 413 001a 3E       		.uleb128 0x3e
+ 414 001b 0B       		.uleb128 0xb
+ 415 001c 03       		.uleb128 0x3
+ 416 001d 0E       		.uleb128 0xe
+ 417 001e 00       		.byte	0
+ 418 001f 00       		.byte	0
+ARM GAS  /tmp/ccr1s1KF.s 			page 10
+
+
+ 419 0020 03       		.uleb128 0x3
+ 420 0021 16       		.uleb128 0x16
+ 421 0022 00       		.byte	0
+ 422 0023 03       		.uleb128 0x3
+ 423 0024 0E       		.uleb128 0xe
+ 424 0025 3A       		.uleb128 0x3a
+ 425 0026 0B       		.uleb128 0xb
+ 426 0027 3B       		.uleb128 0x3b
+ 427 0028 0B       		.uleb128 0xb
+ 428 0029 49       		.uleb128 0x49
+ 429 002a 13       		.uleb128 0x13
+ 430 002b 00       		.byte	0
+ 431 002c 00       		.byte	0
+ 432 002d 04       		.uleb128 0x4
+ 433 002e 24       		.uleb128 0x24
+ 434 002f 00       		.byte	0
+ 435 0030 0B       		.uleb128 0xb
+ 436 0031 0B       		.uleb128 0xb
+ 437 0032 3E       		.uleb128 0x3e
+ 438 0033 0B       		.uleb128 0xb
+ 439 0034 03       		.uleb128 0x3
+ 440 0035 08       		.uleb128 0x8
+ 441 0036 00       		.byte	0
+ 442 0037 00       		.byte	0
+ 443 0038 05       		.uleb128 0x5
+ 444 0039 35       		.uleb128 0x35
+ 445 003a 00       		.byte	0
+ 446 003b 49       		.uleb128 0x49
+ 447 003c 13       		.uleb128 0x13
+ 448 003d 00       		.byte	0
+ 449 003e 00       		.byte	0
+ 450 003f 06       		.uleb128 0x6
+ 451 0040 13       		.uleb128 0x13
+ 452 0041 01       		.byte	0x1
+ 453 0042 0B       		.uleb128 0xb
+ 454 0043 0B       		.uleb128 0xb
+ 455 0044 3A       		.uleb128 0x3a
+ 456 0045 0B       		.uleb128 0xb
+ 457 0046 3B       		.uleb128 0x3b
+ 458 0047 0B       		.uleb128 0xb
+ 459 0048 01       		.uleb128 0x1
+ 460 0049 13       		.uleb128 0x13
+ 461 004a 00       		.byte	0
+ 462 004b 00       		.byte	0
+ 463 004c 07       		.uleb128 0x7
+ 464 004d 0D       		.uleb128 0xd
+ 465 004e 00       		.byte	0
+ 466 004f 03       		.uleb128 0x3
+ 467 0050 0E       		.uleb128 0xe
+ 468 0051 3A       		.uleb128 0x3a
+ 469 0052 0B       		.uleb128 0xb
+ 470 0053 3B       		.uleb128 0x3b
+ 471 0054 0B       		.uleb128 0xb
+ 472 0055 49       		.uleb128 0x49
+ 473 0056 13       		.uleb128 0x13
+ 474 0057 38       		.uleb128 0x38
+ 475 0058 0A       		.uleb128 0xa
+ARM GAS  /tmp/ccr1s1KF.s 			page 11
+
+
+ 476 0059 00       		.byte	0
+ 477 005a 00       		.byte	0
+ 478 005b 08       		.uleb128 0x8
+ 479 005c 2E       		.uleb128 0x2e
+ 480 005d 01       		.byte	0x1
+ 481 005e 3F       		.uleb128 0x3f
+ 482 005f 0C       		.uleb128 0xc
+ 483 0060 03       		.uleb128 0x3
+ 484 0061 0E       		.uleb128 0xe
+ 485 0062 3A       		.uleb128 0x3a
+ 486 0063 0B       		.uleb128 0xb
+ 487 0064 3B       		.uleb128 0x3b
+ 488 0065 0B       		.uleb128 0xb
+ 489 0066 27       		.uleb128 0x27
+ 490 0067 0C       		.uleb128 0xc
+ 491 0068 49       		.uleb128 0x49
+ 492 0069 13       		.uleb128 0x13
+ 493 006a 11       		.uleb128 0x11
+ 494 006b 01       		.uleb128 0x1
+ 495 006c 12       		.uleb128 0x12
+ 496 006d 01       		.uleb128 0x1
+ 497 006e 40       		.uleb128 0x40
+ 498 006f 0A       		.uleb128 0xa
+ 499 0070 9742     		.uleb128 0x2117
+ 500 0072 0C       		.uleb128 0xc
+ 501 0073 01       		.uleb128 0x1
+ 502 0074 13       		.uleb128 0x13
+ 503 0075 00       		.byte	0
+ 504 0076 00       		.byte	0
+ 505 0077 09       		.uleb128 0x9
+ 506 0078 34       		.uleb128 0x34
+ 507 0079 00       		.byte	0
+ 508 007a 03       		.uleb128 0x3
+ 509 007b 0E       		.uleb128 0xe
+ 510 007c 3A       		.uleb128 0x3a
+ 511 007d 0B       		.uleb128 0xb
+ 512 007e 3B       		.uleb128 0x3b
+ 513 007f 0B       		.uleb128 0xb
+ 514 0080 49       		.uleb128 0x49
+ 515 0081 13       		.uleb128 0x13
+ 516 0082 00       		.byte	0
+ 517 0083 00       		.byte	0
+ 518 0084 0A       		.uleb128 0xa
+ 519 0085 2E       		.uleb128 0x2e
+ 520 0086 01       		.byte	0x1
+ 521 0087 3F       		.uleb128 0x3f
+ 522 0088 0C       		.uleb128 0xc
+ 523 0089 03       		.uleb128 0x3
+ 524 008a 0E       		.uleb128 0xe
+ 525 008b 3A       		.uleb128 0x3a
+ 526 008c 0B       		.uleb128 0xb
+ 527 008d 3B       		.uleb128 0x3b
+ 528 008e 0B       		.uleb128 0xb
+ 529 008f 27       		.uleb128 0x27
+ 530 0090 0C       		.uleb128 0xc
+ 531 0091 11       		.uleb128 0x11
+ 532 0092 01       		.uleb128 0x1
+ARM GAS  /tmp/ccr1s1KF.s 			page 12
+
+
+ 533 0093 12       		.uleb128 0x12
+ 534 0094 01       		.uleb128 0x1
+ 535 0095 40       		.uleb128 0x40
+ 536 0096 06       		.uleb128 0x6
+ 537 0097 9742     		.uleb128 0x2117
+ 538 0099 0C       		.uleb128 0xc
+ 539 009a 01       		.uleb128 0x1
+ 540 009b 13       		.uleb128 0x13
+ 541 009c 00       		.byte	0
+ 542 009d 00       		.byte	0
+ 543 009e 0B       		.uleb128 0xb
+ 544 009f 05       		.uleb128 0x5
+ 545 00a0 00       		.byte	0
+ 546 00a1 03       		.uleb128 0x3
+ 547 00a2 0E       		.uleb128 0xe
+ 548 00a3 3A       		.uleb128 0x3a
+ 549 00a4 0B       		.uleb128 0xb
+ 550 00a5 3B       		.uleb128 0x3b
+ 551 00a6 0B       		.uleb128 0xb
+ 552 00a7 49       		.uleb128 0x49
+ 553 00a8 13       		.uleb128 0x13
+ 554 00a9 02       		.uleb128 0x2
+ 555 00aa 0A       		.uleb128 0xa
+ 556 00ab 00       		.byte	0
+ 557 00ac 00       		.byte	0
+ 558 00ad 0C       		.uleb128 0xc
+ 559 00ae 2E       		.uleb128 0x2e
+ 560 00af 00       		.byte	0
+ 561 00b0 3F       		.uleb128 0x3f
+ 562 00b1 0C       		.uleb128 0xc
+ 563 00b2 03       		.uleb128 0x3
+ 564 00b3 0E       		.uleb128 0xe
+ 565 00b4 3A       		.uleb128 0x3a
+ 566 00b5 0B       		.uleb128 0xb
+ 567 00b6 3B       		.uleb128 0x3b
+ 568 00b7 0B       		.uleb128 0xb
+ 569 00b8 27       		.uleb128 0x27
+ 570 00b9 0C       		.uleb128 0xc
+ 571 00ba 11       		.uleb128 0x11
+ 572 00bb 01       		.uleb128 0x1
+ 573 00bc 12       		.uleb128 0x12
+ 574 00bd 01       		.uleb128 0x1
+ 575 00be 40       		.uleb128 0x40
+ 576 00bf 0A       		.uleb128 0xa
+ 577 00c0 9742     		.uleb128 0x2117
+ 578 00c2 0C       		.uleb128 0xc
+ 579 00c3 00       		.byte	0
+ 580 00c4 00       		.byte	0
+ 581 00c5 0D       		.uleb128 0xd
+ 582 00c6 34       		.uleb128 0x34
+ 583 00c7 00       		.byte	0
+ 584 00c8 03       		.uleb128 0x3
+ 585 00c9 0E       		.uleb128 0xe
+ 586 00ca 3A       		.uleb128 0x3a
+ 587 00cb 0B       		.uleb128 0xb
+ 588 00cc 3B       		.uleb128 0x3b
+ 589 00cd 0B       		.uleb128 0xb
+ARM GAS  /tmp/ccr1s1KF.s 			page 13
+
+
+ 590 00ce 49       		.uleb128 0x49
+ 591 00cf 13       		.uleb128 0x13
+ 592 00d0 02       		.uleb128 0x2
+ 593 00d1 0A       		.uleb128 0xa
+ 594 00d2 00       		.byte	0
+ 595 00d3 00       		.byte	0
+ 596 00d4 0E       		.uleb128 0xe
+ 597 00d5 34       		.uleb128 0x34
+ 598 00d6 00       		.byte	0
+ 599 00d7 03       		.uleb128 0x3
+ 600 00d8 0E       		.uleb128 0xe
+ 601 00d9 3A       		.uleb128 0x3a
+ 602 00da 0B       		.uleb128 0xb
+ 603 00db 3B       		.uleb128 0x3b
+ 604 00dc 05       		.uleb128 0x5
+ 605 00dd 49       		.uleb128 0x49
+ 606 00de 13       		.uleb128 0x13
+ 607 00df 3F       		.uleb128 0x3f
+ 608 00e0 0C       		.uleb128 0xc
+ 609 00e1 3C       		.uleb128 0x3c
+ 610 00e2 0C       		.uleb128 0xc
+ 611 00e3 00       		.byte	0
+ 612 00e4 00       		.byte	0
+ 613 00e5 0F       		.uleb128 0xf
+ 614 00e6 34       		.uleb128 0x34
+ 615 00e7 00       		.byte	0
+ 616 00e8 03       		.uleb128 0x3
+ 617 00e9 0E       		.uleb128 0xe
+ 618 00ea 3A       		.uleb128 0x3a
+ 619 00eb 0B       		.uleb128 0xb
+ 620 00ec 3B       		.uleb128 0x3b
+ 621 00ed 0B       		.uleb128 0xb
+ 622 00ee 49       		.uleb128 0x49
+ 623 00ef 13       		.uleb128 0x13
+ 624 00f0 3F       		.uleb128 0x3f
+ 625 00f1 0C       		.uleb128 0xc
+ 626 00f2 02       		.uleb128 0x2
+ 627 00f3 0A       		.uleb128 0xa
+ 628 00f4 00       		.byte	0
+ 629 00f5 00       		.byte	0
+ 630 00f6 00       		.byte	0
+ 631              		.section	.debug_loc,"",%progbits
+ 632              	.Ldebug_loc0:
+ 633              	.LLST0:
+ 634 0000 00000000 		.4byte	.LFB57
+ 635 0004 02000000 		.4byte	.LCFI0
+ 636 0008 0200     		.2byte	0x2
+ 637 000a 7D       		.byte	0x7d
+ 638 000b 00       		.sleb128 0
+ 639 000c 02000000 		.4byte	.LCFI0
+ 640 0010 18000000 		.4byte	.LFE57
+ 641 0014 0200     		.2byte	0x2
+ 642 0016 7D       		.byte	0x7d
+ 643 0017 08       		.sleb128 8
+ 644 0018 00000000 		.4byte	0
+ 645 001c 00000000 		.4byte	0
+ 646              		.section	.debug_aranges,"",%progbits
+ARM GAS  /tmp/ccr1s1KF.s 			page 14
+
+
+ 647 0000 24000000 		.4byte	0x24
+ 648 0004 0200     		.2byte	0x2
+ 649 0006 00000000 		.4byte	.Ldebug_info0
+ 650 000a 04       		.byte	0x4
+ 651 000b 00       		.byte	0
+ 652 000c 0000     		.2byte	0
+ 653 000e 0000     		.2byte	0
+ 654 0010 00000000 		.4byte	.Ltext0
+ 655 0014 2C000000 		.4byte	.Letext0-.Ltext0
+ 656 0018 00000000 		.4byte	.LFB56
+ 657 001c 02000000 		.4byte	.LFE56-.LFB56
+ 658 0020 00000000 		.4byte	0
+ 659 0024 00000000 		.4byte	0
+ 660              		.section	.debug_ranges,"",%progbits
+ 661              	.Ldebug_ranges0:
+ 662 0000 00000000 		.4byte	.Ltext0
+ 663 0004 2C000000 		.4byte	.Letext0
+ 664 0008 00000000 		.4byte	.LFB56
+ 665 000c 02000000 		.4byte	.LFE56
+ 666 0010 00000000 		.4byte	0
+ 667 0014 00000000 		.4byte	0
+ 668              		.section	.debug_line,"",%progbits
+ 669              	.Ldebug_line0:
+ 670 0000 10010000 		.section	.debug_str,"MS",%progbits,1
+ 670      0200DF00 
+ 670      00000201 
+ 670      FB0E0D00 
+ 670      01010101 
+ 671              	.LASF25:
+ 672 0000 2F686F6D 		.ascii	"/home/zbanks/hackboard/firmware\000"
+ 672      652F7A62 
+ 672      616E6B73 
+ 672      2F686163 
+ 672      6B626F61 
+ 673              	.LASF20:
+ 674 0020 74656D70 		.ascii	"temp_volt\000"
+ 674      5F766F6C 
+ 674      7400
+ 675              	.LASF28:
+ 676 002a 6E54696D 		.ascii	"nTime\000"
+ 676      6500
+ 677              	.LASF1:
+ 678 0030 756E7369 		.ascii	"unsigned char\000"
+ 678      676E6564 
+ 678      20636861 
+ 678      7200
+ 679              	.LASF17:
+ 680 003e 50434C4B 		.ascii	"PCLK2_Frequency\000"
+ 680      325F4672 
+ 680      65717565 
+ 680      6E637900 
+ 681              	.LASF5:
+ 682 004e 73686F72 		.ascii	"short unsigned int\000"
+ 682      7420756E 
+ 682      7369676E 
+ 682      65642069 
+ 682      6E7400
+ARM GAS  /tmp/ccr1s1KF.s 			page 15
+
+
+ 683              	.LASF21:
+ 684 0061 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 684      52784275 
+ 684      66666572 
+ 684      00
+ 685              	.LASF9:
+ 686 006e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 686      20756E73 
+ 686      69676E65 
+ 686      6420696E 
+ 686      7400
+ 687              	.LASF27:
+ 688 0080 44656C61 		.ascii	"Delay\000"
+ 688      7900
+ 689              	.LASF26:
+ 690 0086 6D61696E 		.ascii	"main\000"
+ 690      00
+ 691              	.LASF23:
+ 692 008b 474E5520 		.ascii	"GNU C 4.8.3 20131129 (release) [ARM/embedded-4_8-br"
+ 692      4320342E 
+ 692      382E3320 
+ 692      32303133 
+ 692      31313239 
+ 693 00be 616E6368 		.ascii	"anch revision 205641] -mcpu=cortex-m3 -mthumb -g -g"
+ 693      20726576 
+ 693      6973696F 
+ 693      6E203230 
+ 693      35363431 
+ 694 00f1 64776172 		.ascii	"dwarf-2 -O3 -std=c99 -fomit-frame-pointer\000"
+ 694      662D3220 
+ 694      2D4F3320 
+ 694      2D737464 
+ 694      3D633939 
+ 695              	.LASF12:
+ 696 011b 756E7369 		.ascii	"unsigned int\000"
+ 696      676E6564 
+ 696      20696E74 
+ 696      00
+ 697              	.LASF18:
+ 698 0128 5243435F 		.ascii	"RCC_ClocksTypeDef\000"
+ 698      436C6F63 
+ 698      6B735479 
+ 698      70654465 
+ 698      6600
+ 699              	.LASF11:
+ 700 013a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 700      206C6F6E 
+ 700      6720756E 
+ 700      7369676E 
+ 700      65642069 
+ 701              	.LASF3:
+ 702 0151 75696E74 		.ascii	"uint8_t\000"
+ 702      385F7400 
+ 703              	.LASF16:
+ 704 0159 50434C4B 		.ascii	"PCLK1_Frequency\000"
+ 704      315F4672 
+ 704      65717565 
+ARM GAS  /tmp/ccr1s1KF.s 			page 16
+
+
+ 704      6E637900 
+ 705              	.LASF14:
+ 706 0169 53595343 		.ascii	"SYSCLK_Frequency\000"
+ 706      4C4B5F46 
+ 706      72657175 
+ 706      656E6379 
+ 706      00
+ 707              	.LASF19:
+ 708 017a 5243435F 		.ascii	"RCC_Clocks\000"
+ 708      436C6F63 
+ 708      6B7300
+ 709              	.LASF6:
+ 710 0185 696E7433 		.ascii	"int32_t\000"
+ 710      325F7400 
+ 711              	.LASF13:
+ 712 018d 73697A65 		.ascii	"sizetype\000"
+ 712      74797065 
+ 712      00
+ 713              	.LASF10:
+ 714 0196 6C6F6E67 		.ascii	"long long int\000"
+ 714      206C6F6E 
+ 714      6720696E 
+ 714      7400
+ 715              	.LASF24:
+ 716 01a4 7372632F 		.ascii	"src/main.c\000"
+ 716      6D61696E 
+ 716      2E6300
+ 717              	.LASF15:
+ 718 01af 48434C4B 		.ascii	"HCLK_Frequency\000"
+ 718      5F467265 
+ 718      7175656E 
+ 718      637900
+ 719              	.LASF2:
+ 720 01be 73686F72 		.ascii	"short int\000"
+ 720      7420696E 
+ 720      7400
+ 721              	.LASF4:
+ 722 01c8 75696E74 		.ascii	"uint16_t\000"
+ 722      31365F74 
+ 722      00
+ 723              	.LASF29:
+ 724 01d1 54696D69 		.ascii	"TimingDelay_Decrement\000"
+ 724      6E674465 
+ 724      6C61795F 
+ 724      44656372 
+ 724      656D656E 
+ 725              	.LASF8:
+ 726 01e7 75696E74 		.ascii	"uint32_t\000"
+ 726      33325F74 
+ 726      00
+ 727              	.LASF7:
+ 728 01f0 6C6F6E67 		.ascii	"long int\000"
+ 728      20696E74 
+ 728      00
+ 729              	.LASF0:
+ 730 01f9 7369676E 		.ascii	"signed char\000"
+ 730      65642063 
+ARM GAS  /tmp/ccr1s1KF.s 			page 17
+
+
+ 730      68617200 
+ 731              	.LASF22:
+ 732 0205 426C696E 		.ascii	"BlinkSpeed\000"
+ 732      6B537065 
+ 732      656400
+ 733              	.LASF30:
+ 734 0210 54696D69 		.ascii	"TimingDelay\000"
+ 734      6E674465 
+ 734      6C617900 
+ 735              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.3 20131129 (release) [ARM/embedded-4_8-br
+ARM GAS  /tmp/ccr1s1KF.s 			page 18
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/ccr1s1KF.s:73     .text.startup:00000000 $t
+     /tmp/ccr1s1KF.s:78     .text.startup:00000000 main
+     /tmp/ccr1s1KF.s:93     .text:00000000 $t
+     /tmp/ccr1s1KF.s:98     .text:00000000 Delay
+     /tmp/ccr1s1KF.s:128    .text:00000014 $d
+     /tmp/ccr1s1KF.s:132    .text:00000018 $t
+     /tmp/ccr1s1KF.s:137    .text:00000018 TimingDelay_Decrement
+     /tmp/ccr1s1KF.s:157    .text:00000028 $d
+     /tmp/ccr1s1KF.s:171    .bss:00000004 BlinkSpeed
+     /tmp/ccr1s1KF.s:163    .bss:00000000 $d
+     /tmp/ccr1s1KF.s:167    .bss:00000000 TimingDelay
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS
