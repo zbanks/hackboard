@@ -2,10 +2,10 @@
   ******************************************************************************
   * @file    stm32l1xx.h
   * @author  MCD Application Team
-  * @version V1.2.1
-  * @date    19-June-2013
-  * @brief   CMSIS Cortex-M3 Device Peripheral Access Layer Header File.
-  *          This file contains all the peripheral register's definitions, bits
+  * @version V1.2.0
+  * @date    22-February-2013
+  * @brief   CMSIS Cortex-M3 Device Peripheral Access Layer Header File. 
+  *          This file contains all the peripheral register's definitions, bits 
   *          definitions and memory mapping for STM32L1xx High-density, Medium-density
   *          and Medium-density Plus devices.
   *
@@ -13,11 +13,11 @@
   *          is using in the C source code, usually in main.c. This file contains:
   *           - Configuration section that allows to select:
   *              - The device used in the target application
-  *              - To use or not the peripheral’s drivers in application code(i.e.
-  *                code will be based on direct access to peripheral’s registers
-  *                rather than drivers API), this option is controlled by
+  *              - To use or not the peripheral’s drivers in application code(i.e. 
+  *                code will be based on direct access to peripheral’s registers 
+  *                rather than drivers API), this option is controlled by 
   *                "#define USE_STDPERIPH_DRIVER"
-  *              - To change few application-specific parameters such as the HSE
+  *              - To change few application-specific parameters such as the HSE 
   *                crystal frequency
   *           - Data structures and the address mapping for all peripherals
   *           - Peripheral's registers declarations and bits definition
@@ -34,8 +34,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software
-  * distributed under the License is distributed on an "AS IS" BASIS,
+  * Unless required by applicable law or agreed to in writing, software 
+  * distributed under the License is distributed on an "AS IS" BASIS, 
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -50,33 +50,33 @@
 /** @addtogroup stm32l1xx
   * @{
   */
-
+    
 #ifndef __STM32L1XX_H
 #define __STM32L1XX_H
 
 #ifdef __cplusplus
  extern "C" {
-#endif
-
+#endif 
+  
 /** @addtogroup Library_configuration_section
   * @{
   */
-
-/* Uncomment the line below according to the target STM32L device used in your
-   application
+  
+/* Uncomment the line below according to the target STM32L device used in your 
+   application 
   */
 
 #if !defined (STM32L1XX_MD) && !defined (STM32L1XX_MDP) && !defined (STM32L1XX_HD)
 
-/* #define STM32L1XX_MD  */   /*!< - Ultra Low Power Medium-density devices: STM32L151x6xx, STM32L151x8xx,
-                                     STM32L151xBxx, STM32L152x6xx, STM32L152x8xx and STM32L152xBxx.
+ #define STM32L1XX_MD    /*!< - Ultra Low Power Medium-density devices: STM32L151x6xx, STM32L151x8xx,
+                                     STM32L151xBxx, STM32L152x6xx, STM32L152x8xx and STM32L152xBxx. 
                                    - Ultra Low Power Medium-density Value Line devices: STM32L100x6xx,
                                      STM32L100x8xx and STM32L100xBxx.  */
 
-/* #define STM32L1XX_MDP */   /*!< - Ultra Low Power Medium-density Plus devices: STM32L151xCxx, STM32L152xCxx and STM32L162xCxx
+/* #define STM32L1XX_MDP */   /*!< - Ultra Low Power Medium-density Plus devices: STM32L151xCxx, STM32L152xCxx and STM32L162xCxx 
                                    - Ultra Low Power Medium-density Plus Value Line devices: STM32L100xCxx  */
 
-#define STM32L1XX_HD     /*!< Ultra Low Power High-density devices: STM32L151xDxx, STM32L152xDxx and STM32L162xDxx */
+//#define STM32L1XX_HD     /*!< Ultra Low Power High-density devices: STM32L151xDxx, STM32L152xDxx and STM32L162xDxx */
 #endif
 /*  Tip: To avoid modifying this file each time you need to switch between these
         devices, you can define the device in your toolchain compiler preprocessor.
@@ -89,16 +89,16 @@
 #if !defined  USE_STDPERIPH_DRIVER
 /**
  * @brief Comment the line below if you will not use the peripherals drivers.
-   In this case, these drivers will not be included and the application code will
-   be based on direct access to peripherals registers
+   In this case, these drivers will not be included and the application code will 
+   be based on direct access to peripherals registers 
    */
-  #define USE_STDPERIPH_DRIVER
+  /*#define USE_STDPERIPH_DRIVER*/
 #endif
 
 /**
  * @brief In the following line adjust the value of External High Speed oscillator (HSE)
-   used in your application
-
+   used in your application 
+   
    Tip: To avoid modifying this file each time you need to use different HSE, you
         can define the HSE value in your toolchain compiler preprocessor.
   */
@@ -107,16 +107,16 @@
 #endif
 
 /**
- * @brief In the following line adjust the External High Speed oscillator (HSE) Startup
-   Timeout value
+ * @brief In the following line adjust the External High Speed oscillator (HSE) Startup 
+   Timeout value 
    */
 #if !defined  (HSE_STARTUP_TIMEOUT)
 #define HSE_STARTUP_TIMEOUT   ((uint16_t)0x0500) /*!< Time out for HSE start up */
 #endif
 
 /**
- * @brief In the following line adjust the Internal High Speed oscillator (HSI) Startup
-   Timeout value
+ * @brief In the following line adjust the Internal High Speed oscillator (HSI) Startup 
+   Timeout value 
    */
 #if !defined  (HSI_STARTUP_TIMEOUT)
 #define HSI_STARTUP_TIMEOUT   ((uint16_t)0x0500) /*!< Time out for HSI start up */
@@ -139,12 +139,12 @@
 #endif
 
 /**
- * @brief STM32L1xx Standard Peripheral Library version number V1.2.1
+ * @brief STM32L1xx Standard Peripheral Library version number V1.2.0
    */
 #define __STM32L1XX_STDPERIPH_VERSION_MAIN   (0x01) /*!< [31:24] main version */
 #define __STM32L1XX_STDPERIPH_VERSION_SUB1   (0x02) /*!< [23:16] sub1 version */
-#define __STM32L1XX_STDPERIPH_VERSION_SUB2   (0x01) /*!< [15:8]  sub2 version */
-#define __STM32L1XX_STDPERIPH_VERSION_RC     (0x00) /*!< [7:0]  release candidate */
+#define __STM32L1XX_STDPERIPH_VERSION_SUB2   (0x00) /*!< [15:8]  sub2 version */
+#define __STM32L1XX_STDPERIPH_VERSION_RC     (0x00) /*!< [7:0]  release candidate */ 
 #define __STM32L1XX_STDPERIPH_VERSION       ( (__STM32L1XX_STDPERIPH_VERSION_MAIN << 24)\
                                              |(__STM32L1XX_STDPERIPH_VERSION_SUB1 << 16)\
                                              |(__STM32L1XX_STDPERIPH_VERSION_SUB2 << 8)\
@@ -159,14 +159,14 @@
   */
 
 /**
- * @brief STM32L1xx Interrupt Number Definition, according to the selected device
- *        in @ref Library_configuration_section
+ * @brief STM32L1xx Interrupt Number Definition, according to the selected device 
+ *        in @ref Library_configuration_section 
  */
 #define __CM3_REV                 0x200 /*!< Cortex-M3 Revision r2p0                      */
 #define __MPU_PRESENT             1     /*!< STM32L1 provides MPU                         */
 #define __NVIC_PRIO_BITS          4     /*!< STM32L1 uses 4 Bits for the Priority Levels  */
 #define __Vendor_SysTickConfig    0     /*!< Set to 1 if different SysTick Config is used */
-
+ 
 /*!< Interrupt Number Definition */
 typedef enum IRQn
 {
@@ -269,7 +269,7 @@ typedef enum IRQn
 
 /** @addtogroup Exported_types
   * @{
-  */
+  */  
 
 typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus;
 
@@ -278,41 +278,41 @@ typedef enum {DISABLE = 0, ENABLE = !DISABLE} FunctionalState;
 
 typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
 
-/**
+/** 
   * @brief  __RAM_FUNC definition
-  */
+  */ 
 #if defined ( __CC_ARM   )
 /* ARM Compiler
    ------------
-   RAM functions are defined using the toolchain options.
+   RAM functions are defined using the toolchain options. 
    Functions that are executed in RAM should reside in a separate source module.
-   Using the 'Options for File' dialog you can simply change the 'Code / Const'
+   Using the 'Options for File' dialog you can simply change the 'Code / Const' 
    area of a module to a memory space in physical RAM.
    Available memory areas are declared in the 'Target' tab of the 'Options for Target'
-   dialog.
+   dialog. 
 */
- #define __RAM_FUNC FLASH_Status
+ #define __RAM_FUNC FLASH_Status 
 
 #elif defined ( __ICCARM__ )
 /* ICCARM Compiler
    ---------------
-   RAM functions are defined using a specific toolchain keyword "__ramfunc".
+   RAM functions are defined using a specific toolchain keyword "__ramfunc". 
 */
  #define __RAM_FUNC __ramfunc FLASH_Status
 
 #elif defined   (  __GNUC__  )
 /* GNU Compiler
    ------------
-   RAM functions are defined using a specific toolchain attribute
-   "__attribute__((section(".data")))".
+   RAM functions are defined using a specific toolchain attribute 
+   "__attribute__((section(".data")))". 
 */
  #define __RAM_FUNC FLASH_Status __attribute__((section(".data")))
 
 #elif defined   (  __TASKING__  )
 /* TASKING Compiler
    ----------------
-   RAM functions are defined using a specific toolchain pragma. This pragma is
-   defined in the stm32l1xx_flash_ramfunc.c
+   RAM functions are defined using a specific toolchain pragma. This pragma is 
+   defined in the stm32l1xx_flash_ramfunc.c 
 */
  #define __RAM_FUNC  FLASH_Status
 
@@ -324,9 +324,9 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
 
 /** @addtogroup Peripheral_registers_structures
   * @{
-  */
+  */   
 
-/**
+/** 
   * @brief Analog to Digital Converter
   */
 
@@ -365,7 +365,7 @@ typedef struct
 } ADC_Common_TypeDef;
 
 
-/**
+/** 
   * @brief AES hardware accelerator
   */
 
@@ -385,8 +385,8 @@ typedef struct
   __IO uint32_t IVR3;         /*!< AES initialization vector register 3,        Address offset: 0x2C */
 } AES_TypeDef;
 
-/**
-  * @brief Comparator
+/** 
+  * @brief Comparator 
   */
 
 typedef struct
@@ -394,7 +394,7 @@ typedef struct
   __IO uint32_t CSR;          /*!< COMP comparator control and status register, Address offset: 0x00 */
 } COMP_TypeDef;
 
-/**
+/** 
   * @brief CRC calculation unit
   */
 
@@ -404,10 +404,10 @@ typedef struct
   __IO uint8_t  IDR;          /*!< CRC Independent data register,               Address offset: 0x04 */
   uint8_t   RESERVED0;        /*!< Reserved,                                    0x05                 */
   uint16_t  RESERVED1;        /*!< Reserved,                                    0x06                 */
-  __IO uint32_t CR;           /*!< CRC Control register,                        Address offset: 0x08 */
+  __IO uint32_t CR;           /*!< CRC Control register,                        Address offset: 0x08 */ 
 } CRC_TypeDef;
 
-/**
+/** 
   * @brief Digital to Analog Converter
   */
 
@@ -429,7 +429,7 @@ typedef struct
   __IO uint32_t SR;           /*!< DAC status register,                                      Address offset: 0x34 */
 } DAC_TypeDef;
 
-/**
+/** 
   * @brief Debug MCU
   */
 
@@ -441,7 +441,7 @@ typedef struct
   __IO uint32_t APB2FZ;       /*!< Debug MCU APB2 freeze register,              Address offset: 0x0C */
 }DBGMCU_TypeDef;
 
-/**
+/** 
   * @brief DMA Controller
   */
 
@@ -459,7 +459,7 @@ typedef struct
   __IO uint32_t IFCR;         /*!< DMA interrupt flag clear register,           Address offset: 0x04 */
 } DMA_TypeDef;
 
-/**
+/** 
   * @brief External Interrupt/Event Controller
   */
 
@@ -473,7 +473,7 @@ typedef struct
   __IO uint32_t PR;           /*!< EXTI pending register,                        Address offset: 0x14 */
 } EXTI_TypeDef;
 
-/**
+/** 
   * @brief FLASH Registers
   */
 
@@ -493,10 +493,10 @@ typedef struct
   __IO uint32_t WRPR2;        /*!< Write protection register 2,                 Address offset: 0x2C */
 } FLASH_TypeDef;
 
-/**
+/** 
   * @brief Option Bytes Registers
   */
-
+  
 typedef struct
 {
   __IO uint32_t RDP;               /*!< Read protection register,               Address offset: 0x00 */
@@ -509,36 +509,36 @@ typedef struct
   __IO uint32_t WRP1011;           /*!< write protection register 10 11,        Address offset: 0x1C */
 } OB_TypeDef;
 
-/**
+/** 
   * @brief Operational Amplifier (OPAMP)
   */
 
 typedef struct
 {
   __IO uint32_t CSR;          /*!< OPAMP control/status register,                     Address offset: 0x00 */
-  __IO uint32_t OTR;          /*!< OPAMP offset trimming register for normal mode,    Address offset: 0x04 */
+  __IO uint32_t OTR;          /*!< OPAMP offset trimming register for normal mode,    Address offset: 0x04 */ 
   __IO uint32_t LPOTR;        /*!< OPAMP offset trimming register for low power mode, Address offset: 0x08 */
 } OPAMP_TypeDef;
 
-/**
+/** 
   * @brief Flexible Static Memory Controller
   */
 
 typedef struct
 {
   __IO uint32_t BTCR[8];      /*!< NOR/PSRAM chip-select control register(BCR) and chip-select timing register(BTR), Address offset: 0x00-1C */
-} FSMC_Bank1_TypeDef;
+} FSMC_Bank1_TypeDef; 
 
-/**
+/** 
   * @brief Flexible Static Memory Controller Bank1E
   */
-
+  
 typedef struct
 {
   __IO uint32_t BWTR[7];      /*!< NOR/PSRAM write timing registers, Address offset: 0x104-0x11C */
-} FSMC_Bank1E_TypeDef;
+} FSMC_Bank1E_TypeDef;        
 
-/**
+/** 
   * @brief General Purpose IO
   */
 
@@ -561,7 +561,7 @@ typedef struct
   uint16_t RESERVED3;         /*!< Reserved,                                    0x2A                      */
 } GPIO_TypeDef;
 
-/**
+/** 
   * @brief SysTem Configuration
   */
 
@@ -572,7 +572,7 @@ typedef struct
   __IO uint32_t EXTICR[4];    /*!< SYSCFG external interrupt configuration registers, Address offset: 0x08-0x14 */
 } SYSCFG_TypeDef;
 
-/**
+/** 
   * @brief Inter-integrated Circuit Interface
   */
 
@@ -598,7 +598,7 @@ typedef struct
   uint16_t  RESERVED8;        /*!< Reserved,                                    0x22                 */
 } I2C_TypeDef;
 
-/**
+/** 
   * @brief Independent WATCHDOG
   */
 
@@ -611,7 +611,7 @@ typedef struct
 } IWDG_TypeDef;
 
 
-/**
+/** 
   * @brief LCD
   */
 
@@ -625,7 +625,7 @@ typedef struct
   __IO uint32_t RAM[16];   /*!< LCD display memory,           Address offset: 0x14-0x50 */
 } LCD_TypeDef;
 
-/**
+/** 
   * @brief Power Control
   */
 
@@ -635,7 +635,7 @@ typedef struct
   __IO uint32_t CSR;  /*!< PWR power control/status register, Address offset: 0x04 */
 } PWR_TypeDef;
 
-/**
+/** 
   * @brief Reset and Clock Control
   */
 
@@ -657,37 +657,22 @@ typedef struct
   __IO uint32_t CSR;           /*!< RCC Control/status register,                                  Address offset: 0x34 */
 } RCC_TypeDef;
 
-/**
-  * @brief Routing Interface
+/** 
+  * @brief Routing Interface 
   */
 
 typedef struct
 {
-  __IO uint32_t ICR;       /*!< RI input capture register,                           Address offset: 0x04 */
-  __IO uint32_t ASCR1;     /*!< RI analog switches control register,                 Address offset: 0x08 */
-  __IO uint32_t ASCR2;     /*!< RI analog switch control register 2,                 Address offset: 0x0C */
-  __IO uint32_t HYSCR1;    /*!< RI hysteresis control register 1,                    Address offset: 0x10 */
-  __IO uint32_t HYSCR2;    /*!< RI Hysteresis control register 2,                    Address offset: 0x14 */
-  __IO uint32_t HYSCR3;    /*!< RI Hysteresis control register 3,                    Address offset: 0x18 */
-  __IO uint32_t HYSCR4;    /*!< RI Hysteresis control register 4,                    Address offset: 0x1C */
-  __IO uint32_t ASMR1;     /*!< RI Analog switch mode register 1,                    Address offset: 0x20 */
-  __IO uint32_t CMR1;      /*!< RI Channel mask register 1,                          Address offset: 0x24 */
-  __IO uint32_t CICR1;     /*!< RI Channel identification for capture register 1,    Address offset: 0x28 */
-  __IO uint32_t ASMR2;     /*!< RI Analog switch mode register 2,                    Address offset: 0x2C */
-  __IO uint32_t CMR2;      /*!< RI Channel mask register 2,                          Address offset: 0x30 */
-  __IO uint32_t CICR2;     /*!< RI Channel identification for capture register 2,    Address offset: 0x34 */
-  __IO uint32_t ASMR3;     /*!< RI Analog switch mode register 3,                    Address offset: 0x38 */
-  __IO uint32_t CMR3;      /*!< RI Channel mask register 3,                          Address offset: 0x3C */
-  __IO uint32_t CICR3;     /*!< RI Channel identification for capture register3 ,    Address offset: 0x40 */
-  __IO uint32_t ASMR4;     /*!< RI Analog switch mode register 4,                    Address offset: 0x44 */
-  __IO uint32_t CMR4;      /*!< RI Channel mask register 4,                          Address offset: 0x48 */
-  __IO uint32_t CICR4;     /*!< RI Channel identification for capture register 4,    Address offset: 0x4C */
-  __IO uint32_t ASMR5;     /*!< RI Analog switch mode register 5,                    Address offset: 0x50 */
-  __IO uint32_t CMR5;      /*!< RI Channel mask register 5,                          Address offset: 0x54 */
-  __IO uint32_t CICR5;     /*!< RI Channel identification for capture register 5,    Address offset: 0x58 */
+  __IO uint32_t ICR;       /*!< RI input capture register,             Address offset: 0x00 */
+  __IO uint32_t ASCR1;     /*!< RI analog switches control register,   Address offset: 0x04 */
+  __IO uint32_t ASCR2;     /*!< RI analog switch control register 2,   Address offset: 0x08 */
+  __IO uint32_t HYSCR1;     /*!< RI hysteresis control register,       Address offset: 0x0C */
+  __IO uint32_t HYSCR2;     /*!< RI Hysteresis control register,       Address offset: 0x10 */
+  __IO uint32_t HYSCR3;     /*!< RI Hysteresis control register,       Address offset: 0x14 */
+  __IO uint32_t HYSCR4;     /*!< RI Hysteresis control register,       Address offset: 0x18 */
 } RI_TypeDef;
 
-/**
+/** 
   * @brief Real-Time Clock
   */
 
@@ -695,7 +680,7 @@ typedef struct
 {
   __IO uint32_t TR;         /*!< RTC time register,                                         Address offset: 0x00 */
   __IO uint32_t DR;         /*!< RTC date register,                                         Address offset: 0x04 */
-  __IO uint32_t CR;         /*!< RTC control register,                                      Address offset: 0x08 */
+  __IO uint32_t CR;         /*!< RTC control register,                                      Address offset: 0x08 */                                                                                            
   __IO uint32_t ISR;        /*!< RTC initialization and status register,                    Address offset: 0x0C */
   __IO uint32_t PRER;       /*!< RTC prescaler register,                                    Address offset: 0x10 */
   __IO uint32_t WUTR;       /*!< RTC wakeup timer register,                                 Address offset: 0x14 */
@@ -747,7 +732,7 @@ typedef struct
   __IO uint32_t BKP31R;     /*!< RTC backup register 31,                                    Address offset: 0xCC */
 } RTC_TypeDef;
 
-/**
+/** 
   * @brief SD host Interface
   */
 
@@ -775,7 +760,7 @@ typedef struct
   __IO uint32_t FIFO;           /*!< SDIO data FIFO register,        Address offset: 0x80 */
 } SDIO_TypeDef;
 
-/**
+/** 
   * @brief Serial Peripheral Interface
   */
 
@@ -801,7 +786,7 @@ typedef struct
   uint16_t      RESERVED8;  /*!< Reserved, 0x22                                                           */
 } SPI_TypeDef;
 
-/**
+/** 
   * @brief TIM
   */
 
@@ -843,10 +828,10 @@ typedef struct
   uint16_t      RESERVED20;   /*!< Reserved, 0x52                                            */
 } TIM_TypeDef;
 
-/**
+/** 
   * @brief Universal Synchronous Asynchronous Receiver Transmitter
   */
-
+ 
 typedef struct
 {
   __IO uint16_t SR;         /*!< USART Status register,                   Address offset: 0x00 */
@@ -865,7 +850,7 @@ typedef struct
   uint16_t      RESERVED6;  /*!< Reserved, 0x1A                                                */
 } USART_TypeDef;
 
-/**
+/** 
   * @brief Window WATCHDOG
   */
 
@@ -879,7 +864,7 @@ typedef struct
 /**
   * @}
   */
-
+  
 /** @addtogroup Peripheral_memory_map
   * @{
   */
@@ -974,10 +959,10 @@ typedef struct
 /**
   * @}
   */
-
+  
 /** @addtogroup Peripheral_declaration
   * @{
-  */
+  */  
 
 #define TIM2                ((TIM_TypeDef *) TIM2_BASE)
 #define TIM3                ((TIM_TypeDef *) TIM3_BASE)
@@ -1042,7 +1027,7 @@ typedef struct
 #define GPIOG               ((GPIO_TypeDef *) GPIOG_BASE)
 
 #define FLASH               ((FLASH_TypeDef *) FLASH_R_BASE)
-#define OB                  ((OB_TypeDef *) OB_BASE)
+#define OB                  ((OB_TypeDef *) OB_BASE) 
 
 #define AES                 ((AES_TypeDef *) AES_BASE)
 
@@ -1062,7 +1047,7 @@ typedef struct
 /** @addtogroup Peripheral_Registers_Bits_Definition
   * @{
   */
-
+    
 /******************************************************************************/
 /*                         Peripheral Registers Bits Definition               */
 /******************************************************************************/
@@ -1116,7 +1101,7 @@ typedef struct
 #define  ADC_CR1_RES_1                       ((uint32_t)0x02000000)        /*!< Bit 1 */
 
 #define  ADC_CR1_OVRIE                       ((uint32_t)0x04000000)        /*!< Overrun interrupt enable */
-
+  
 /*******************  Bit definition for ADC_CR2 register  ********************/
 #define  ADC_CR2_ADON                        ((uint32_t)0x00000001)        /*!< A/D Converter ON / OFF */
 #define  ADC_CR2_CONT                        ((uint32_t)0x00000002)        /*!< Continuous Conversion */
@@ -1263,7 +1248,7 @@ typedef struct
 #define  ADC_SMPR3_SMP0_0                    ((uint32_t)0x00000001)        /*!< Bit 0 */
 #define  ADC_SMPR3_SMP0_1                    ((uint32_t)0x00000002)        /*!< Bit 1 */
 #define  ADC_SMPR3_SMP0_2                    ((uint32_t)0x00000004)        /*!< Bit 2 */
-
+ 
 #define  ADC_SMPR3_SMP1                      ((uint32_t)0x00000038)        /*!< SMP1[2:0] bits (Channel 1 Sample time selection) */
 #define  ADC_SMPR3_SMP1_0                    ((uint32_t)0x00000008)        /*!< Bit 0 */
 #define  ADC_SMPR3_SMP1_1                    ((uint32_t)0x00000010)        /*!< Bit 1 */
@@ -1536,7 +1521,7 @@ typedef struct
 
 
 /*******************  Bit definition for ADC_JSQR register  *******************/
-#define  ADC_JSQR_JSQ1                       ((uint32_t)0x0000001F)        /*!< JSQ1[4:0] bits (1st conversion in injected sequence) */
+#define  ADC_JSQR_JSQ1                       ((uint32_t)0x0000001F)        /*!< JSQ1[4:0] bits (1st conversion in injected sequence) */  
 #define  ADC_JSQR_JSQ1_0                     ((uint32_t)0x00000001)        /*!< Bit 0 */
 #define  ADC_JSQR_JSQ1_1                     ((uint32_t)0x00000002)        /*!< Bit 1 */
 #define  ADC_JSQR_JSQ1_2                     ((uint32_t)0x00000004)        /*!< Bit 2 */
@@ -1588,7 +1573,7 @@ typedef struct
 #define  ADC_SMPR3_SMP30_0                   ((uint32_t)0x00000001)        /*!< Bit 0 */
 #define  ADC_SMPR3_SMP30_1                   ((uint32_t)0x00000002)        /*!< Bit 1 */
 #define  ADC_SMPR3_SMP30_2                   ((uint32_t)0x00000004)        /*!< Bit 2 */
-
+ 
 #define  ADC_SMPR3_SMP31                     ((uint32_t)0x00000038)        /*!< SMP31[2:0] bits (Channel 31 Sample time selection) */
 #define  ADC_SMPR3_SMP31_0                   ((uint32_t)0x00000008)        /*!< Bit 0 */
 #define  ADC_SMPR3_SMP31_1                   ((uint32_t)0x00000010)        /*!< Bit 1 */
@@ -1606,7 +1591,7 @@ typedef struct
 /*******************  Bit definition for ADC_CCR register  ********************/
 #define  ADC_CCR_ADCPRE                      ((uint32_t)0x00030000)        /*!< ADC prescaler*/
 #define  ADC_CCR_ADCPRE_0                    ((uint32_t)0x00010000)        /*!< Bit 0 */
-#define  ADC_CCR_ADCPRE_1                    ((uint32_t)0x00020000)        /*!< Bit 1 */
+#define  ADC_CCR_ADCPRE_1                    ((uint32_t)0x00020000)        /*!< Bit 1 */ 
 #define  ADC_CCR_TSVREFE                     ((uint32_t)0x00800000)        /*!< Temperature Sensor and VREFINT Enable */
 
 /******************************************************************************/
@@ -1740,7 +1725,7 @@ typedef struct
 #define OPAMP_CSR_OPA3CAL_L                  ((uint32_t)0x00200000)        /*!< OPAMP3 Offset calibration for P differential pair */
 #define OPAMP_CSR_OPA3CAL_H                  ((uint32_t)0x00400000)        /*!< OPAMP3 Offset calibration for N differential pair */
 #define OPAMP_CSR_OPA3LPM                    ((uint32_t)0x00800000)        /*!< OPAMP3 Low power enable */
-#define OPAMP_CSR_ANAWSEL1                   ((uint32_t)0x01000000)        /*!< Switch ANA Enable for OPAMP1 */
+#define OPAMP_CSR_ANAWSEL1                   ((uint32_t)0x01000000)        /*!< Switch ANA Enable for OPAMP1 */ 
 #define OPAMP_CSR_ANAWSEL2                   ((uint32_t)0x02000000)        /*!< Switch ANA Enable for OPAMP2 */
 #define OPAMP_CSR_ANAWSEL3                   ((uint32_t)0x04000000)        /*!< Switch ANA Enable for OPAMP3 */
 #define OPAMP_CSR_S7SEL2                     ((uint32_t)0x08000000)        /*!< Switch 7 for OPAMP2 Enable */
@@ -2411,9 +2396,9 @@ typedef struct
 #define FLASH_PECR_ERASE                     ((uint32_t)0x00000200)        /*!< Page erasing mode */
 #define FLASH_PECR_FPRG                      ((uint32_t)0x00000400)        /*!< Fast Page/Half Page programming mode */
 #define FLASH_PECR_PARALLBANK                ((uint32_t)0x00008000)        /*!< Parallel Bank mode */
-#define FLASH_PECR_EOPIE                     ((uint32_t)0x00010000)        /*!< End of programming interrupt */
-#define FLASH_PECR_ERRIE                     ((uint32_t)0x00020000)        /*!< Error interrupt */
-#define FLASH_PECR_OBL_LAUNCH                ((uint32_t)0x00040000)        /*!< Launch the option byte loading */
+#define FLASH_PECR_EOPIE                     ((uint32_t)0x00010000)        /*!< End of programming interrupt */ 
+#define FLASH_PECR_ERRIE                     ((uint32_t)0x00020000)        /*!< Error interrupt */ 
+#define FLASH_PECR_OBL_LAUNCH                ((uint32_t)0x00040000)        /*!< Launch the option byte loading */ 
 
 /******************  Bit definition for FLASH_PDKEYR register  ******************/
 #define  FLASH_PDKEYR_PDKEYR                 ((uint32_t)0xFFFFFFFF)       /*!< FLASH_PEC and data matrix Key */
@@ -2442,7 +2427,7 @@ typedef struct
 
 /******************  Bit definition for FLASH_OBR register  *******************/
 #define  FLASH_OBR_RDPRT                     ((uint32_t)0x000000AA)        /*!< Read Protection */
-#define  FLASH_OBR_SPRMOD                    ((uint32_t)0x00000100)        /*!< Selection of protection mode of WPRi bits
+#define  FLASH_OBR_SPRMOD                    ((uint32_t)0x00000100)        /*!< Selection of protection mode of WPRi bits 
                                                                                 (available only in STM32L1xx Medium-density Plus devices) */
 #define  FLASH_OBR_BOR_LEV                   ((uint32_t)0x000F0000)        /*!< BOR_LEV[3:0] Brown Out Reset Threshold Level*/
 #define  FLASH_OBR_IWDG_SW                   ((uint32_t)0x00100000)        /*!< IWDG_SW */
@@ -2866,7 +2851,7 @@ typedef struct
 /*                      General Purpose IOs (GPIO)                            */
 /*                                                                            */
 /******************************************************************************/
-/*******************  Bit definition for GPIO_MODER register  *****************/
+/*******************  Bit definition for GPIO_MODER register  *****************/  
 #define GPIO_MODER_MODER0          ((uint32_t)0x00000003)
 #define GPIO_MODER_MODER0_0        ((uint32_t)0x00000001)
 #define GPIO_MODER_MODER0_1        ((uint32_t)0x00000002)
@@ -2916,7 +2901,7 @@ typedef struct
 #define GPIO_MODER_MODER15_0       ((uint32_t)0x40000000)
 #define GPIO_MODER_MODER15_1       ((uint32_t)0x80000000)
 
-/*******************  Bit definition for GPIO_OTYPER register  ****************/
+/*******************  Bit definition for GPIO_OTYPER register  ****************/   
 #define GPIO_OTYPER_OT_0           ((uint32_t)0x00000001)
 #define GPIO_OTYPER_OT_1           ((uint32_t)0x00000002)
 #define GPIO_OTYPER_OT_2           ((uint32_t)0x00000004)
@@ -2934,7 +2919,7 @@ typedef struct
 #define GPIO_OTYPER_OT_14          ((uint32_t)0x00004000)
 #define GPIO_OTYPER_OT_15          ((uint32_t)0x00008000)
 
-/*******************  Bit definition for GPIO_OSPEEDR register  ***************/
+/*******************  Bit definition for GPIO_OSPEEDR register  ***************/  
 #define GPIO_OSPEEDER_OSPEEDR0     ((uint32_t)0x00000003)
 #define GPIO_OSPEEDER_OSPEEDR0_0   ((uint32_t)0x00000001)
 #define GPIO_OSPEEDER_OSPEEDR0_1   ((uint32_t)0x00000002)
@@ -2984,7 +2969,7 @@ typedef struct
 #define GPIO_OSPEEDER_OSPEEDR15_0  ((uint32_t)0x40000000)
 #define GPIO_OSPEEDER_OSPEEDR15_1  ((uint32_t)0x80000000)
 
-/*******************  Bit definition for GPIO_PUPDR register  *****************/
+/*******************  Bit definition for GPIO_PUPDR register  *****************/  
 #define GPIO_PUPDR_PUPDR0          ((uint32_t)0x00000003)
 #define GPIO_PUPDR_PUPDR0_0        ((uint32_t)0x00000001)
 #define GPIO_PUPDR_PUPDR0_1        ((uint32_t)0x00000002)
@@ -3104,7 +3089,7 @@ typedef struct
 #define GPIO_OTYPER_ODR_14                   GPIO_ODR_ODR_14
 #define GPIO_OTYPER_ODR_15                   GPIO_ODR_ODR_15
 
-/*******************  Bit definition for GPIO_BSRR register  ******************/
+/*******************  Bit definition for GPIO_BSRR register  ******************/  
 #define GPIO_BSRR_BS_0             ((uint32_t)0x00000001)
 #define GPIO_BSRR_BS_1             ((uint32_t)0x00000002)
 #define GPIO_BSRR_BS_2             ((uint32_t)0x00000004)
@@ -3619,7 +3604,7 @@ typedef struct
 #define  RCC_AHBRSTR_DMA2RST                 ((uint32_t)0x02000000)        /*!< DMA2 reset */
 #define  RCC_AHBRSTR_AESRST                  ((uint32_t)0x08000000)        /*!< AES reset */
 #define  RCC_AHBRSTR_FSMCRST                 ((uint32_t)0x40000000)        /*!< FSMC reset */
-
+ 
 /*****************  Bit definition for RCC_APB2RSTR register  *****************/
 #define  RCC_APB2RSTR_SYSCFGRST              ((uint32_t)0x00000001)        /*!< System Configuration SYSCFG reset */
 #define  RCC_APB2RSTR_TIM9RST                ((uint32_t)0x00000004)        /*!< TIM9 reset */
@@ -3776,7 +3761,7 @@ typedef struct
 
 #define  RCC_CSR_RTCEN                      ((uint32_t)0x00400000)        /*!< RTC clock enable */
 #define  RCC_CSR_RTCRST                     ((uint32_t)0x00800000)        /*!< RTC reset  */
-
+ 
 #define  RCC_CSR_RMVF                       ((uint32_t)0x01000000)        /*!< Remove reset flag */
 #define  RCC_CSR_OBLRSTF                    ((uint32_t)0x02000000)        /*!< Option Bytes Loader reset flag */
 #define  RCC_CSR_PINRSTF                    ((uint32_t)0x04000000)        /*!< PIN reset flag */
@@ -4470,9 +4455,9 @@ typedef struct
 #define SYSCFG_EXTICR1_EXTI2            ((uint16_t)0x0F00) /*!< EXTI 2 configuration */
 #define SYSCFG_EXTICR1_EXTI3            ((uint16_t)0xF000) /*!< EXTI 3 configuration */
 
-/**
-  * @brief  EXTI0 configuration
-  */
+/** 
+  * @brief  EXTI0 configuration  
+  */ 
 #define SYSCFG_EXTICR1_EXTI0_PA         ((uint16_t)0x0000) /*!< PA[0] pin */
 #define SYSCFG_EXTICR1_EXTI0_PB         ((uint16_t)0x0001) /*!< PB[0] pin */
 #define SYSCFG_EXTICR1_EXTI0_PC         ((uint16_t)0x0002) /*!< PC[0] pin */
@@ -4482,9 +4467,9 @@ typedef struct
 #define SYSCFG_EXTICR1_EXTI0_PF         ((uint16_t)0x0006) /*!< PF[0] pin */
 #define SYSCFG_EXTICR1_EXTI0_PG         ((uint16_t)0x0007) /*!< PG[0] pin */
 
-/**
-  * @brief  EXTI1 configuration
-  */
+/** 
+  * @brief  EXTI1 configuration  
+  */ 
 #define SYSCFG_EXTICR1_EXTI1_PA         ((uint16_t)0x0000) /*!< PA[1] pin */
 #define SYSCFG_EXTICR1_EXTI1_PB         ((uint16_t)0x0010) /*!< PB[1] pin */
 #define SYSCFG_EXTICR1_EXTI1_PC         ((uint16_t)0x0020) /*!< PC[1] pin */
@@ -4494,9 +4479,9 @@ typedef struct
 #define SYSCFG_EXTICR1_EXTI1_PF         ((uint16_t)0x0060) /*!< PF[1] pin */
 #define SYSCFG_EXTICR1_EXTI1_PG         ((uint16_t)0x0070) /*!< PG[1] pin */
 
-/**
-  * @brief  EXTI2 configuration
-  */
+/** 
+  * @brief  EXTI2 configuration  
+  */ 
 #define SYSCFG_EXTICR1_EXTI2_PA         ((uint16_t)0x0000) /*!< PA[2] pin */
 #define SYSCFG_EXTICR1_EXTI2_PB         ((uint16_t)0x0100) /*!< PB[2] pin */
 #define SYSCFG_EXTICR1_EXTI2_PC         ((uint16_t)0x0200) /*!< PC[2] pin */
@@ -4506,9 +4491,9 @@ typedef struct
 #define SYSCFG_EXTICR1_EXTI2_PF         ((uint16_t)0x0600) /*!< PF[2] pin */
 #define SYSCFG_EXTICR1_EXTI2_PG         ((uint16_t)0x0700) /*!< PG[2] pin */
 
-/**
-  * @brief  EXTI3 configuration
-  */
+/** 
+  * @brief  EXTI3 configuration  
+  */ 
 #define SYSCFG_EXTICR1_EXTI3_PA         ((uint16_t)0x0000) /*!< PA[3] pin */
 #define SYSCFG_EXTICR1_EXTI3_PB         ((uint16_t)0x1000) /*!< PB[3] pin */
 #define SYSCFG_EXTICR1_EXTI3_PC         ((uint16_t)0x2000) /*!< PC[3] pin */
@@ -4523,9 +4508,9 @@ typedef struct
 #define SYSCFG_EXTICR2_EXTI6            ((uint16_t)0x0F00) /*!< EXTI 6 configuration */
 #define SYSCFG_EXTICR2_EXTI7            ((uint16_t)0xF000) /*!< EXTI 7 configuration */
 
-/**
-  * @brief  EXTI4 configuration
-  */
+/** 
+  * @brief  EXTI4 configuration  
+  */ 
 #define SYSCFG_EXTICR2_EXTI4_PA         ((uint16_t)0x0000) /*!< PA[4] pin */
 #define SYSCFG_EXTICR2_EXTI4_PB         ((uint16_t)0x0001) /*!< PB[4] pin */
 #define SYSCFG_EXTICR2_EXTI4_PC         ((uint16_t)0x0002) /*!< PC[4] pin */
@@ -4534,9 +4519,9 @@ typedef struct
 #define SYSCFG_EXTICR2_EXTI4_PF         ((uint16_t)0x0006) /*!< PF[4] pin */
 #define SYSCFG_EXTICR2_EXTI4_PG         ((uint16_t)0x0007) /*!< PG[4] pin */
 
-/**
-  * @brief  EXTI5 configuration
-  */
+/** 
+  * @brief  EXTI5 configuration  
+  */ 
 #define SYSCFG_EXTICR2_EXTI5_PA         ((uint16_t)0x0000) /*!< PA[5] pin */
 #define SYSCFG_EXTICR2_EXTI5_PB         ((uint16_t)0x0010) /*!< PB[5] pin */
 #define SYSCFG_EXTICR2_EXTI5_PC         ((uint16_t)0x0020) /*!< PC[5] pin */
@@ -4545,9 +4530,9 @@ typedef struct
 #define SYSCFG_EXTICR2_EXTI5_PF         ((uint16_t)0x0060) /*!< PF[5] pin */
 #define SYSCFG_EXTICR2_EXTI5_PG         ((uint16_t)0x0070) /*!< PG[5] pin */
 
-/**
-  * @brief  EXTI6 configuration
-  */
+/** 
+  * @brief  EXTI6 configuration  
+  */ 
 #define SYSCFG_EXTICR2_EXTI6_PA         ((uint16_t)0x0000) /*!< PA[6] pin */
 #define SYSCFG_EXTICR2_EXTI6_PB         ((uint16_t)0x0100) /*!< PB[6] pin */
 #define SYSCFG_EXTICR2_EXTI6_PC         ((uint16_t)0x0200) /*!< PC[6] pin */
@@ -4556,9 +4541,9 @@ typedef struct
 #define SYSCFG_EXTICR2_EXTI6_PF         ((uint16_t)0x0600) /*!< PF[6] pin */
 #define SYSCFG_EXTICR2_EXTI6_PG         ((uint16_t)0x0700) /*!< PG[6] pin */
 
-/**
-  * @brief  EXTI7 configuration
-  */
+/** 
+  * @brief  EXTI7 configuration  
+  */ 
 #define SYSCFG_EXTICR2_EXTI7_PA         ((uint16_t)0x0000) /*!< PA[7] pin */
 #define SYSCFG_EXTICR2_EXTI7_PB         ((uint16_t)0x1000) /*!< PB[7] pin */
 #define SYSCFG_EXTICR2_EXTI7_PC         ((uint16_t)0x2000) /*!< PC[7] pin */
@@ -4573,9 +4558,9 @@ typedef struct
 #define SYSCFG_EXTICR3_EXTI10           ((uint16_t)0x0F00) /*!< EXTI 10 configuration */
 #define SYSCFG_EXTICR3_EXTI11           ((uint16_t)0xF000) /*!< EXTI 11 configuration */
 
-/**
-  * @brief  EXTI8 configuration
-  */
+/** 
+  * @brief  EXTI8 configuration  
+  */ 
 #define SYSCFG_EXTICR3_EXTI8_PA         ((uint16_t)0x0000) /*!< PA[8] pin */
 #define SYSCFG_EXTICR3_EXTI8_PB         ((uint16_t)0x0001) /*!< PB[8] pin */
 #define SYSCFG_EXTICR3_EXTI8_PC         ((uint16_t)0x0002) /*!< PC[8] pin */
@@ -4584,9 +4569,9 @@ typedef struct
 #define SYSCFG_EXTICR3_EXTI8_PF         ((uint16_t)0x0006) /*!< PF[8] pin */
 #define SYSCFG_EXTICR3_EXTI8_PG         ((uint16_t)0x0007) /*!< PG[8] pin */
 
-/**
-  * @brief  EXTI9 configuration
-  */
+/** 
+  * @brief  EXTI9 configuration  
+  */ 
 #define SYSCFG_EXTICR3_EXTI9_PA         ((uint16_t)0x0000) /*!< PA[9] pin */
 #define SYSCFG_EXTICR3_EXTI9_PB         ((uint16_t)0x0010) /*!< PB[9] pin */
 #define SYSCFG_EXTICR3_EXTI9_PC         ((uint16_t)0x0020) /*!< PC[9] pin */
@@ -4595,9 +4580,9 @@ typedef struct
 #define SYSCFG_EXTICR3_EXTI9_PF         ((uint16_t)0x0060) /*!< PF[9] pin */
 #define SYSCFG_EXTICR3_EXTI9_PG         ((uint16_t)0x0070) /*!< PG[9] pin */
 
-/**
-  * @brief  EXTI10 configuration
-  */
+/** 
+  * @brief  EXTI10 configuration  
+  */ 
 #define SYSCFG_EXTICR3_EXTI10_PA        ((uint16_t)0x0000) /*!< PA[10] pin */
 #define SYSCFG_EXTICR3_EXTI10_PB        ((uint16_t)0x0100) /*!< PB[10] pin */
 #define SYSCFG_EXTICR3_EXTI10_PC        ((uint16_t)0x0200) /*!< PC[10] pin */
@@ -4606,9 +4591,9 @@ typedef struct
 #define SYSCFG_EXTICR3_EXTI10_PF        ((uint16_t)0x0600) /*!< PF[10] pin */
 #define SYSCFG_EXTICR3_EXTI10_PG        ((uint16_t)0x0700) /*!< PG[10] pin */
 
-/**
-  * @brief  EXTI11 configuration
-  */
+/** 
+  * @brief  EXTI11 configuration  
+  */ 
 #define SYSCFG_EXTICR3_EXTI11_PA        ((uint16_t)0x0000) /*!< PA[11] pin */
 #define SYSCFG_EXTICR3_EXTI11_PB        ((uint16_t)0x1000) /*!< PB[11] pin */
 #define SYSCFG_EXTICR3_EXTI11_PC        ((uint16_t)0x2000) /*!< PC[11] pin */
@@ -4623,9 +4608,9 @@ typedef struct
 #define SYSCFG_EXTICR4_EXTI14           ((uint16_t)0x0F00) /*!< EXTI 14 configuration */
 #define SYSCFG_EXTICR4_EXTI15           ((uint16_t)0xF000) /*!< EXTI 15 configuration */
 
-/**
-  * @brief  EXTI12 configuration
-  */
+/** 
+  * @brief  EXTI12 configuration  
+  */ 
 #define SYSCFG_EXTICR4_EXTI12_PA        ((uint16_t)0x0000) /*!< PA[12] pin */
 #define SYSCFG_EXTICR4_EXTI12_PB        ((uint16_t)0x0001) /*!< PB[12] pin */
 #define SYSCFG_EXTICR4_EXTI12_PC        ((uint16_t)0x0002) /*!< PC[12] pin */
@@ -4634,9 +4619,9 @@ typedef struct
 #define SYSCFG_EXTICR4_EXTI12_PF        ((uint16_t)0x0006) /*!< PF[12] pin */
 #define SYSCFG_EXTICR4_EXTI12_PG        ((uint16_t)0x0007) /*!< PG[12] pin */
 
-/**
-  * @brief  EXTI13 configuration
-  */
+/** 
+  * @brief  EXTI13 configuration  
+  */ 
 #define SYSCFG_EXTICR4_EXTI13_PA        ((uint16_t)0x0000) /*!< PA[13] pin */
 #define SYSCFG_EXTICR4_EXTI13_PB        ((uint16_t)0x0010) /*!< PB[13] pin */
 #define SYSCFG_EXTICR4_EXTI13_PC        ((uint16_t)0x0020) /*!< PC[13] pin */
@@ -4645,9 +4630,9 @@ typedef struct
 #define SYSCFG_EXTICR4_EXTI13_PF        ((uint16_t)0x0060) /*!< PF[13] pin */
 #define SYSCFG_EXTICR4_EXTI13_PG        ((uint16_t)0x0070) /*!< PG[13] pin */
 
-/**
-  * @brief  EXTI14 configuration
-  */
+/** 
+  * @brief  EXTI14 configuration  
+  */ 
 #define SYSCFG_EXTICR4_EXTI14_PA        ((uint16_t)0x0000) /*!< PA[14] pin */
 #define SYSCFG_EXTICR4_EXTI14_PB        ((uint16_t)0x0100) /*!< PB[14] pin */
 #define SYSCFG_EXTICR4_EXTI14_PC        ((uint16_t)0x0200) /*!< PC[14] pin */
@@ -4656,9 +4641,9 @@ typedef struct
 #define SYSCFG_EXTICR4_EXTI14_PF        ((uint16_t)0x0600) /*!< PF[14] pin */
 #define SYSCFG_EXTICR4_EXTI14_PG        ((uint16_t)0x0700) /*!< PG[14] pin */
 
-/**
-  * @brief  EXTI15 configuration
-  */
+/** 
+  * @brief  EXTI15 configuration  
+  */ 
 #define SYSCFG_EXTICR4_EXTI15_PA        ((uint16_t)0x0000) /*!< PA[15] pin */
 #define SYSCFG_EXTICR4_EXTI15_PB        ((uint16_t)0x1000) /*!< PB[15] pin */
 #define SYSCFG_EXTICR4_EXTI15_PC        ((uint16_t)0x2000) /*!< PC[15] pin */
@@ -4666,7 +4651,7 @@ typedef struct
 #define SYSCFG_EXTICR4_EXTI15_PE        ((uint16_t)0x4000) /*!< PE[15] pin */
 #define SYSCFG_EXTICR4_EXTI15_PF        ((uint16_t)0x6000) /*!< PF[15] pin */
 #define SYSCFG_EXTICR4_EXTI15_PG        ((uint16_t)0x7000) /*!< PG[15] pin */
-
+ 
 /******************************************************************************/
 /*                                                                            */
 /*                       Routing Interface (RI)                               */
@@ -4900,291 +4885,6 @@ typedef struct
 #define  RI_HYSCR4_PG_14                ((uint32_t)0x00004000) /*!< Bit 14 */
 #define  RI_HYSCR4_PG_15                ((uint32_t)0x00008000) /*!< Bit 15 */
 
-/********************  Bit definition for RI_ASMR1 register  ********************/
-#define  RI_ASMR1_PA                   ((uint32_t)0x0000FFFF) /*!< PA[15:0] Port A analog switch mode selection */
-#define  RI_ASMR1_PA_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_ASMR1_PA_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_ASMR1_PA_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_ASMR1_PA_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_ASMR1_PA_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_ASMR1_PA_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_ASMR1_PA_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_ASMR1_PA_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_ASMR1_PA_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_ASMR1_PA_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_ASMR1_PA_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_ASMR1_PA_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_ASMR1_PA_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_ASMR1_PA_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_ASMR1_PA_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_ASMR1_PA_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_CMR1 register  ********************/
-#define  RI_CMR1_PA                   ((uint32_t)0x0000FFFF) /*!< PA[15:0] Port A channel masking */
-#define  RI_CMR1_PA_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_CMR1_PA_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_CMR1_PA_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_CMR1_PA_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_CMR1_PA_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_CMR1_PA_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_CMR1_PA_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_CMR1_PA_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_CMR1_PA_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_CMR1_PA_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_CMR1_PA_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_CMR1_PA_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_CMR1_PA_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_CMR1_PA_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_CMR1_PA_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_CMR1_PA_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_CICR1 register  ********************/
-#define  RI_CICR1_PA                   ((uint32_t)0x0000FFFF) /*!< PA[15:0] Port A channel identification for capture */
-#define  RI_CICR1_PA_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_CICR1_PA_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_CICR1_PA_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_CICR1_PA_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_CICR1_PA_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_CICR1_PA_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_CICR1_PA_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_CICR1_PA_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_CICR1_PA_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_CICR1_PA_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_CICR1_PA_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_CICR1_PA_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_CICR1_PA_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_CICR1_PA_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_CICR1_PA_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_CICR1_PA_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_ASMR2 register  ********************/
-#define  RI_ASMR2_PB                   ((uint32_t)0x0000FFFF) /*!< PB[15:0] Port B analog switch mode selection */
-#define  RI_ASMR2_PB_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_ASMR2_PB_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_ASMR2_PB_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_ASMR2_PB_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_ASMR2_PB_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_ASMR2_PB_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_ASMR2_PB_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_ASMR2_PB_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_ASMR2_PB_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_ASMR2_PB_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_ASMR2_PB_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_ASMR2_PB_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_ASMR2_PB_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_ASMR2_PB_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_ASMR2_PB_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_ASMR2_PB_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_CMR2 register  ********************/
-#define  RI_CMR2_PB                   ((uint32_t)0x0000FFFF) /*!< PB[15:0] Port B channel masking */
-#define  RI_CMR2_PB_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_CMR2_PB_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_CMR2_PB_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_CMR2_PB_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_CMR2_PB_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_CMR2_PB_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_CMR2_PB_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_CMR2_PB_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_CMR2_PB_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_CMR2_PB_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_CMR2_PB_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_CMR2_PB_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_CMR2_PB_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_CMR2_PB_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_CMR2_PB_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_CMR2_PB_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_CICR2 register  ********************/
-#define  RI_CICR2_PB                   ((uint32_t)0x0000FFFF) /*!< PB[15:0] Port B channel identification for capture */
-#define  RI_CICR2_PB_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_CICR2_PB_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_CICR2_PB_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_CICR2_PB_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_CICR2_PB_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_CICR2_PB_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_CICR2_PB_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_CICR2_PB_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_CICR2_PB_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_CICR2_PB_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_CICR2_PB_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_CICR2_PB_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_CICR2_PB_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_CICR2_PB_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_CICR2_PB_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_CICR2_PB_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_ASMR3 register  ********************/
-#define  RI_ASMR3_PC                   ((uint32_t)0x0000FFFF) /*!< PC[15:0] Port C analog switch mode selection */
-#define  RI_ASMR3_PC_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_ASMR3_PC_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_ASMR3_PC_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_ASMR3_PC_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_ASMR3_PC_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_ASMR3_PC_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_ASMR3_PC_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_ASMR3_PC_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_ASMR3_PC_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_ASMR3_PC_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_ASMR3_PC_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_ASMR3_PC_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_ASMR3_PC_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_ASMR3_PC_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_ASMR3_PC_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_ASMR3_PC_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_CMR3 register  ********************/
-#define  RI_CMR3_PC                   ((uint32_t)0x0000FFFF) /*!< PC[15:0] Port C channel masking */
-#define  RI_CMR3_PC_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_CMR3_PC_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_CMR3_PC_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_CMR3_PC_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_CMR3_PC_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_CMR3_PC_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_CMR3_PC_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_CMR3_PC_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_CMR3_PC_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_CMR3_PC_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_CMR3_PC_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_CMR3_PC_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_CMR3_PC_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_CMR3_PC_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_CMR3_PC_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_CMR3_PC_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_CICR3 register  ********************/
-#define  RI_CICR3_PC                   ((uint32_t)0x0000FFFF) /*!< PC[15:0] Port C channel identification for capture */
-#define  RI_CICR3_PC_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_CICR3_PC_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_CICR3_PC_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_CICR3_PC_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_CICR3_PC_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_CICR3_PC_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_CICR3_PC_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_CICR3_PC_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_CICR3_PC_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_CICR3_PC_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_CICR3_PC_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_CICR3_PC_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_CICR3_PC_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_CICR3_PC_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_CICR3_PC_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_CICR3_PC_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_ASMR4 register  ********************/
-#define  RI_ASMR4_PF                   ((uint32_t)0x0000FFFF) /*!< PF[15:0] Port F analog switch mode selection */
-#define  RI_ASMR4_PF_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_ASMR4_PF_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_ASMR4_PF_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_ASMR4_PF_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_ASMR4_PF_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_ASMR4_PF_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_ASMR4_PF_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_ASMR4_PF_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_ASMR4_PF_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_ASMR4_PF_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_ASMR4_PF_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_ASMR4_PF_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_ASMR4_PF_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_ASMR4_PF_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_ASMR4_PF_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_ASMR4_PF_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_CMR4 register  ********************/
-#define  RI_CMR4_PF                   ((uint32_t)0x0000FFFF) /*!< PF[15:0] Port F channel masking */
-#define  RI_CMR4_PF_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_CMR4_PF_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_CMR4_PF_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_CMR4_PF_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_CMR4_PF_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_CMR4_PF_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_CMR4_PF_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_CMR4_PF_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_CMR4_PF_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_CMR4_PF_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_CMR4_PF_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_CMR4_PF_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_CMR4_PF_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_CMR4_PF_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_CMR4_PF_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_CMR4_PF_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_CICR4 register  ********************/
-#define  RI_CICR4_PF                   ((uint32_t)0x0000FFFF) /*!< PF[15:0] Port F channel identification for capture */
-#define  RI_CICR4_PF_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_CICR4_PF_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_CICR4_PF_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_CICR4_PF_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_CICR4_PF_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_CICR4_PF_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_CICR4_PF_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_CICR4_PF_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_CICR4_PF_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_CICR4_PF_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_CICR4_PF_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_CICR4_PF_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_CICR4_PF_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_CICR4_PF_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_CICR4_PF_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_CICR4_PF_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_ASMR5 register  ********************/
-#define  RI_ASMR5_PG                   ((uint32_t)0x0000FFFF) /*!< PG[15:0] Port G analog switch mode selection */
-#define  RI_ASMR5_PG_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_ASMR5_PG_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_ASMR5_PG_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_ASMR5_PG_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_ASMR5_PG_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_ASMR5_PG_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_ASMR5_PG_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_ASMR5_PG_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_ASMR5_PG_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_ASMR5_PG_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_ASMR5_PG_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_ASMR5_PG_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_ASMR5_PG_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_ASMR5_PG_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_ASMR5_PG_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_ASMR5_PG_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_CMR5 register  ********************/
-#define  RI_CMR5_PG                   ((uint32_t)0x0000FFFF) /*!< PG[15:0] Port G channel masking */
-#define  RI_CMR5_PG_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_CMR5_PG_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_CMR5_PG_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_CMR5_PG_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_CMR5_PG_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_CMR5_PG_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_CMR5_PG_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_CMR5_PG_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_CMR5_PG_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_CMR5_PG_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_CMR5_PG_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_CMR5_PG_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_CMR5_PG_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_CMR5_PG_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_CMR5_PG_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_CMR5_PG_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
-/********************  Bit definition for RI_CICR5 register  ********************/
-#define  RI_CICR5_PG                   ((uint32_t)0x0000FFFF) /*!< PG[15:0] Port G channel identification for capture */
-#define  RI_CICR5_PG_0                 ((uint32_t)0x00000001) /*!< Bit 0 */
-#define  RI_CICR5_PG_1                 ((uint32_t)0x00000002) /*!< Bit 1 */
-#define  RI_CICR5_PG_2                 ((uint32_t)0x00000004) /*!< Bit 2 */
-#define  RI_CICR5_PG_3                 ((uint32_t)0x00000008) /*!< Bit 3 */
-#define  RI_CICR5_PG_4                 ((uint32_t)0x00000010) /*!< Bit 4 */
-#define  RI_CICR5_PG_5                 ((uint32_t)0x00000020) /*!< Bit 5 */
-#define  RI_CICR5_PG_6                 ((uint32_t)0x00000040) /*!< Bit 6 */
-#define  RI_CICR5_PG_7                 ((uint32_t)0x00000080) /*!< Bit 7 */
-#define  RI_CICR5_PG_8                 ((uint32_t)0x00000100) /*!< Bit 8 */
-#define  RI_CICR5_PG_9                 ((uint32_t)0x00000200) /*!< Bit 9 */
-#define  RI_CICR5_PG_10                ((uint32_t)0x00000400) /*!< Bit 10 */
-#define  RI_CICR5_PG_11                ((uint32_t)0x00000800) /*!< Bit 11 */
-#define  RI_CICR5_PG_12                ((uint32_t)0x00001000) /*!< Bit 12 */
-#define  RI_CICR5_PG_13                ((uint32_t)0x00002000) /*!< Bit 13 */
-#define  RI_CICR5_PG_14                ((uint32_t)0x00004000) /*!< Bit 14 */
-#define  RI_CICR5_PG_15                ((uint32_t)0x00008000) /*!< Bit 15 */
-
 /******************************************************************************/
 /*                                                                            */
 /*                               Timers (TIM)                                 */
@@ -5279,7 +4979,7 @@ typedef struct
 #define  TIM_EGR_CC3G                        ((uint8_t)0x08)               /*!<Capture/Compare 3 Generation */
 #define  TIM_EGR_CC4G                        ((uint8_t)0x10)               /*!<Capture/Compare 4 Generation */
 #define  TIM_EGR_TG                          ((uint8_t)0x40)               /*!<Trigger Generation */
-
+                   
 /******************  Bit definition for TIM_CCMR1 register  *******************/
 #define  TIM_CCMR1_CC1S                      ((uint16_t)0x0003)            /*!<CC1S[1:0] bits (Capture/Compare 1 Selection) */
 #define  TIM_CCMR1_CC1S_0                    ((uint16_t)0x0001)            /*!<Bit 0 */
@@ -5404,7 +5104,7 @@ typedef struct
 
 /*******************  Bit definition for TIM_ARR register  ********************/
 #define  TIM_ARR_ARR                         ((uint16_t)0xFFFF)            /*!<actual auto-reload Value */
-
+           
 /*******************  Bit definition for TIM_CCR1 register  *******************/
 #define  TIM_CCR1_CCR1                       ((uint16_t)0xFFFF)            /*!<Capture/Compare 1 Value */
 
@@ -5770,7 +5470,7 @@ typedef struct
 
 #define  USB_DADDR_EF                        ((uint8_t)0x80)               /*!<Enable Function */
 
-/******************  Bit definition for USB_BTABLE register  ******************/
+/******************  Bit definition for USB_BTABLE register  ******************/    
 #define  USB_BTABLE_BTABLE                   ((uint16_t)0xFFF8)            /*!<Buffer Table */
 
 /*!< Buffer descriptor table */
@@ -6610,7 +6310,7 @@ typedef struct
 
  /**
   * @}
-  */
+  */ 
 
 #ifdef USE_STDPERIPH_DRIVER
   #include "stm32l1xx_conf.h"

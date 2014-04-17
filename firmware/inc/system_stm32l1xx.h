@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    system_stm32l1xx.h
   * @author  MCD Application Team
-  * @version V1.2.1
-  * @date    19-June-2013
+  * @version V1.2.0
+  * @date    22-February-2013
   * @brief   CMSIS Cortex-M3 Device Peripheral Access Layer System Header File.
   ******************************************************************************
   * @attention

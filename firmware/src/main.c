@@ -55,18 +55,19 @@ int main(void)
 
 
   /* SysTick end of count event each 1ms */
-  //RCC_GetClocksFreq(&RCC_Clocks);
-  //SysTick_Config(RCC_Clocks.HCLK_Frequency / 1000);
+  RCC_GetClocksFreq(&RCC_Clocks);
+  SysTick_Config(RCC_Clocks.HCLK_Frequency / 1000);
 
-  //hal_setup();
+  hal_setup();
 
   while(1)
   {
-      //temp_volt = adc_read(ADC_Channel_TempSensor);
+      temp_volt = adc_read(ADC_Channel_TempSensor);
       /* wait for 10ms */
-      //Delay(10);
-      for(uint16_t i = 1; i; i++);
-      temp_volt++;
+      Delay(20);
+      hbridge_set(HBRIDGE_CH_2A, 1);
+      Delay(20);
+      hbridge_set(HBRIDGE_CH_2A, 0);
 
   }
 }

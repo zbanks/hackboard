@@ -26,7 +26,7 @@ BIN  = $(CP) -O binary -S
 MCU  = cortex-m3
  
 # List all default C defines here, like -D_DEBUG=1
-DDEFS = -DSTM32L1XX -DUSE_STDPERIPH_DRIVER -Dmalloc_getpagesize=256
+DDEFS = -DSTM32L1XX_MD -DUSE_STDPERIPH_DRIVER -Dmalloc_getpagesize=256
 # List all default ASM defines here, like -D_DEBUG=1
 DADEFS =
  
@@ -62,7 +62,7 @@ UADEFS =
 #LIBSDIR    = /home/zbanks/STM32F0-Discovery_FW_V1.0.0/Libraries
 LIBSDIR    = /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries
 CORELIBDIR = $(LIBSDIR)/CMSIS/Include
-DEVDIR  = $(LIBSDIR)/CMSIS/Device/ST/STM32F0xx
+DEVDIR  = $(LIBSDIR)/CMSIS/Device/ST/STM32L1xx
 STMSPDDIR    = $(LIBSDIR)/STM32L1xx_StdPeriph_Driver
 STMSPSRCDDIR = $(STMSPDDIR)/src
 STMSPINCDDIR = $(STMSPDDIR)/inc
@@ -99,9 +99,9 @@ SRC += $(STMSPSRCDDIR)/stm32l1xx_syscfg.c
 SRC += $(STMSPSRCDDIR)/stm32l1xx_pwr.c
 SRC += $(STMSPSRCDDIR)/stm32l1xx_rcc.c
 SRC += $(STMSPSRCDDIR)/stm32l1xx_rtc.c
-SRC += $(STMSPSRCDDIR)/stm32l1xx_spi.c
+#SRC += $(STMSPSRCDDIR)/stm32l1xx_spi.c
 #SRC += $(STMSPSRCDDIR)/stm32l1xx_tim.c
-SRC += $(STMSPSRCDDIR)/stm32l1xx_usart.c
+#SRC += $(STMSPSRCDDIR)/stm32l1xx_usart.c
 #SRC += $(STMSPSRCDDIR)/stm32l1xx_wwdg.c
 #SRC += $(STMSPSRCDDIR)/stm32l1xx_misc.c
 # List ASM source files here
@@ -120,7 +120,7 @@ ULIBDIR =
 ULIBS =
  
 # Define optimisation level here
-OPT = -O3
+OPT = -O0
  
 #
 # End of user defines
@@ -129,7 +129,7 @@ OPT = -O3
 # Define linker script file here
 #
 ifeq ($(RUN_FROM_FLASH), 0)
-LDSCRIPT = $(LINKER)/stm32l1_linker.ld
+LDSCRIPT = ./linker/stm32l1_linker.ld
 FULL_PRJ = $(PROJECT)_ram
 else
 LDSCRIPT = ./linker/stm32l1_linker.ld

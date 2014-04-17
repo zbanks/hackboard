@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccLyDO9R.s 			page 1
+ARM GAS  /tmp/ccoe6tzL.s 			page 1
 
 
    1              		.syntax unified
@@ -10,7 +10,7 @@ ARM GAS  /tmp/ccLyDO9R.s 			page 1
    7              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
    8              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
    9              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
-  10              		.eabi_attribute 30, 2	@ Tag_ABI_optimization_goals
+  10              		.eabi_attribute 30, 6	@ Tag_ABI_optimization_goals
   11              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
   12              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
   13              		.file	"stm32l1xx_it.c"
@@ -18,72 +18,54 @@ ARM GAS  /tmp/ccLyDO9R.s 			page 1
   15              	@	compiled by GNU C version 4.3.6, GMP version 4.3.2, MPFR version 2.4.2, MPC version 0.8.1
   16              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
   17              	@ options passed:  -I . -I ./inc
-  18              	@ -I /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/CMSIS/Device/ST/STM32F0xx/Include
+  18              	@ -I /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/CMSIS/Device/ST/STM32L1xx/Include
   19              	@ -I /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/CMSIS/Include
   20              	@ -I /home/zbanks//STM32L1xx_StdPeriph_Lib_V1.2.0/Libraries/STM32L1xx_StdPeriph_Driver/inc
   21              	@ -I ./inc -imultilib armv7-m
   22              	@ -iprefix /home/zbanks/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/4.8.3/
   23              	@ -isysroot /home/zbanks/gcc-arm-none-eabi/bin/../arm-none-eabi
   24              	@ -MD src/stm32l1xx_it.d -MF .dep/stm32l1xx_it.o.d -MP
-  25              	@ -MQ src/stm32l1xx_it.o -D__USES_INITFINI__ -D STM32L1XX
+  25              	@ -MQ src/stm32l1xx_it.o -D__USES_INITFINI__ -D STM32L1XX_MD
   26              	@ -D USE_STDPERIPH_DRIVER -D malloc_getpagesize=256 -D RUN_FROM_FLASH=1
   27              	@ src/stm32l1xx_it.c -mcpu=cortex-m3 -mthumb
-  28              	@ -auxbase-strip src/stm32l1xx_it.o -g -gdwarf-2 -O3 -Wall
+  28              	@ -auxbase-strip src/stm32l1xx_it.o -g -gdwarf-2 -O0 -Wall
   29              	@ -Wstrict-prototypes -std=c99 -fomit-frame-pointer -fverbose-asm
   30              	@ options enabled:  -faggressive-loop-optimizations -fauto-inc-dec
-  31              	@ -fbranch-count-reg -fcaller-saves -fcombine-stack-adjustments -fcommon
-  32              	@ -fcompare-elim -fcprop-registers -fcrossjumping -fcse-follow-jumps
-  33              	@ -fdefer-pop -fdelete-null-pointer-checks -fdevirtualize -fdwarf2-cfi-asm
-  34              	@ -fearly-inlining -feliminate-unused-debug-types -fexpensive-optimizations
-  35              	@ -fforward-propagate -ffunction-cse -fgcse -fgcse-after-reload -fgcse-lm
-  36              	@ -fgnu-runtime -fguess-branch-probability -fhoist-adjacent-loads -fident
-  37              	@ -fif-conversion -fif-conversion2 -findirect-inlining -finline
-  38              	@ -finline-atomics -finline-functions -finline-functions-called-once
-  39              	@ -finline-small-functions -fipa-cp -fipa-cp-clone -fipa-profile
-  40              	@ -fipa-pure-const -fipa-reference -fipa-sra -fira-hoist-pressure
-  41              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
-  42              	@ -fkeep-static-consts -fleading-underscore -fmath-errno -fmerge-constants
-  43              	@ -fmerge-debug-strings -fmove-loop-invariants -fomit-frame-pointer
-  44              	@ -foptimize-register-move -foptimize-sibling-calls -foptimize-strlen
-  45              	@ -fpartial-inlining -fpeephole -fpeephole2 -fpredictive-commoning
-  46              	@ -fprefetch-loop-arrays -freg-struct-return -fregmove -freorder-blocks
-  47              	@ -freorder-functions -frerun-cse-after-loop
-  48              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
-  49              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
-  50              	@ -fsched-pressure -fsched-rank-heuristic -fsched-spec
-  51              	@ -fsched-spec-insn-heuristic -fsched-stalled-insns-dep -fschedule-insns
-  52              	@ -fschedule-insns2 -fsection-anchors -fshow-column -fshrink-wrap
-  53              	@ -fsigned-zeros -fsplit-ivs-in-unroller -fsplit-wide-types
-  54              	@ -fstrict-aliasing -fstrict-overflow -fstrict-volatile-bitfields
-  55              	@ -fsync-libcalls -fthread-jumps -ftoplevel-reorder -ftrapping-math
-  56              	@ -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch
-  57              	@ -ftree-coalesce-vars -ftree-copy-prop -ftree-copyrename -ftree-cselim
-ARM GAS  /tmp/ccLyDO9R.s 			page 2
+  31              	@ -fbranch-count-reg -fcommon -fdelete-null-pointer-checks -fdwarf2-cfi-asm
+  32              	@ -fearly-inlining -feliminate-unused-debug-types -ffunction-cse -fgcse-lm
+  33              	@ -fgnu-runtime -fident -finline-atomics -fira-hoist-pressure
+  34              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  35              	@ -fkeep-static-consts -fleading-underscore -fmath-errno
+  36              	@ -fmerge-debug-strings -fmove-loop-invariants -fomit-frame-pointer
+  37              	@ -fpeephole -fprefetch-loop-arrays -freg-struct-return
+  38              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  39              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  40              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  41              	@ -fsched-stalled-insns-dep -fshow-column -fsigned-zeros
+  42              	@ -fsplit-ivs-in-unroller -fstrict-volatile-bitfields -fsync-libcalls
+  43              	@ -ftrapping-math -ftree-coalesce-vars -ftree-cselim -ftree-forwprop
+  44              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  45              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop -ftree-pta
+  46              	@ -ftree-reassoc -ftree-scev-cprop -ftree-slp-vectorize
+  47              	@ -ftree-vect-loop-version -funit-at-a-time -fverbose-asm
+  48              	@ -fzero-initialized-in-bss -mfix-cortex-m3-ldrd -mlittle-endian
+  49              	@ -mpic-data-is-text-relative -msched-prolog -mthumb -munaligned-access
+  50              	@ -mvectorize-with-neon-quad
+  51              	
+  52              		.text
+  53              	.Ltext0:
+  54              		.cfi_sections	.debug_frame
+  55              		.align	2
+  56              		.global	NMI_Handler
+  57              		.thumb
+ARM GAS  /tmp/ccoe6tzL.s 			page 2
 
 
-  58              	@ -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-fre
-  59              	@ -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-im
-  60              	@ -ftree-loop-ivcanon -ftree-loop-optimize -ftree-parallelize-loops=
-  61              	@ -ftree-partial-pre -ftree-phiprop -ftree-pre -ftree-pta -ftree-reassoc
-  62              	@ -ftree-scev-cprop -ftree-sink -ftree-slp-vectorize -ftree-slsr -ftree-sra
-  63              	@ -ftree-switch-conversion -ftree-tail-merge -ftree-ter
-  64              	@ -ftree-vect-loop-version -ftree-vectorize -ftree-vrp -funit-at-a-time
-  65              	@ -funswitch-loops -fvar-tracking -fvar-tracking-assignments
-  66              	@ -fvect-cost-model -fverbose-asm -fzero-initialized-in-bss
-  67              	@ -mfix-cortex-m3-ldrd -mlittle-endian -mpic-data-is-text-relative
-  68              	@ -msched-prolog -mthumb -munaligned-access -mvectorize-with-neon-quad
-  69              	
-  70              		.text
-  71              	.Ltext0:
-  72              		.cfi_sections	.debug_frame
-  73              		.align	2
-  74              		.global	NMI_Handler
-  75              		.thumb
-  76              		.thumb_func
-  77              		.type	NMI_Handler, %function
-  78              	NMI_Handler:
-  79              	.LFB56:
-  80              		.file 1 "src/stm32l1xx_it.c"
+  58              		.thumb_func
+  59              		.type	NMI_Handler, %function
+  60              	NMI_Handler:
+  61              	.LFB56:
+  62              		.file 1 "src/stm32l1xx_it.c"
    1:src/stm32l1xx_it.c **** /**
    2:src/stm32l1xx_it.c ****   ******************************************************************************
    3:src/stm32l1xx_it.c ****   * @file    stm32l1xx_it.c
@@ -118,9 +100,6 @@ ARM GAS  /tmp/ccLyDO9R.s 			page 1
   32:src/stm32l1xx_it.c **** #include "main.h"
   33:src/stm32l1xx_it.c **** 
   34:src/stm32l1xx_it.c **** /** @addtogroup STM32L100C-Discovery_Demo
-ARM GAS  /tmp/ccLyDO9R.s 			page 3
-
-
   35:src/stm32l1xx_it.c ****   * @{
   36:src/stm32l1xx_it.c ****   */
   37:src/stm32l1xx_it.c **** 
@@ -139,26 +118,30 @@ ARM GAS  /tmp/ccLyDO9R.s 			page 1
   50:src/stm32l1xx_it.c ****   * @brief  This function handles NMI exception.
   51:src/stm32l1xx_it.c ****   * @param  None
   52:src/stm32l1xx_it.c ****   * @retval None
+ARM GAS  /tmp/ccoe6tzL.s 			page 3
+
+
   53:src/stm32l1xx_it.c ****   */
   54:src/stm32l1xx_it.c **** void NMI_Handler(void)
   55:src/stm32l1xx_it.c **** {
-  81              		.loc 1 55 0
-  82              		.cfi_startproc
-  83              		@ args = 0, pretend = 0, frame = 0
-  84              		@ frame_needed = 0, uses_anonymous_args = 0
-  85              		@ link register save eliminated.
-  86 0000 7047     		bx	lr	@
-  87              		.cfi_endproc
-  88              	.LFE56:
-  89              		.size	NMI_Handler, .-NMI_Handler
-  90 0002 00BF     		.align	2
-  91              		.global	HardFault_Handler
-  92              		.thumb
-  93              		.thumb_func
-  94              		.type	HardFault_Handler, %function
-  95              	HardFault_Handler:
-  96              	.LFB57:
+  63              		.loc 1 55 0
+  64              		.cfi_startproc
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67              		@ link register save eliminated.
   56:src/stm32l1xx_it.c **** }
+  68              		.loc 1 56 0
+  69 0000 7047     		bx	lr	@
+  70              		.cfi_endproc
+  71              	.LFE56:
+  72              		.size	NMI_Handler, .-NMI_Handler
+  73 0002 00BF     		.align	2
+  74              		.global	HardFault_Handler
+  75              		.thumb
+  76              		.thumb_func
+  77              		.type	HardFault_Handler, %function
+  78              	HardFault_Handler:
+  79              	.LFB57:
   57:src/stm32l1xx_it.c **** 
   58:src/stm32l1xx_it.c **** /**
   59:src/stm32l1xx_it.c ****   * @brief  This function handles Hard Fault exception.
@@ -167,62 +150,62 @@ ARM GAS  /tmp/ccLyDO9R.s 			page 1
   62:src/stm32l1xx_it.c ****   */
   63:src/stm32l1xx_it.c **** void HardFault_Handler(void)
   64:src/stm32l1xx_it.c **** {
-  97              		.loc 1 64 0
-  98              		.cfi_startproc
-  99              		@ Volatile: function does not return.
- 100              		@ args = 0, pretend = 0, frame = 0
- 101              		@ frame_needed = 0, uses_anonymous_args = 0
- 102              		@ link register save eliminated.
- 103              	.L3:
- 104 0004 FEE7     		b	.L3	@
- 105              		.cfi_endproc
- 106              	.LFE57:
- 107              		.size	HardFault_Handler, .-HardFault_Handler
-ARM GAS  /tmp/ccLyDO9R.s 			page 4
-
-
- 108 0006 00BF     		.align	2
- 109              		.global	MemManage_Handler
- 110              		.thumb
- 111              		.thumb_func
- 112              		.type	MemManage_Handler, %function
- 113              	MemManage_Handler:
- 114              	.LFB58:
+  80              		.loc 1 64 0
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+  85              	.L3:
   65:src/stm32l1xx_it.c ****   /* Go to infinite loop when Hard Fault exception occurs */
   66:src/stm32l1xx_it.c ****   while (1)
   67:src/stm32l1xx_it.c ****   {
   68:src/stm32l1xx_it.c ****   }
+  86              		.loc 1 68 0 discriminator 1
+  87 0004 FEE7     		b	.L3	@
+  88              		.cfi_endproc
+  89              	.LFE57:
+  90              		.size	HardFault_Handler, .-HardFault_Handler
+  91 0006 00BF     		.align	2
+  92              		.global	MemManage_Handler
+  93              		.thumb
+  94              		.thumb_func
+  95              		.type	MemManage_Handler, %function
+  96              	MemManage_Handler:
+  97              	.LFB58:
   69:src/stm32l1xx_it.c **** }
   70:src/stm32l1xx_it.c **** 
   71:src/stm32l1xx_it.c **** /**
   72:src/stm32l1xx_it.c ****   * @brief  This function handles Memory Manage exception.
   73:src/stm32l1xx_it.c ****   * @param  None
   74:src/stm32l1xx_it.c ****   * @retval None
+ARM GAS  /tmp/ccoe6tzL.s 			page 4
+
+
   75:src/stm32l1xx_it.c ****   */
   76:src/stm32l1xx_it.c **** void MemManage_Handler(void)
   77:src/stm32l1xx_it.c **** {
- 115              		.loc 1 77 0
- 116              		.cfi_startproc
- 117              		@ Volatile: function does not return.
- 118              		@ args = 0, pretend = 0, frame = 0
- 119              		@ frame_needed = 0, uses_anonymous_args = 0
- 120              		@ link register save eliminated.
- 121              	.L5:
- 122 0008 FEE7     		b	.L5	@
- 123              		.cfi_endproc
- 124              	.LFE58:
- 125              		.size	MemManage_Handler, .-MemManage_Handler
- 126 000a 00BF     		.align	2
- 127              		.global	BusFault_Handler
- 128              		.thumb
- 129              		.thumb_func
- 130              		.type	BusFault_Handler, %function
- 131              	BusFault_Handler:
- 132              	.LFB59:
+  98              		.loc 1 77 0
+  99              		.cfi_startproc
+ 100              		@ args = 0, pretend = 0, frame = 0
+ 101              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102              		@ link register save eliminated.
+ 103              	.L5:
   78:src/stm32l1xx_it.c ****   /* Go to infinite loop when Memory Manage exception occurs */
   79:src/stm32l1xx_it.c ****   while (1)
   80:src/stm32l1xx_it.c ****   {
   81:src/stm32l1xx_it.c ****   }
+ 104              		.loc 1 81 0 discriminator 1
+ 105 0008 FEE7     		b	.L5	@
+ 106              		.cfi_endproc
+ 107              	.LFE58:
+ 108              		.size	MemManage_Handler, .-MemManage_Handler
+ 109 000a 00BF     		.align	2
+ 110              		.global	BusFault_Handler
+ 111              		.thumb
+ 112              		.thumb_func
+ 113              		.type	BusFault_Handler, %function
+ 114              	BusFault_Handler:
+ 115              	.LFB59:
   82:src/stm32l1xx_it.c **** }
   83:src/stm32l1xx_it.c **** 
   84:src/stm32l1xx_it.c **** /**
@@ -232,32 +215,32 @@ ARM GAS  /tmp/ccLyDO9R.s 			page 1
   88:src/stm32l1xx_it.c ****   */
   89:src/stm32l1xx_it.c **** void BusFault_Handler(void)
   90:src/stm32l1xx_it.c **** {
- 133              		.loc 1 90 0
- 134              		.cfi_startproc
- 135              		@ Volatile: function does not return.
- 136              		@ args = 0, pretend = 0, frame = 0
- 137              		@ frame_needed = 0, uses_anonymous_args = 0
- 138              		@ link register save eliminated.
-ARM GAS  /tmp/ccLyDO9R.s 			page 5
-
-
- 139              	.L7:
- 140 000c FEE7     		b	.L7	@
- 141              		.cfi_endproc
- 142              	.LFE59:
- 143              		.size	BusFault_Handler, .-BusFault_Handler
- 144 000e 00BF     		.align	2
- 145              		.global	UsageFault_Handler
- 146              		.thumb
- 147              		.thumb_func
- 148              		.type	UsageFault_Handler, %function
- 149              	UsageFault_Handler:
- 150              	.LFB60:
+ 116              		.loc 1 90 0
+ 117              		.cfi_startproc
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120              		@ link register save eliminated.
+ 121              	.L7:
   91:src/stm32l1xx_it.c ****   /* Go to infinite loop when Bus Fault exception occurs */
   92:src/stm32l1xx_it.c ****   while (1)
   93:src/stm32l1xx_it.c ****   {
   94:src/stm32l1xx_it.c ****   }
+ 122              		.loc 1 94 0 discriminator 1
+ 123 000c FEE7     		b	.L7	@
+ 124              		.cfi_endproc
+ 125              	.LFE59:
+ 126              		.size	BusFault_Handler, .-BusFault_Handler
+ 127 000e 00BF     		.align	2
+ 128              		.global	UsageFault_Handler
+ 129              		.thumb
+ 130              		.thumb_func
+ 131              		.type	UsageFault_Handler, %function
+ 132              	UsageFault_Handler:
+ 133              	.LFB60:
   95:src/stm32l1xx_it.c **** }
+ARM GAS  /tmp/ccoe6tzL.s 			page 5
+
+
   96:src/stm32l1xx_it.c **** 
   97:src/stm32l1xx_it.c **** /**
   98:src/stm32l1xx_it.c ****   * @brief  This function handles Usage Fault exception.
@@ -266,28 +249,28 @@ ARM GAS  /tmp/ccLyDO9R.s 			page 1
  101:src/stm32l1xx_it.c ****   */
  102:src/stm32l1xx_it.c **** void UsageFault_Handler(void)
  103:src/stm32l1xx_it.c **** {
- 151              		.loc 1 103 0
- 152              		.cfi_startproc
- 153              		@ Volatile: function does not return.
- 154              		@ args = 0, pretend = 0, frame = 0
- 155              		@ frame_needed = 0, uses_anonymous_args = 0
- 156              		@ link register save eliminated.
- 157              	.L9:
- 158 0010 FEE7     		b	.L9	@
- 159              		.cfi_endproc
- 160              	.LFE60:
- 161              		.size	UsageFault_Handler, .-UsageFault_Handler
- 162 0012 00BF     		.align	2
- 163              		.global	SVC_Handler
- 164              		.thumb
- 165              		.thumb_func
- 166              		.type	SVC_Handler, %function
- 167              	SVC_Handler:
- 168              	.LFB61:
+ 134              		.loc 1 103 0
+ 135              		.cfi_startproc
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138              		@ link register save eliminated.
+ 139              	.L9:
  104:src/stm32l1xx_it.c ****   /* Go to infinite loop when Usage Fault exception occurs */
  105:src/stm32l1xx_it.c ****   while (1)
  106:src/stm32l1xx_it.c ****   {
  107:src/stm32l1xx_it.c ****   }
+ 140              		.loc 1 107 0 discriminator 1
+ 141 0010 FEE7     		b	.L9	@
+ 142              		.cfi_endproc
+ 143              	.LFE60:
+ 144              		.size	UsageFault_Handler, .-UsageFault_Handler
+ 145 0012 00BF     		.align	2
+ 146              		.global	SVC_Handler
+ 147              		.thumb
+ 148              		.thumb_func
+ 149              		.type	SVC_Handler, %function
+ 150              	SVC_Handler:
+ 151              	.LFB61:
  108:src/stm32l1xx_it.c **** }
  109:src/stm32l1xx_it.c **** 
  110:src/stm32l1xx_it.c **** /**
@@ -297,26 +280,27 @@ ARM GAS  /tmp/ccLyDO9R.s 			page 1
  114:src/stm32l1xx_it.c ****   */
  115:src/stm32l1xx_it.c **** void SVC_Handler(void)
  116:src/stm32l1xx_it.c **** {
- 169              		.loc 1 116 0
-ARM GAS  /tmp/ccLyDO9R.s 			page 6
-
-
- 170              		.cfi_startproc
- 171              		@ args = 0, pretend = 0, frame = 0
- 172              		@ frame_needed = 0, uses_anonymous_args = 0
- 173              		@ link register save eliminated.
- 174 0014 7047     		bx	lr	@
- 175              		.cfi_endproc
- 176              	.LFE61:
- 177              		.size	SVC_Handler, .-SVC_Handler
- 178 0016 00BF     		.align	2
- 179              		.global	DebugMon_Handler
- 180              		.thumb
- 181              		.thumb_func
- 182              		.type	DebugMon_Handler, %function
- 183              	DebugMon_Handler:
- 184              	.LFB62:
+ 152              		.loc 1 116 0
+ 153              		.cfi_startproc
+ 154              		@ args = 0, pretend = 0, frame = 0
+ 155              		@ frame_needed = 0, uses_anonymous_args = 0
+ 156              		@ link register save eliminated.
  117:src/stm32l1xx_it.c **** }
+ 157              		.loc 1 117 0
+ 158 0014 7047     		bx	lr	@
+ 159              		.cfi_endproc
+ 160              	.LFE61:
+ 161              		.size	SVC_Handler, .-SVC_Handler
+ 162 0016 00BF     		.align	2
+ 163              		.global	DebugMon_Handler
+ 164              		.thumb
+ 165              		.thumb_func
+ 166              		.type	DebugMon_Handler, %function
+ 167              	DebugMon_Handler:
+ 168              	.LFB62:
+ARM GAS  /tmp/ccoe6tzL.s 			page 6
+
+
  118:src/stm32l1xx_it.c **** 
  119:src/stm32l1xx_it.c **** /**
  120:src/stm32l1xx_it.c ****   * @brief  This function handles Debug Monitor exception.
@@ -325,23 +309,24 @@ ARM GAS  /tmp/ccLyDO9R.s 			page 1
  123:src/stm32l1xx_it.c ****   */
  124:src/stm32l1xx_it.c **** void DebugMon_Handler(void)
  125:src/stm32l1xx_it.c **** {
- 185              		.loc 1 125 0
- 186              		.cfi_startproc
- 187              		@ args = 0, pretend = 0, frame = 0
- 188              		@ frame_needed = 0, uses_anonymous_args = 0
- 189              		@ link register save eliminated.
- 190 0018 7047     		bx	lr	@
- 191              		.cfi_endproc
- 192              	.LFE62:
- 193              		.size	DebugMon_Handler, .-DebugMon_Handler
- 194 001a 00BF     		.align	2
- 195              		.global	PendSV_Handler
- 196              		.thumb
- 197              		.thumb_func
- 198              		.type	PendSV_Handler, %function
- 199              	PendSV_Handler:
- 200              	.LFB63:
+ 169              		.loc 1 125 0
+ 170              		.cfi_startproc
+ 171              		@ args = 0, pretend = 0, frame = 0
+ 172              		@ frame_needed = 0, uses_anonymous_args = 0
+ 173              		@ link register save eliminated.
  126:src/stm32l1xx_it.c **** }
+ 174              		.loc 1 126 0
+ 175 0018 7047     		bx	lr	@
+ 176              		.cfi_endproc
+ 177              	.LFE62:
+ 178              		.size	DebugMon_Handler, .-DebugMon_Handler
+ 179 001a 00BF     		.align	2
+ 180              		.global	PendSV_Handler
+ 181              		.thumb
+ 182              		.thumb_func
+ 183              		.type	PendSV_Handler, %function
+ 184              	PendSV_Handler:
+ 185              	.LFB63:
  127:src/stm32l1xx_it.c **** 
  128:src/stm32l1xx_it.c **** /**
  129:src/stm32l1xx_it.c ****   * @brief  This function handles PendSVC exception.
@@ -350,602 +335,569 @@ ARM GAS  /tmp/ccLyDO9R.s 			page 1
  132:src/stm32l1xx_it.c ****   */
  133:src/stm32l1xx_it.c **** void PendSV_Handler(void)
  134:src/stm32l1xx_it.c **** {
- 201              		.loc 1 134 0
- 202              		.cfi_startproc
- 203              		@ args = 0, pretend = 0, frame = 0
- 204              		@ frame_needed = 0, uses_anonymous_args = 0
- 205              		@ link register save eliminated.
- 206 001c 7047     		bx	lr	@
- 207              		.cfi_endproc
- 208              	.LFE63:
-ARM GAS  /tmp/ccLyDO9R.s 			page 7
-
-
- 209              		.size	PendSV_Handler, .-PendSV_Handler
- 210 001e 00BF     		.align	2
- 211              		.global	SysTick_Handler
- 212              		.thumb
- 213              		.thumb_func
- 214              		.type	SysTick_Handler, %function
- 215              	SysTick_Handler:
- 216              	.LFB64:
+ 186              		.loc 1 134 0
+ 187              		.cfi_startproc
+ 188              		@ args = 0, pretend = 0, frame = 0
+ 189              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190              		@ link register save eliminated.
  135:src/stm32l1xx_it.c **** }
+ 191              		.loc 1 135 0
+ 192 001c 7047     		bx	lr	@
+ 193              		.cfi_endproc
+ 194              	.LFE63:
+ 195              		.size	PendSV_Handler, .-PendSV_Handler
+ 196 001e 00BF     		.align	2
+ 197              		.global	SysTick_Handler
+ 198              		.thumb
+ 199              		.thumb_func
+ 200              		.type	SysTick_Handler, %function
+ 201              	SysTick_Handler:
+ 202              	.LFB64:
  136:src/stm32l1xx_it.c **** 
  137:src/stm32l1xx_it.c **** /**
  138:src/stm32l1xx_it.c ****   * @brief  This function handles SysTick Handler.
  139:src/stm32l1xx_it.c ****   * @param  None
  140:src/stm32l1xx_it.c ****   * @retval None
+ARM GAS  /tmp/ccoe6tzL.s 			page 7
+
+
  141:src/stm32l1xx_it.c ****   */
  142:src/stm32l1xx_it.c **** void SysTick_Handler(void)
  143:src/stm32l1xx_it.c **** {
- 217              		.loc 1 143 0
- 218              		.cfi_startproc
- 219              		@ args = 0, pretend = 0, frame = 0
- 220              		@ frame_needed = 0, uses_anonymous_args = 0
- 221              		@ link register save eliminated.
+ 203              		.loc 1 143 0
+ 204              		.cfi_startproc
+ 205              		@ args = 0, pretend = 0, frame = 0
+ 206              		@ frame_needed = 0, uses_anonymous_args = 0
+ 207 0020 08B5     		push	{r3, lr}	@
+ 208              	.LCFI0:
+ 209              		.cfi_def_cfa_offset 8
+ 210              		.cfi_offset 3, -8
+ 211              		.cfi_offset 14, -4
  144:src/stm32l1xx_it.c ****   TimingDelay_Decrement();
- 222              		.loc 1 144 0
- 223 0020 FFF7FEBF 		b	TimingDelay_Decrement	@
- 224              	.LVL0:
- 225              		.cfi_endproc
- 226              	.LFE64:
- 227              		.size	SysTick_Handler, .-SysTick_Handler
- 228              	.Letext0:
- 229              		.file 2 "/home/zbanks/gcc-arm-none-eabi/arm-none-eabi/include/stdint.h"
- 230              		.file 3 "./inc/core_cm3.h"
- 231              		.file 4 "./inc/main.h"
- 232              		.section	.debug_info,"",%progbits
- 233              	.Ldebug_info0:
- 234 0000 63010000 		.4byte	0x163
- 235 0004 0200     		.2byte	0x2
- 236 0006 00000000 		.4byte	.Ldebug_abbrev0
- 237 000a 04       		.byte	0x4
- 238 000b 01       		.uleb128 0x1
- 239 000c 1D010000 		.4byte	.LASF18
- 240 0010 01       		.byte	0x1
- 241 0011 46000000 		.4byte	.LASF19
- 242 0015 A6000000 		.4byte	.LASF20
- 243 0019 00000000 		.4byte	.Ltext0
- 244 001d 24000000 		.4byte	.Letext0
- 245 0021 00000000 		.4byte	.Ldebug_line0
- 246 0025 02       		.uleb128 0x2
- 247 0026 01       		.byte	0x1
- 248 0027 06       		.byte	0x6
- 249 0028 BA010000 		.4byte	.LASF0
- 250 002c 02       		.uleb128 0x2
- 251 002d 01       		.byte	0x1
- 252 002e 08       		.byte	0x8
- 253 002f E4000000 		.4byte	.LASF1
- 254 0033 02       		.uleb128 0x2
- 255 0034 02       		.byte	0x2
-ARM GAS  /tmp/ccLyDO9R.s 			page 8
+ 212              		.loc 1 144 0
+ 213 0022 FFF7FEFF 		bl	TimingDelay_Decrement	@
+ 145:src/stm32l1xx_it.c **** }
+ 214              		.loc 1 145 0
+ 215 0026 08BD     		pop	{r3, pc}	@
+ 216              		.cfi_endproc
+ 217              	.LFE64:
+ 218              		.size	SysTick_Handler, .-SysTick_Handler
+ 219              	.Letext0:
+ 220              		.file 2 "/home/zbanks/gcc-arm-none-eabi/arm-none-eabi/include/stdint.h"
+ 221              		.file 3 "./inc/core_cm3.h"
+ 222              		.section	.debug_info,"",%progbits
+ 223              	.Ldebug_info0:
+ 224 0000 4B010000 		.4byte	0x14b
+ 225 0004 0200     		.2byte	0x2
+ 226 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 227 000a 04       		.byte	0x4
+ 228 000b 01       		.uleb128 0x1
+ 229 000c 4F000000 		.4byte	.LASF19
+ 230 0010 01       		.byte	0x1
+ 231 0011 57010000 		.4byte	.LASF20
+ 232 0015 19010000 		.4byte	.LASF21
+ 233 0019 00000000 		.4byte	.Ltext0
+ 234 001d 28000000 		.4byte	.Letext0
+ 235 0021 00000000 		.4byte	.Ldebug_line0
+ 236 0025 02       		.uleb128 0x2
+ 237 0026 01       		.byte	0x1
+ 238 0027 06       		.byte	0x6
+ 239 0028 B1010000 		.4byte	.LASF0
+ 240 002c 02       		.uleb128 0x2
+ 241 002d 01       		.byte	0x1
+ 242 002e 08       		.byte	0x8
+ 243 002f 2E000000 		.4byte	.LASF1
+ 244 0033 02       		.uleb128 0x2
+ 245 0034 02       		.byte	0x2
+ 246 0035 05       		.byte	0x5
+ 247 0036 DA010000 		.4byte	.LASF2
+ 248 003a 02       		.uleb128 0x2
+ 249 003b 02       		.byte	0x2
+ 250 003c 07       		.byte	0x7
+ 251 003d 0E000000 		.4byte	.LASF3
+ 252 0041 03       		.uleb128 0x3
+ 253 0042 E4010000 		.4byte	.LASF22
+ 254 0046 02       		.byte	0x2
+ARM GAS  /tmp/ccoe6tzL.s 			page 8
 
 
- 256 0035 05       		.byte	0x5
- 257 0036 F0010000 		.4byte	.LASF2
- 258 003a 02       		.uleb128 0x2
- 259 003b 02       		.byte	0x2
- 260 003c 07       		.byte	0x7
- 261 003d 0E000000 		.4byte	.LASF3
- 262 0041 03       		.uleb128 0x3
- 263 0042 FA010000 		.4byte	.LASF21
- 264 0046 02       		.byte	0x2
- 265 0047 4F       		.byte	0x4f
- 266 0048 4C000000 		.4byte	0x4c
- 267 004c 02       		.uleb128 0x2
- 268 004d 04       		.byte	0x4
- 269 004e 05       		.byte	0x5
- 270 004f 14010000 		.4byte	.LASF4
- 271 0053 02       		.uleb128 0x2
- 272 0054 04       		.byte	0x4
- 273 0055 07       		.byte	0x7
- 274 0056 6C000000 		.4byte	.LASF5
- 275 005a 02       		.uleb128 0x2
- 276 005b 08       		.byte	0x8
- 277 005c 05       		.byte	0x5
- 278 005d 00000000 		.4byte	.LASF6
- 279 0061 02       		.uleb128 0x2
- 280 0062 08       		.byte	0x8
- 281 0063 07       		.byte	0x7
- 282 0064 8F000000 		.4byte	.LASF7
- 283 0068 04       		.uleb128 0x4
- 284 0069 04       		.byte	0x4
- 285 006a 05       		.byte	0x5
- 286 006b 696E7400 		.ascii	"int\000"
- 287 006f 02       		.uleb128 0x2
- 288 0070 04       		.byte	0x4
- 289 0071 07       		.byte	0x7
- 290 0072 C6010000 		.4byte	.LASF8
- 291 0076 02       		.uleb128 0x2
- 292 0077 04       		.byte	0x4
- 293 0078 07       		.byte	0x7
- 294 0079 02020000 		.4byte	.LASF9
- 295 007d 05       		.uleb128 0x5
- 296 007e 01       		.byte	0x1
- 297 007f D8000000 		.4byte	.LASF10
- 298 0083 01       		.byte	0x1
- 299 0084 36       		.byte	0x36
- 300 0085 01       		.byte	0x1
- 301 0086 00000000 		.4byte	.LFB56
- 302 008a 02000000 		.4byte	.LFE56
- 303 008e 02       		.byte	0x2
- 304 008f 7D       		.byte	0x7d
- 305 0090 00       		.sleb128 0
- 306 0091 01       		.byte	0x1
- 307 0092 05       		.uleb128 0x5
- 308 0093 01       		.byte	0x1
- 309 0094 C6000000 		.4byte	.LASF11
- 310 0098 01       		.byte	0x1
- 311 0099 3F       		.byte	0x3f
- 312 009a 01       		.byte	0x1
-ARM GAS  /tmp/ccLyDO9R.s 			page 9
+ 255 0047 4F       		.byte	0x4f
+ 256 0048 4C000000 		.4byte	0x4c
+ 257 004c 02       		.uleb128 0x2
+ 258 004d 04       		.byte	0x4
+ 259 004e 05       		.byte	0x5
+ 260 004f 8C010000 		.4byte	.LASF4
+ 261 0053 02       		.uleb128 0x2
+ 262 0054 04       		.byte	0x4
+ 263 0055 07       		.byte	0x7
+ 264 0056 DF000000 		.4byte	.LASF5
+ 265 005a 02       		.uleb128 0x2
+ 266 005b 08       		.byte	0x8
+ 267 005c 05       		.byte	0x5
+ 268 005d 00000000 		.4byte	.LASF6
+ 269 0061 02       		.uleb128 0x2
+ 270 0062 08       		.byte	0x8
+ 271 0063 07       		.byte	0x7
+ 272 0064 02010000 		.4byte	.LASF7
+ 273 0068 04       		.uleb128 0x4
+ 274 0069 04       		.byte	0x4
+ 275 006a 05       		.byte	0x5
+ 276 006b 696E7400 		.ascii	"int\000"
+ 277 006f 02       		.uleb128 0x2
+ 278 0070 04       		.byte	0x4
+ 279 0071 07       		.byte	0x7
+ 280 0072 21000000 		.4byte	.LASF8
+ 281 0076 02       		.uleb128 0x2
+ 282 0077 04       		.byte	0x4
+ 283 0078 07       		.byte	0x7
+ 284 0079 EC010000 		.4byte	.LASF9
+ 285 007d 05       		.uleb128 0x5
+ 286 007e 01       		.byte	0x1
+ 287 007f 4B010000 		.4byte	.LASF10
+ 288 0083 01       		.byte	0x1
+ 289 0084 36       		.byte	0x36
+ 290 0085 01       		.byte	0x1
+ 291 0086 00000000 		.4byte	.LFB56
+ 292 008a 02000000 		.4byte	.LFE56
+ 293 008e 02       		.byte	0x2
+ 294 008f 7D       		.byte	0x7d
+ 295 0090 00       		.sleb128 0
+ 296 0091 01       		.byte	0x1
+ 297 0092 05       		.uleb128 0x5
+ 298 0093 01       		.byte	0x1
+ 299 0094 39010000 		.4byte	.LASF11
+ 300 0098 01       		.byte	0x1
+ 301 0099 3F       		.byte	0x3f
+ 302 009a 01       		.byte	0x1
+ 303 009b 04000000 		.4byte	.LFB57
+ 304 009f 06000000 		.4byte	.LFE57
+ 305 00a3 02       		.byte	0x2
+ 306 00a4 7D       		.byte	0x7d
+ 307 00a5 00       		.sleb128 0
+ 308 00a6 01       		.byte	0x1
+ 309 00a7 05       		.uleb128 0x5
+ 310 00a8 01       		.byte	0x1
+ 311 00a9 6A010000 		.4byte	.LASF12
+ARM GAS  /tmp/ccoe6tzL.s 			page 9
 
 
- 313 009b 04000000 		.4byte	.LFB57
- 314 009f 06000000 		.4byte	.LFE57
- 315 00a3 02       		.byte	0x2
- 316 00a4 7D       		.byte	0x7d
- 317 00a5 00       		.sleb128 0
- 318 00a6 01       		.byte	0x1
- 319 00a7 05       		.uleb128 0x5
- 320 00a8 01       		.byte	0x1
- 321 00a9 F2000000 		.4byte	.LASF12
- 322 00ad 01       		.byte	0x1
- 323 00ae 4C       		.byte	0x4c
- 324 00af 01       		.byte	0x1
- 325 00b0 08000000 		.4byte	.LFB58
- 326 00b4 0A000000 		.4byte	.LFE58
- 327 00b8 02       		.byte	0x2
- 328 00b9 7D       		.byte	0x7d
- 329 00ba 00       		.sleb128 0
- 330 00bb 01       		.byte	0x1
- 331 00bc 05       		.uleb128 0x5
- 332 00bd 01       		.byte	0x1
- 333 00be 7E000000 		.4byte	.LASF13
- 334 00c2 01       		.byte	0x1
- 335 00c3 59       		.byte	0x59
- 336 00c4 01       		.byte	0x1
- 337 00c5 0C000000 		.4byte	.LFB59
- 338 00c9 0E000000 		.4byte	.LFE59
- 339 00cd 02       		.byte	0x2
- 340 00ce 7D       		.byte	0x7d
- 341 00cf 00       		.sleb128 0
- 342 00d0 01       		.byte	0x1
- 343 00d1 05       		.uleb128 0x5
- 344 00d2 01       		.byte	0x1
- 345 00d3 59000000 		.4byte	.LASF14
- 346 00d7 01       		.byte	0x1
- 347 00d8 66       		.byte	0x66
- 348 00d9 01       		.byte	0x1
- 349 00da 10000000 		.4byte	.LFB60
- 350 00de 12000000 		.4byte	.LFE60
- 351 00e2 02       		.byte	0x2
- 352 00e3 7D       		.byte	0x7d
- 353 00e4 00       		.sleb128 0
- 354 00e5 01       		.byte	0x1
- 355 00e6 05       		.uleb128 0x5
- 356 00e7 01       		.byte	0x1
- 357 00e8 D3010000 		.4byte	.LASF15
- 358 00ec 01       		.byte	0x1
- 359 00ed 73       		.byte	0x73
- 360 00ee 01       		.byte	0x1
- 361 00ef 14000000 		.4byte	.LFB61
- 362 00f3 16000000 		.4byte	.LFE61
- 363 00f7 02       		.byte	0x2
- 364 00f8 7D       		.byte	0x7d
- 365 00f9 00       		.sleb128 0
- 366 00fa 01       		.byte	0x1
- 367 00fb 05       		.uleb128 0x5
- 368 00fc 01       		.byte	0x1
- 369 00fd DF010000 		.4byte	.LASF16
-ARM GAS  /tmp/ccLyDO9R.s 			page 10
+ 312 00ad 01       		.byte	0x1
+ 313 00ae 4C       		.byte	0x4c
+ 314 00af 01       		.byte	0x1
+ 315 00b0 08000000 		.4byte	.LFB58
+ 316 00b4 0A000000 		.4byte	.LFE58
+ 317 00b8 02       		.byte	0x2
+ 318 00b9 7D       		.byte	0x7d
+ 319 00ba 00       		.sleb128 0
+ 320 00bb 01       		.byte	0x1
+ 321 00bc 05       		.uleb128 0x5
+ 322 00bd 01       		.byte	0x1
+ 323 00be F1000000 		.4byte	.LASF13
+ 324 00c2 01       		.byte	0x1
+ 325 00c3 59       		.byte	0x59
+ 326 00c4 01       		.byte	0x1
+ 327 00c5 0C000000 		.4byte	.LFB59
+ 328 00c9 0E000000 		.4byte	.LFE59
+ 329 00cd 02       		.byte	0x2
+ 330 00ce 7D       		.byte	0x7d
+ 331 00cf 00       		.sleb128 0
+ 332 00d0 01       		.byte	0x1
+ 333 00d1 05       		.uleb128 0x5
+ 334 00d2 01       		.byte	0x1
+ 335 00d3 3C000000 		.4byte	.LASF14
+ 336 00d7 01       		.byte	0x1
+ 337 00d8 66       		.byte	0x66
+ 338 00d9 01       		.byte	0x1
+ 339 00da 10000000 		.4byte	.LFB60
+ 340 00de 12000000 		.4byte	.LFE60
+ 341 00e2 02       		.byte	0x2
+ 342 00e3 7D       		.byte	0x7d
+ 343 00e4 00       		.sleb128 0
+ 344 00e5 01       		.byte	0x1
+ 345 00e6 05       		.uleb128 0x5
+ 346 00e7 01       		.byte	0x1
+ 347 00e8 BD010000 		.4byte	.LASF15
+ 348 00ec 01       		.byte	0x1
+ 349 00ed 73       		.byte	0x73
+ 350 00ee 01       		.byte	0x1
+ 351 00ef 14000000 		.4byte	.LFB61
+ 352 00f3 16000000 		.4byte	.LFE61
+ 353 00f7 02       		.byte	0x2
+ 354 00f8 7D       		.byte	0x7d
+ 355 00f9 00       		.sleb128 0
+ 356 00fa 01       		.byte	0x1
+ 357 00fb 05       		.uleb128 0x5
+ 358 00fc 01       		.byte	0x1
+ 359 00fd C9010000 		.4byte	.LASF16
+ 360 0101 01       		.byte	0x1
+ 361 0102 7C       		.byte	0x7c
+ 362 0103 01       		.byte	0x1
+ 363 0104 18000000 		.4byte	.LFB62
+ 364 0108 1A000000 		.4byte	.LFE62
+ 365 010c 02       		.byte	0x2
+ 366 010d 7D       		.byte	0x7d
+ 367 010e 00       		.sleb128 0
+ 368 010f 01       		.byte	0x1
+ARM GAS  /tmp/ccoe6tzL.s 			page 10
 
 
- 370 0101 01       		.byte	0x1
- 371 0102 7C       		.byte	0x7c
- 372 0103 01       		.byte	0x1
- 373 0104 18000000 		.4byte	.LFB62
- 374 0108 1A000000 		.4byte	.LFE62
- 375 010c 02       		.byte	0x2
- 376 010d 7D       		.byte	0x7d
- 377 010e 00       		.sleb128 0
- 378 010f 01       		.byte	0x1
- 379 0110 05       		.uleb128 0x5
- 380 0111 01       		.byte	0x1
- 381 0112 37000000 		.4byte	.LASF17
- 382 0116 01       		.byte	0x1
- 383 0117 85       		.byte	0x85
- 384 0118 01       		.byte	0x1
- 385 0119 1C000000 		.4byte	.LFB63
- 386 011d 1E000000 		.4byte	.LFE63
- 387 0121 02       		.byte	0x2
- 388 0122 7D       		.byte	0x7d
- 389 0123 00       		.sleb128 0
- 390 0124 01       		.byte	0x1
- 391 0125 06       		.uleb128 0x6
- 392 0126 01       		.byte	0x1
- 393 0127 04010000 		.4byte	.LASF22
- 394 012b 01       		.byte	0x1
- 395 012c 8E       		.byte	0x8e
- 396 012d 01       		.byte	0x1
- 397 012e 20000000 		.4byte	.LFB64
- 398 0132 24000000 		.4byte	.LFE64
- 399 0136 02       		.byte	0x2
- 400 0137 7D       		.byte	0x7d
- 401 0138 00       		.sleb128 0
- 402 0139 01       		.byte	0x1
- 403 013a 49010000 		.4byte	0x149
- 404 013e 07       		.uleb128 0x7
- 405 013f 24000000 		.4byte	.LVL0
- 406 0143 01       		.byte	0x1
- 407 0144 5C010000 		.4byte	0x15c
- 408 0148 00       		.byte	0
- 409 0149 08       		.uleb128 0x8
- 410 014a AD010000 		.4byte	.LASF23
- 411 014e 03       		.byte	0x3
- 412 014f 1606     		.2byte	0x616
- 413 0151 57010000 		.4byte	0x157
- 414 0155 01       		.byte	0x1
- 415 0156 01       		.byte	0x1
- 416 0157 09       		.uleb128 0x9
- 417 0158 41000000 		.4byte	0x41
- 418 015c 0A       		.uleb128 0xa
- 419 015d 01       		.byte	0x1
- 420 015e 21000000 		.4byte	.LASF24
- 421 0162 04       		.byte	0x4
- 422 0163 29       		.byte	0x29
- 423 0164 01       		.byte	0x1
- 424 0165 01       		.byte	0x1
- 425 0166 00       		.byte	0
- 426              		.section	.debug_abbrev,"",%progbits
-ARM GAS  /tmp/ccLyDO9R.s 			page 11
+ 369 0110 05       		.uleb128 0x5
+ 370 0111 01       		.byte	0x1
+ 371 0112 95010000 		.4byte	.LASF17
+ 372 0116 01       		.byte	0x1
+ 373 0117 85       		.byte	0x85
+ 374 0118 01       		.byte	0x1
+ 375 0119 1C000000 		.4byte	.LFB63
+ 376 011d 1E000000 		.4byte	.LFE63
+ 377 0121 02       		.byte	0x2
+ 378 0122 7D       		.byte	0x7d
+ 379 0123 00       		.sleb128 0
+ 380 0124 01       		.byte	0x1
+ 381 0125 06       		.uleb128 0x6
+ 382 0126 01       		.byte	0x1
+ 383 0127 7C010000 		.4byte	.LASF18
+ 384 012b 01       		.byte	0x1
+ 385 012c 8E       		.byte	0x8e
+ 386 012d 01       		.byte	0x1
+ 387 012e 20000000 		.4byte	.LFB64
+ 388 0132 28000000 		.4byte	.LFE64
+ 389 0136 00000000 		.4byte	.LLST0
+ 390 013a 01       		.byte	0x1
+ 391 013b 07       		.uleb128 0x7
+ 392 013c A4010000 		.4byte	.LASF23
+ 393 0140 03       		.byte	0x3
+ 394 0141 1606     		.2byte	0x616
+ 395 0143 49010000 		.4byte	0x149
+ 396 0147 01       		.byte	0x1
+ 397 0148 01       		.byte	0x1
+ 398 0149 08       		.uleb128 0x8
+ 399 014a 41000000 		.4byte	0x41
+ 400 014e 00       		.byte	0
+ 401              		.section	.debug_abbrev,"",%progbits
+ 402              	.Ldebug_abbrev0:
+ 403 0000 01       		.uleb128 0x1
+ 404 0001 11       		.uleb128 0x11
+ 405 0002 01       		.byte	0x1
+ 406 0003 25       		.uleb128 0x25
+ 407 0004 0E       		.uleb128 0xe
+ 408 0005 13       		.uleb128 0x13
+ 409 0006 0B       		.uleb128 0xb
+ 410 0007 03       		.uleb128 0x3
+ 411 0008 0E       		.uleb128 0xe
+ 412 0009 1B       		.uleb128 0x1b
+ 413 000a 0E       		.uleb128 0xe
+ 414 000b 11       		.uleb128 0x11
+ 415 000c 01       		.uleb128 0x1
+ 416 000d 12       		.uleb128 0x12
+ 417 000e 01       		.uleb128 0x1
+ 418 000f 10       		.uleb128 0x10
+ 419 0010 06       		.uleb128 0x6
+ 420 0011 00       		.byte	0
+ 421 0012 00       		.byte	0
+ 422 0013 02       		.uleb128 0x2
+ 423 0014 24       		.uleb128 0x24
+ 424 0015 00       		.byte	0
+ 425 0016 0B       		.uleb128 0xb
+ARM GAS  /tmp/ccoe6tzL.s 			page 11
 
 
- 427              	.Ldebug_abbrev0:
- 428 0000 01       		.uleb128 0x1
- 429 0001 11       		.uleb128 0x11
- 430 0002 01       		.byte	0x1
- 431 0003 25       		.uleb128 0x25
- 432 0004 0E       		.uleb128 0xe
- 433 0005 13       		.uleb128 0x13
- 434 0006 0B       		.uleb128 0xb
- 435 0007 03       		.uleb128 0x3
- 436 0008 0E       		.uleb128 0xe
- 437 0009 1B       		.uleb128 0x1b
- 438 000a 0E       		.uleb128 0xe
- 439 000b 11       		.uleb128 0x11
- 440 000c 01       		.uleb128 0x1
- 441 000d 12       		.uleb128 0x12
- 442 000e 01       		.uleb128 0x1
- 443 000f 10       		.uleb128 0x10
- 444 0010 06       		.uleb128 0x6
- 445 0011 00       		.byte	0
- 446 0012 00       		.byte	0
- 447 0013 02       		.uleb128 0x2
- 448 0014 24       		.uleb128 0x24
- 449 0015 00       		.byte	0
- 450 0016 0B       		.uleb128 0xb
- 451 0017 0B       		.uleb128 0xb
- 452 0018 3E       		.uleb128 0x3e
- 453 0019 0B       		.uleb128 0xb
- 454 001a 03       		.uleb128 0x3
- 455 001b 0E       		.uleb128 0xe
- 456 001c 00       		.byte	0
- 457 001d 00       		.byte	0
- 458 001e 03       		.uleb128 0x3
- 459 001f 16       		.uleb128 0x16
- 460 0020 00       		.byte	0
- 461 0021 03       		.uleb128 0x3
- 462 0022 0E       		.uleb128 0xe
- 463 0023 3A       		.uleb128 0x3a
- 464 0024 0B       		.uleb128 0xb
- 465 0025 3B       		.uleb128 0x3b
- 466 0026 0B       		.uleb128 0xb
- 467 0027 49       		.uleb128 0x49
- 468 0028 13       		.uleb128 0x13
- 469 0029 00       		.byte	0
- 470 002a 00       		.byte	0
- 471 002b 04       		.uleb128 0x4
- 472 002c 24       		.uleb128 0x24
- 473 002d 00       		.byte	0
- 474 002e 0B       		.uleb128 0xb
- 475 002f 0B       		.uleb128 0xb
- 476 0030 3E       		.uleb128 0x3e
- 477 0031 0B       		.uleb128 0xb
- 478 0032 03       		.uleb128 0x3
- 479 0033 08       		.uleb128 0x8
- 480 0034 00       		.byte	0
- 481 0035 00       		.byte	0
- 482 0036 05       		.uleb128 0x5
- 483 0037 2E       		.uleb128 0x2e
-ARM GAS  /tmp/ccLyDO9R.s 			page 12
+ 426 0017 0B       		.uleb128 0xb
+ 427 0018 3E       		.uleb128 0x3e
+ 428 0019 0B       		.uleb128 0xb
+ 429 001a 03       		.uleb128 0x3
+ 430 001b 0E       		.uleb128 0xe
+ 431 001c 00       		.byte	0
+ 432 001d 00       		.byte	0
+ 433 001e 03       		.uleb128 0x3
+ 434 001f 16       		.uleb128 0x16
+ 435 0020 00       		.byte	0
+ 436 0021 03       		.uleb128 0x3
+ 437 0022 0E       		.uleb128 0xe
+ 438 0023 3A       		.uleb128 0x3a
+ 439 0024 0B       		.uleb128 0xb
+ 440 0025 3B       		.uleb128 0x3b
+ 441 0026 0B       		.uleb128 0xb
+ 442 0027 49       		.uleb128 0x49
+ 443 0028 13       		.uleb128 0x13
+ 444 0029 00       		.byte	0
+ 445 002a 00       		.byte	0
+ 446 002b 04       		.uleb128 0x4
+ 447 002c 24       		.uleb128 0x24
+ 448 002d 00       		.byte	0
+ 449 002e 0B       		.uleb128 0xb
+ 450 002f 0B       		.uleb128 0xb
+ 451 0030 3E       		.uleb128 0x3e
+ 452 0031 0B       		.uleb128 0xb
+ 453 0032 03       		.uleb128 0x3
+ 454 0033 08       		.uleb128 0x8
+ 455 0034 00       		.byte	0
+ 456 0035 00       		.byte	0
+ 457 0036 05       		.uleb128 0x5
+ 458 0037 2E       		.uleb128 0x2e
+ 459 0038 00       		.byte	0
+ 460 0039 3F       		.uleb128 0x3f
+ 461 003a 0C       		.uleb128 0xc
+ 462 003b 03       		.uleb128 0x3
+ 463 003c 0E       		.uleb128 0xe
+ 464 003d 3A       		.uleb128 0x3a
+ 465 003e 0B       		.uleb128 0xb
+ 466 003f 3B       		.uleb128 0x3b
+ 467 0040 0B       		.uleb128 0xb
+ 468 0041 27       		.uleb128 0x27
+ 469 0042 0C       		.uleb128 0xc
+ 470 0043 11       		.uleb128 0x11
+ 471 0044 01       		.uleb128 0x1
+ 472 0045 12       		.uleb128 0x12
+ 473 0046 01       		.uleb128 0x1
+ 474 0047 40       		.uleb128 0x40
+ 475 0048 0A       		.uleb128 0xa
+ 476 0049 9742     		.uleb128 0x2117
+ 477 004b 0C       		.uleb128 0xc
+ 478 004c 00       		.byte	0
+ 479 004d 00       		.byte	0
+ 480 004e 06       		.uleb128 0x6
+ 481 004f 2E       		.uleb128 0x2e
+ 482 0050 00       		.byte	0
+ARM GAS  /tmp/ccoe6tzL.s 			page 12
 
 
- 484 0038 00       		.byte	0
- 485 0039 3F       		.uleb128 0x3f
- 486 003a 0C       		.uleb128 0xc
- 487 003b 03       		.uleb128 0x3
- 488 003c 0E       		.uleb128 0xe
- 489 003d 3A       		.uleb128 0x3a
- 490 003e 0B       		.uleb128 0xb
- 491 003f 3B       		.uleb128 0x3b
- 492 0040 0B       		.uleb128 0xb
- 493 0041 27       		.uleb128 0x27
- 494 0042 0C       		.uleb128 0xc
- 495 0043 11       		.uleb128 0x11
- 496 0044 01       		.uleb128 0x1
- 497 0045 12       		.uleb128 0x12
- 498 0046 01       		.uleb128 0x1
- 499 0047 40       		.uleb128 0x40
- 500 0048 0A       		.uleb128 0xa
- 501 0049 9742     		.uleb128 0x2117
- 502 004b 0C       		.uleb128 0xc
- 503 004c 00       		.byte	0
- 504 004d 00       		.byte	0
- 505 004e 06       		.uleb128 0x6
- 506 004f 2E       		.uleb128 0x2e
- 507 0050 01       		.byte	0x1
- 508 0051 3F       		.uleb128 0x3f
- 509 0052 0C       		.uleb128 0xc
- 510 0053 03       		.uleb128 0x3
- 511 0054 0E       		.uleb128 0xe
- 512 0055 3A       		.uleb128 0x3a
- 513 0056 0B       		.uleb128 0xb
- 514 0057 3B       		.uleb128 0x3b
- 515 0058 0B       		.uleb128 0xb
- 516 0059 27       		.uleb128 0x27
- 517 005a 0C       		.uleb128 0xc
- 518 005b 11       		.uleb128 0x11
- 519 005c 01       		.uleb128 0x1
- 520 005d 12       		.uleb128 0x12
- 521 005e 01       		.uleb128 0x1
- 522 005f 40       		.uleb128 0x40
- 523 0060 0A       		.uleb128 0xa
- 524 0061 9742     		.uleb128 0x2117
- 525 0063 0C       		.uleb128 0xc
- 526 0064 01       		.uleb128 0x1
- 527 0065 13       		.uleb128 0x13
- 528 0066 00       		.byte	0
- 529 0067 00       		.byte	0
- 530 0068 07       		.uleb128 0x7
- 531 0069 898201   		.uleb128 0x4109
- 532 006c 00       		.byte	0
- 533 006d 11       		.uleb128 0x11
- 534 006e 01       		.uleb128 0x1
- 535 006f 9542     		.uleb128 0x2115
- 536 0071 0C       		.uleb128 0xc
- 537 0072 31       		.uleb128 0x31
- 538 0073 13       		.uleb128 0x13
- 539 0074 00       		.byte	0
- 540 0075 00       		.byte	0
-ARM GAS  /tmp/ccLyDO9R.s 			page 13
+ 483 0051 3F       		.uleb128 0x3f
+ 484 0052 0C       		.uleb128 0xc
+ 485 0053 03       		.uleb128 0x3
+ 486 0054 0E       		.uleb128 0xe
+ 487 0055 3A       		.uleb128 0x3a
+ 488 0056 0B       		.uleb128 0xb
+ 489 0057 3B       		.uleb128 0x3b
+ 490 0058 0B       		.uleb128 0xb
+ 491 0059 27       		.uleb128 0x27
+ 492 005a 0C       		.uleb128 0xc
+ 493 005b 11       		.uleb128 0x11
+ 494 005c 01       		.uleb128 0x1
+ 495 005d 12       		.uleb128 0x12
+ 496 005e 01       		.uleb128 0x1
+ 497 005f 40       		.uleb128 0x40
+ 498 0060 06       		.uleb128 0x6
+ 499 0061 9642     		.uleb128 0x2116
+ 500 0063 0C       		.uleb128 0xc
+ 501 0064 00       		.byte	0
+ 502 0065 00       		.byte	0
+ 503 0066 07       		.uleb128 0x7
+ 504 0067 34       		.uleb128 0x34
+ 505 0068 00       		.byte	0
+ 506 0069 03       		.uleb128 0x3
+ 507 006a 0E       		.uleb128 0xe
+ 508 006b 3A       		.uleb128 0x3a
+ 509 006c 0B       		.uleb128 0xb
+ 510 006d 3B       		.uleb128 0x3b
+ 511 006e 05       		.uleb128 0x5
+ 512 006f 49       		.uleb128 0x49
+ 513 0070 13       		.uleb128 0x13
+ 514 0071 3F       		.uleb128 0x3f
+ 515 0072 0C       		.uleb128 0xc
+ 516 0073 3C       		.uleb128 0x3c
+ 517 0074 0C       		.uleb128 0xc
+ 518 0075 00       		.byte	0
+ 519 0076 00       		.byte	0
+ 520 0077 08       		.uleb128 0x8
+ 521 0078 35       		.uleb128 0x35
+ 522 0079 00       		.byte	0
+ 523 007a 49       		.uleb128 0x49
+ 524 007b 13       		.uleb128 0x13
+ 525 007c 00       		.byte	0
+ 526 007d 00       		.byte	0
+ 527 007e 00       		.byte	0
+ 528              		.section	.debug_loc,"",%progbits
+ 529              	.Ldebug_loc0:
+ 530              	.LLST0:
+ 531 0000 20000000 		.4byte	.LFB64-.Ltext0
+ 532 0004 22000000 		.4byte	.LCFI0-.Ltext0
+ 533 0008 0200     		.2byte	0x2
+ 534 000a 7D       		.byte	0x7d
+ 535 000b 00       		.sleb128 0
+ 536 000c 22000000 		.4byte	.LCFI0-.Ltext0
+ 537 0010 28000000 		.4byte	.LFE64-.Ltext0
+ 538 0014 0200     		.2byte	0x2
+ 539 0016 7D       		.byte	0x7d
+ARM GAS  /tmp/ccoe6tzL.s 			page 13
 
 
- 541 0076 08       		.uleb128 0x8
- 542 0077 34       		.uleb128 0x34
- 543 0078 00       		.byte	0
- 544 0079 03       		.uleb128 0x3
- 545 007a 0E       		.uleb128 0xe
- 546 007b 3A       		.uleb128 0x3a
- 547 007c 0B       		.uleb128 0xb
- 548 007d 3B       		.uleb128 0x3b
- 549 007e 05       		.uleb128 0x5
- 550 007f 49       		.uleb128 0x49
- 551 0080 13       		.uleb128 0x13
- 552 0081 3F       		.uleb128 0x3f
- 553 0082 0C       		.uleb128 0xc
- 554 0083 3C       		.uleb128 0x3c
- 555 0084 0C       		.uleb128 0xc
- 556 0085 00       		.byte	0
- 557 0086 00       		.byte	0
- 558 0087 09       		.uleb128 0x9
- 559 0088 35       		.uleb128 0x35
- 560 0089 00       		.byte	0
- 561 008a 49       		.uleb128 0x49
- 562 008b 13       		.uleb128 0x13
- 563 008c 00       		.byte	0
- 564 008d 00       		.byte	0
- 565 008e 0A       		.uleb128 0xa
- 566 008f 2E       		.uleb128 0x2e
- 567 0090 00       		.byte	0
- 568 0091 3F       		.uleb128 0x3f
- 569 0092 0C       		.uleb128 0xc
- 570 0093 03       		.uleb128 0x3
- 571 0094 0E       		.uleb128 0xe
- 572 0095 3A       		.uleb128 0x3a
- 573 0096 0B       		.uleb128 0xb
- 574 0097 3B       		.uleb128 0x3b
- 575 0098 0B       		.uleb128 0xb
- 576 0099 27       		.uleb128 0x27
- 577 009a 0C       		.uleb128 0xc
- 578 009b 3C       		.uleb128 0x3c
- 579 009c 0C       		.uleb128 0xc
- 580 009d 00       		.byte	0
- 581 009e 00       		.byte	0
- 582 009f 00       		.byte	0
- 583              		.section	.debug_aranges,"",%progbits
- 584 0000 1C000000 		.4byte	0x1c
- 585 0004 0200     		.2byte	0x2
- 586 0006 00000000 		.4byte	.Ldebug_info0
- 587 000a 04       		.byte	0x4
- 588 000b 00       		.byte	0
- 589 000c 0000     		.2byte	0
- 590 000e 0000     		.2byte	0
- 591 0010 00000000 		.4byte	.Ltext0
- 592 0014 24000000 		.4byte	.Letext0-.Ltext0
- 593 0018 00000000 		.4byte	0
- 594 001c 00000000 		.4byte	0
- 595              		.section	.debug_line,"",%progbits
- 596              	.Ldebug_line0:
- 597 0000 B6000000 		.section	.debug_str,"MS",%progbits,1
-ARM GAS  /tmp/ccLyDO9R.s 			page 14
+ 540 0017 08       		.sleb128 8
+ 541 0018 00000000 		.4byte	0
+ 542 001c 00000000 		.4byte	0
+ 543              		.section	.debug_aranges,"",%progbits
+ 544 0000 1C000000 		.4byte	0x1c
+ 545 0004 0200     		.2byte	0x2
+ 546 0006 00000000 		.4byte	.Ldebug_info0
+ 547 000a 04       		.byte	0x4
+ 548 000b 00       		.byte	0
+ 549 000c 0000     		.2byte	0
+ 550 000e 0000     		.2byte	0
+ 551 0010 00000000 		.4byte	.Ltext0
+ 552 0014 28000000 		.4byte	.Letext0-.Ltext0
+ 553 0018 00000000 		.4byte	0
+ 554 001c 00000000 		.4byte	0
+ 555              		.section	.debug_line,"",%progbits
+ 556              	.Ldebug_line0:
+ 557 0000 BD000000 		.section	.debug_str,"MS",%progbits,1
+ 557      02007E00 
+ 557      00000201 
+ 557      FB0E0D00 
+ 557      01010101 
+ 558              	.LASF6:
+ 559 0000 6C6F6E67 		.ascii	"long long int\000"
+ 559      206C6F6E 
+ 559      6720696E 
+ 559      7400
+ 560              	.LASF3:
+ 561 000e 73686F72 		.ascii	"short unsigned int\000"
+ 561      7420756E 
+ 561      7369676E 
+ 561      65642069 
+ 561      6E7400
+ 562              	.LASF8:
+ 563 0021 756E7369 		.ascii	"unsigned int\000"
+ 563      676E6564 
+ 563      20696E74 
+ 563      00
+ 564              	.LASF1:
+ 565 002e 756E7369 		.ascii	"unsigned char\000"
+ 565      676E6564 
+ 565      20636861 
+ 565      7200
+ 566              	.LASF14:
+ 567 003c 55736167 		.ascii	"UsageFault_Handler\000"
+ 567      65466175 
+ 567      6C745F48 
+ 567      616E646C 
+ 567      657200
+ 568              	.LASF19:
+ 569 004f 474E5520 		.ascii	"GNU C 4.8.3 20131129 (release) [ARM/embedded-4_8-br"
+ 569      4320342E 
+ 569      382E3320 
+ 569      32303133 
+ 569      31313239 
+ 570 0082 616E6368 		.ascii	"anch revision 205641] -mcpu=cortex-m3 -mthumb -g -g"
+ 570      20726576 
+ARM GAS  /tmp/ccoe6tzL.s 			page 14
 
 
- 597      02008800 
- 597      00000201 
- 597      FB0E0D00 
- 597      01010101 
- 598              	.LASF6:
- 599 0000 6C6F6E67 		.ascii	"long long int\000"
- 599      206C6F6E 
- 599      6720696E 
- 599      7400
- 600              	.LASF3:
- 601 000e 73686F72 		.ascii	"short unsigned int\000"
- 601      7420756E 
- 601      7369676E 
- 601      65642069 
- 601      6E7400
- 602              	.LASF24:
- 603 0021 54696D69 		.ascii	"TimingDelay_Decrement\000"
- 603      6E674465 
- 603      6C61795F 
- 603      44656372 
- 603      656D656E 
- 604              	.LASF17:
- 605 0037 50656E64 		.ascii	"PendSV_Handler\000"
- 605      53565F48 
- 605      616E646C 
- 605      657200
- 606              	.LASF19:
- 607 0046 7372632F 		.ascii	"src/stm32l1xx_it.c\000"
- 607      73746D33 
- 607      326C3178 
- 607      785F6974 
- 607      2E6300
- 608              	.LASF14:
- 609 0059 55736167 		.ascii	"UsageFault_Handler\000"
- 609      65466175 
- 609      6C745F48 
- 609      616E646C 
- 609      657200
- 610              	.LASF5:
- 611 006c 6C6F6E67 		.ascii	"long unsigned int\000"
- 611      20756E73 
- 611      69676E65 
- 611      6420696E 
- 611      7400
- 612              	.LASF13:
- 613 007e 42757346 		.ascii	"BusFault_Handler\000"
- 613      61756C74 
- 613      5F48616E 
- 613      646C6572 
- 613      00
- 614              	.LASF7:
- 615 008f 6C6F6E67 		.ascii	"long long unsigned int\000"
- 615      206C6F6E 
- 615      6720756E 
- 615      7369676E 
- 615      65642069 
- 616              	.LASF20:
-ARM GAS  /tmp/ccLyDO9R.s 			page 15
+ 570      6973696F 
+ 570      6E203230 
+ 570      35363431 
+ 571 00b5 64776172 		.ascii	"dwarf-2 -O0 -std=c99 -fomit-frame-pointer\000"
+ 571      662D3220 
+ 571      2D4F3020 
+ 571      2D737464 
+ 571      3D633939 
+ 572              	.LASF5:
+ 573 00df 6C6F6E67 		.ascii	"long unsigned int\000"
+ 573      20756E73 
+ 573      69676E65 
+ 573      6420696E 
+ 573      7400
+ 574              	.LASF13:
+ 575 00f1 42757346 		.ascii	"BusFault_Handler\000"
+ 575      61756C74 
+ 575      5F48616E 
+ 575      646C6572 
+ 575      00
+ 576              	.LASF7:
+ 577 0102 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 577      206C6F6E 
+ 577      6720756E 
+ 577      7369676E 
+ 577      65642069 
+ 578              	.LASF21:
+ 579 0119 2F686F6D 		.ascii	"/home/zbanks/hackboard/firmware\000"
+ 579      652F7A62 
+ 579      616E6B73 
+ 579      2F686163 
+ 579      6B626F61 
+ 580              	.LASF11:
+ 581 0139 48617264 		.ascii	"HardFault_Handler\000"
+ 581      4661756C 
+ 581      745F4861 
+ 581      6E646C65 
+ 581      7200
+ 582              	.LASF10:
+ 583 014b 4E4D495F 		.ascii	"NMI_Handler\000"
+ 583      48616E64 
+ 583      6C657200 
+ 584              	.LASF20:
+ 585 0157 7372632F 		.ascii	"src/stm32l1xx_it.c\000"
+ 585      73746D33 
+ 585      326C3178 
+ 585      785F6974 
+ 585      2E6300
+ 586              	.LASF12:
+ 587 016a 4D656D4D 		.ascii	"MemManage_Handler\000"
+ 587      616E6167 
+ 587      655F4861 
+ 587      6E646C65 
+ 587      7200
+ 588              	.LASF18:
+ 589 017c 53797354 		.ascii	"SysTick_Handler\000"
+ 589      69636B5F 
+ARM GAS  /tmp/ccoe6tzL.s 			page 15
 
 
- 617 00a6 2F686F6D 		.ascii	"/home/zbanks/hackboard/firmware\000"
- 617      652F7A62 
- 617      616E6B73 
- 617      2F686163 
- 617      6B626F61 
- 618              	.LASF11:
- 619 00c6 48617264 		.ascii	"HardFault_Handler\000"
- 619      4661756C 
- 619      745F4861 
- 619      6E646C65 
- 619      7200
- 620              	.LASF10:
- 621 00d8 4E4D495F 		.ascii	"NMI_Handler\000"
- 621      48616E64 
- 621      6C657200 
- 622              	.LASF1:
- 623 00e4 756E7369 		.ascii	"unsigned char\000"
- 623      676E6564 
- 623      20636861 
- 623      7200
- 624              	.LASF12:
- 625 00f2 4D656D4D 		.ascii	"MemManage_Handler\000"
- 625      616E6167 
- 625      655F4861 
- 625      6E646C65 
- 625      7200
- 626              	.LASF22:
- 627 0104 53797354 		.ascii	"SysTick_Handler\000"
- 627      69636B5F 
- 627      48616E64 
- 627      6C657200 
- 628              	.LASF4:
- 629 0114 6C6F6E67 		.ascii	"long int\000"
- 629      20696E74 
- 629      00
- 630              	.LASF18:
- 631 011d 474E5520 		.ascii	"GNU C 4.8.3 20131129 (release) [ARM/embedded-4_8-br"
- 631      4320342E 
- 631      382E3320 
- 631      32303133 
- 631      31313239 
- 632 0150 616E6368 		.ascii	"anch revision 205641] -mcpu=cortex-m3 -mthumb -g -g"
- 632      20726576 
- 632      6973696F 
- 632      6E203230 
- 632      35363431 
- 633 0183 64776172 		.ascii	"dwarf-2 -O3 -std=c99 -fomit-frame-pointer\000"
- 633      662D3220 
- 633      2D4F3320 
- 633      2D737464 
- 633      3D633939 
- 634              	.LASF23:
- 635 01ad 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 635      52784275 
- 635      66666572 
- 635      00
- 636              	.LASF0:
-ARM GAS  /tmp/ccLyDO9R.s 			page 16
-
-
- 637 01ba 7369676E 		.ascii	"signed char\000"
- 637      65642063 
- 637      68617200 
- 638              	.LASF8:
- 639 01c6 756E7369 		.ascii	"unsigned int\000"
- 639      676E6564 
- 639      20696E74 
- 639      00
- 640              	.LASF15:
- 641 01d3 5356435F 		.ascii	"SVC_Handler\000"
- 641      48616E64 
- 641      6C657200 
- 642              	.LASF16:
- 643 01df 44656275 		.ascii	"DebugMon_Handler\000"
- 643      674D6F6E 
- 643      5F48616E 
- 643      646C6572 
- 643      00
- 644              	.LASF2:
- 645 01f0 73686F72 		.ascii	"short int\000"
- 645      7420696E 
- 645      7400
- 646              	.LASF21:
- 647 01fa 696E7433 		.ascii	"int32_t\000"
- 647      325F7400 
- 648              	.LASF9:
- 649 0202 73697A65 		.ascii	"sizetype\000"
- 649      74797065 
- 649      00
- 650              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.3 20131129 (release) [ARM/embedded-4_8-br
-ARM GAS  /tmp/ccLyDO9R.s 			page 17
+ 589      48616E64 
+ 589      6C657200 
+ 590              	.LASF4:
+ 591 018c 6C6F6E67 		.ascii	"long int\000"
+ 591      20696E74 
+ 591      00
+ 592              	.LASF17:
+ 593 0195 50656E64 		.ascii	"PendSV_Handler\000"
+ 593      53565F48 
+ 593      616E646C 
+ 593      657200
+ 594              	.LASF23:
+ 595 01a4 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 595      52784275 
+ 595      66666572 
+ 595      00
+ 596              	.LASF0:
+ 597 01b1 7369676E 		.ascii	"signed char\000"
+ 597      65642063 
+ 597      68617200 
+ 598              	.LASF15:
+ 599 01bd 5356435F 		.ascii	"SVC_Handler\000"
+ 599      48616E64 
+ 599      6C657200 
+ 600              	.LASF16:
+ 601 01c9 44656275 		.ascii	"DebugMon_Handler\000"
+ 601      674D6F6E 
+ 601      5F48616E 
+ 601      646C6572 
+ 601      00
+ 602              	.LASF2:
+ 603 01da 73686F72 		.ascii	"short int\000"
+ 603      7420696E 
+ 603      7400
+ 604              	.LASF22:
+ 605 01e4 696E7433 		.ascii	"int32_t\000"
+ 605      325F7400 
+ 606              	.LASF9:
+ 607 01ec 73697A65 		.ascii	"sizetype\000"
+ 607      74797065 
+ 607      00
+ 608              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.3 20131129 (release) [ARM/embedded-4_8-br
+ARM GAS  /tmp/ccoe6tzL.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32l1xx_it.c
-     /tmp/ccLyDO9R.s:73     .text:00000000 $t
-     /tmp/ccLyDO9R.s:78     .text:00000000 NMI_Handler
-     /tmp/ccLyDO9R.s:95     .text:00000004 HardFault_Handler
-     /tmp/ccLyDO9R.s:113    .text:00000008 MemManage_Handler
-     /tmp/ccLyDO9R.s:131    .text:0000000c BusFault_Handler
-     /tmp/ccLyDO9R.s:149    .text:00000010 UsageFault_Handler
-     /tmp/ccLyDO9R.s:167    .text:00000014 SVC_Handler
-     /tmp/ccLyDO9R.s:183    .text:00000018 DebugMon_Handler
-     /tmp/ccLyDO9R.s:199    .text:0000001c PendSV_Handler
-     /tmp/ccLyDO9R.s:215    .text:00000020 SysTick_Handler
+     /tmp/ccoe6tzL.s:55     .text:00000000 $t
+     /tmp/ccoe6tzL.s:60     .text:00000000 NMI_Handler
+     /tmp/ccoe6tzL.s:78     .text:00000004 HardFault_Handler
+     /tmp/ccoe6tzL.s:96     .text:00000008 MemManage_Handler
+     /tmp/ccoe6tzL.s:114    .text:0000000c BusFault_Handler
+     /tmp/ccoe6tzL.s:132    .text:00000010 UsageFault_Handler
+     /tmp/ccoe6tzL.s:150    .text:00000014 SVC_Handler
+     /tmp/ccoe6tzL.s:167    .text:00000018 DebugMon_Handler
+     /tmp/ccoe6tzL.s:184    .text:0000001c PendSV_Handler
+     /tmp/ccoe6tzL.s:201    .text:00000020 SysTick_Handler
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

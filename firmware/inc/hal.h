@@ -25,4 +25,17 @@ void motor_set(uint32_t base, int32_t speed);
 
 void uart_setup();
 */
+
+typedef enum {
+   HBRIDGE_CH_2A, 
+   HBRIDGE_CH_2B, 
+   HBRIDGE_CH_3A, 
+   HBRIDGE_CH_3B, 
+   HBRIDGE_CH_4A, 
+   HBRIDGE_CH_4B 
+} HBridge_Ch_TypeDef;
+
+void hbridge_setup();
+void hbridge_set(HBridge_Ch_TypeDef, uint8_t);
+
 #endif 
